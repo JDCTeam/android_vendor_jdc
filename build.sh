@@ -98,7 +98,9 @@ repackRom() {
     echo "Unpacking ROM to temp folder"
     unzip -q "$OUT"/"$LATEST" -d"$TEMP"
     echo "Copying Alucard Kernel"
-    cp -r "$ALU_OUT"/system "$ALU_OUT"/boot.img $TEMP
+    rm -rf "$TEMP"/system/lib/modules/*
+    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
+    cp "$ALU_OUT"/boot.img "$TEMP"
 
     cd "$TEMP"
     echo "Repacking ROM"
