@@ -5,21 +5,23 @@ CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
 
 buildROM () { 
-	## Start the build
-	echo "Building";
-	time brunch "$TARGET"
-	anythingElse
+    ## Start the build
+    echo "Building";
+    time brunch "$TARGET"
+    anythingElse
 }
 
 repoSync(){
-	## Sync the repo
+    ## Sync the repo
+    echo "Syncing repositories"
     repo sync
 
-    if [ "$1" > 1 ]; then 
+    if [ "$1" == "2" ]; then 
+        echo "Upstream merging"
         ## local manifest location
         ROOMSER=.repo/local_manifests/local_manifest.xml
         # Lines to loop over
-    	CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
+        CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
         
         ## Upstream merging for forked repos
         while read -r line; do
@@ -37,8 +39,10 @@ repoSync(){
 }
 
 makeclean(){
-	## Fully wipe, including compiler cache
-	ccache -C
+    ## Fully wipe, including compiler cache
+    echo "Cleaning ccache"
+    ccache -C
+    echo "Cleaning out folder"
     make clean
     anythingElse
 }
@@ -47,15 +51,17 @@ buildAlu() {
     cd "$ALU_DIR"
     ./build_kernel_5.1.sh
     if [ "$?" == 0 ]; then
-        repackRom
+        echo "Alucard Kernel built, ready to repack"
+        anythingElse
     else
         echo "Alucard kernel build failure"
+        anythingElse
     fi
 
 }
 
 repackRom() {
-    LATEST=$(ls -t $OUT | grep "cm-12.1" | grep .zip | head -n 1)
+    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
     mkdir "$TEMP"
@@ -78,7 +84,7 @@ repackRom() {
 }
 
 anythingElse() {
-	echo " "
+    echo " "
     echo " "
     echo "Anything else?"
     select more in "Yes" "No"; do
@@ -103,14 +109,14 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "clean" "clean-fully"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Clean" "Clean fully"; do
     case $build in
         "Build ROM" ) buildROM; break;;
         "Sync" ) repoSync 1; break;;
         "Sync and upstream merge" ) repoSync 2; break;;
-        "Build Alucard Kernel" ) buildAlucard; break;;
+        "Build Alucard Kernel" ) buildAlu; break;;
         "Repack ROM" ) repackRom; break;;
-        "Clean" ) make clean; break ;;
+        "Clean" ) make clean; anythingElse; break;;
         "Clean fully" ) makeclean; break;;
     esac
 done
