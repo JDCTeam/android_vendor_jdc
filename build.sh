@@ -94,6 +94,8 @@ repackRom() {
     LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
+    FILENAME=cm-"$CM_VER"-"$(date +%Y%m%d)"-OPTIMIZED-"$TARGET"
+
     mkdir "$TEMP"
     echo "Unpacking ROM to temp folder"
     unzip -q "$OUT"/"$LATEST" -d"$TEMP"
@@ -104,10 +106,10 @@ repackRom() {
 
     cd "$TEMP"
     echo "Repacking ROM"
-    zip -rq9 ../"$LATEST" *
+    zip -rq9 ../"$FILENAME".zip *
     cd ..
     echo "Creating MD5"
-    md5sum "$LATEST" > "$LATEST".md5
+    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
     echo "Cleaning up"
     rm -rf "$TEMP"
     echo "Done"
