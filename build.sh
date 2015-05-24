@@ -52,11 +52,11 @@ buildAlu() {
     ./build_kernel_5.1.sh
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
-        anythingElse
     else
-        echo "Alucard kernel build failure"
-        anythingElse
+        echo "Alucard kernel build failure, do not repack"
     fi
+    croot
+    anythingElse
 
 }
 
