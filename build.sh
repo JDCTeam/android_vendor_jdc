@@ -29,13 +29,16 @@
 
 TEAM_NAME="JFLTE Developers Connection"
 TARGET=jflte
+VARIANT=userdebug
 CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
 
 buildROM () { 
     ## Start the build
     echo "Building";
-    time brunch "$TARGET"
+    CPU_NUM=$(nproc)
+    ((CPU_NUM+=1))
+    time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM+=1" "$@"
     anythingElse
 }
 
@@ -130,7 +133,7 @@ echo -e "\e[0m "
 echo "Setting up build environment..."
 . build/envsetup.sh > /dev/null
 echo "Setting build target $TARGET""..."
-breakfast "$TARGET" > /dev/null
+lunch cm_"$TARGET"-"$VARIANT" > /dev/null
 echo " "
 echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
