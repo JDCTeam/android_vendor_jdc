@@ -36,9 +36,8 @@ ALU_DIR=kernel/samsung/alucard24
 buildROM () { 
     ## Start the build
     echo "Building";
-    CPU_NUM=$(nproc)
-    ((CPU_NUM+=1))
-    time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM+=1" "$@"
+    CPU_NUM=$[$(nproc)+1]
+    time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
     anythingElse
 }
 
