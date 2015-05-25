@@ -60,8 +60,9 @@ repoSync(){
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
             ORIGIN=$(sed -n '3p' UPSTREAM)
+            PUSH_BRANCH=
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push "$ORIGIN" HEAD:"$BRANCH"
+            git push "$ORIGIN" HEAD:opt-"$BRANCH"
             croot
         done <<< "$CHECK"
     fi
@@ -124,7 +125,7 @@ anythingElse() {
     select more in "Yes" "No"; do
         case $more in
             Yes ) bash build.sh; break;;
-            No ) exit 0; ;;
+            No ) exit 0; break;;
         esac
     done ;
 }
