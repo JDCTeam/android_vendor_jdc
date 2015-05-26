@@ -10,8 +10,8 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/app/stweaks/stweaks.apk:system/app/STweaks/STweaks.apk
 endif
 
+# OTA Updates
 OTA_TITLE := # OTAUpdates
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	$(OTA_TITLE) \
 	ro.ota.romname=Optimized-CM-12.1 \
@@ -22,3 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
+
+# Changelog
+PRODUCT_COPY_FILES += \
+    vendor/jdc/Changelog.md:system/etc/Changelog.md
