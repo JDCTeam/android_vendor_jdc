@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+DATE=`date +%Y%m%d_%H%M%S`
+
+logcat -d > /sdcard/logcat_"$DATE".log
+
+exit 0

@@ -10,7 +10,15 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/app/stweaks/stweaks.apk:system/app/STweaks/STweaks.apk
 endif
 
+OTA_TITLE := # OTAUpdates
+
 PRODUCT_PROPERTY_OVERRIDES += \
+	$(OTA_TITLE) \
 	ro.ota.romname=Optimized-CM-12.1 \
 	ro.ota.version=$(shell date -u +%Y%m%d) \
 	ro.ota.manifest=https://romhut.com/roms/Optimized-CM-121/ota.xml
+
+# Take a logcat
+
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
