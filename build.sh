@@ -44,7 +44,7 @@ buildROM () {
 repoSync(){
     ## Sync the repo
     echo "Syncing repositories"
-    repo sync
+    reposync
 
     if [ "$1" == "2" ]; then 
         echo "Upstream merging"
