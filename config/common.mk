@@ -11,9 +11,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # OTA Updates
-OTA_TITLE := # OTAUpdates
 PRODUCT_PROPERTY_OVERRIDES += \
-	$(OTA_TITLE) \
 	ro.ota.romname=Optimized-CM-12.1 \
 	ro.ota.version=$(shell date -u +%Y%m%d) \
 	ro.ota.manifest=https://romhut.com/roms/Optimized-CM-121/ota.xml
