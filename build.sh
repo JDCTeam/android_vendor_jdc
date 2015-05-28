@@ -32,6 +32,7 @@ TARGET=jflte
 VARIANT=userdebug
 CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
+FILENAME=cm-"$CM_VER"-"$(date +%Y%m%d)"-OPTIMIZED-"$TARGET"
 
 buildROM () { 
     ## Start the build
@@ -95,7 +96,6 @@ repackRom() {
     LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
-    FILENAME=cm-"$CM_VER"-"$(date +%Y%m%d)"-OPTIMIZED-"$TARGET"
 
     mkdir "$TEMP"
     echo "Unpacking ROM to temp folder"
@@ -116,6 +116,23 @@ repackRom() {
     echo "Done"
     anythingElse
 
+}
+
+flashRom() {
+    echo " "
+    adb root
+    sleep 3
+    echo "pushing ROM file"
+    adb push "$FILENAME".zip /sdcard/"$FILENAME".zip
+    echo "pushing MD5"
+    adb push "$FILENAME".zip.md5 /sdcard/"$FILENAME".zip.md5
+    echo "install /sdcard/$FILENAME.zip" > openrecoveryscript
+    echo "pushing open recovery script"
+    adb remount
+    adb push openrecoveryscript /cache/recovery/openrecoveryscript
+    echo "rebooting phone"
+    adb reboot recovery
+    anythingElse
 }
 
 anythingElse() {
@@ -144,7 +161,7 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Clean" "Clean fully"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Clean" "Clean fully" "Push and flash"; do
     case $build in
         "Build ROM" ) buildROM; break;;
         "Sync" ) repoSync 1; break;;
@@ -153,6 +170,7 @@ select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kern
         "Repack ROM" ) repackRom; break;;
         "Clean" ) make clean; anythingElse; break;;
         "Clean fully" ) makeclean; break;;
+        "Push and flash" ) flashRom; break;; 
     esac
 done
 
