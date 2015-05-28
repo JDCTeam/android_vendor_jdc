@@ -81,15 +81,13 @@ makeclean(){
 
 buildAlu() {
     cd "$ALU_DIR"
-    ./build_kernel_5.1.sh
+    ./build_kernel_5.1.sh "$1"
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
     else
         echo "Alucard kernel build failure, do not repack"
     fi
     croot
-    anythingElse
-
 }
 
 repackRom() {
@@ -100,10 +98,21 @@ repackRom() {
     mkdir "$TEMP"
     echo "Unpacking ROM to temp folder"
     unzip -q "$OUT"/"$LATEST" -d"$TEMP"
-    echo "Copying Alucard Kernel"
+
+    echo "Cleaning out CM kernel modules"
     rm -rf "$TEMP"/system/lib/modules/*
-    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
-    cp "$ALU_OUT"/boot.img "$TEMP"
+
+    echo "Building Alucard jf_vzw Kernel"
+    buildAlu jf_vzw
+    echo "Copying Alucard Kernel"
+    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/alu_jf_vzw/system/lib/modules
+    cp "$ALU_OUT"/boot.img "$TEMP"/alu_jf_vzw/boot.img
+
+    echo "Building Alucard jf_eur Kernel"
+    buildAlu jf_eur
+    echo "Copying Alucard Kernel"
+    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/alu_jf_eur/system/lib/modules
+    cp "$ALU_OUT"/boot.img "$TEMP"/alu_jf_eur/boot.img
 
     cd "$TEMP"
     echo "Repacking ROM"
@@ -161,12 +170,13 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Clean" "Clean fully" "Push and flash"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel jf_eur" "Build Alucard Kernel jf_vzw" "Repack ROM" "Clean" "Clean fully" "Push and flash"; do
     case $build in
         "Build ROM" ) buildROM; break;;
         "Sync" ) repoSync 1; break;;
         "Sync and upstream merge" ) repoSync 2; break;;
-        "Build Alucard Kernel" ) buildAlu; break;;
+        "Build Alucard Kernel jf_eur" ) buildAlu jf_eur; anythingElse; break;;
+        "Build Alucard Kernel jf_vze" ) buildAlu jf_vze; anythingElse; break;;
         "Repack ROM" ) repackRom; break;;
         "Clean" ) make clean; anythingElse; break;;
         "Clean fully" ) makeclean; break;;
