@@ -103,12 +103,12 @@ repackRom() {
     rm -rf "$TEMP"/system/lib/modules/*
 
     echo "Building Alucard jf_vzw Kernel"
-    buildAlu jf_vzw
+    buildAlu alucard_vzw_defconfig
     echo "Copying Alucard Kernel"
     cp "$ALU_OUT"/boot.img "$TEMP"/boot-vzw.img
 
     echo "Building Alucard jf_eur Kernel"
-    buildAlu jf_eur
+    buildAlu alucard_defconfig
     echo "Copying Alucard Kernel"
     cp "$ALU_OUT"/boot.img "$TEMP"/boot.img
 
@@ -176,8 +176,8 @@ select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kern
         "Build ROM" ) buildROM; break;;
         "Sync" ) repoSync 1; break;;
         "Sync and upstream merge" ) repoSync 2; break;;
-        "Build Alucard Kernel jf_eur" ) buildAlu jf_eur; anythingElse; break;;
-        "Build Alucard Kernel jf_vze" ) buildAlu jf_vze; anythingElse; break;;
+        "Build Alucard Kernel jf_eur" ) buildAlu alucard_defconfig; anythingElse; break;;
+        "Build Alucard Kernel jf_vze" ) buildAlu alucard_vzw_defconfig; anythingElse; break;;
         "Repack ROM" ) repackRom; break;;
         "Clean" ) make clean; anythingElse; break;;
         "Clean fully" ) makeclean; break;;
