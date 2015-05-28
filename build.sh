@@ -105,14 +105,12 @@ repackRom() {
     echo "Building Alucard jf_vzw Kernel"
     buildAlu jf_vzw
     echo "Copying Alucard Kernel"
-    mkdir "$TEMP"/alu_jf_vzw   
-    cp "$ALU_OUT"/boot.img "$TEMP"/alu_jf_vzw/boot.img
+    cp "$ALU_OUT"/boot.img "$TEMP"/boot-vzw.img
 
     echo "Building Alucard jf_eur Kernel"
     buildAlu jf_eur
     echo "Copying Alucard Kernel"
-    mkdir "$TEMP"/alu_jf_eur
-    cp "$ALU_OUT"/boot.img "$TEMP"/alu_jf_eur/boot.img
+    cp "$ALU_OUT"/boot.img "$TEMP"/boot.img
 
     echo "Copying kernel modules"
     cp -r "$ALU_OUT"/system/lib/modules/* "$TEMP"/system/lib/modules
