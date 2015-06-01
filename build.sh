@@ -81,7 +81,7 @@ makeclean(){
 
 buildAlu() {
     cd "$ALU_DIR"
-    ./build_kernel_5.1.sh
+    ./build_kernel_cr_4.9.3.sh
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
     else
