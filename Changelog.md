@@ -17,6 +17,22 @@
 ### Changelog (short)
 Any build includes upstream merging from CM
 
+#### 20150602
+* Device:
+    * Fix LTE doesn't come up on boot
+    * SEPolicy updates
+* Kernel:
+    * Unified platform: fixed sensors for all jflte variants
+    * F2FS driver updates
+    * Small optimizations for alucard, darkness & nightmare governors
+    * Various code updates
+* ROM:
+    * Fixed Google Play Services crash when Location is set to High Accuracy
+    * Added Network Speed Meter in status bar
+    * Added STweaks in Settings instead of CM's Performance
+    * Bluetooth updates: fixed A2DP streaming for all BT devices
+    * Camera: added option to save pictures in SD Card
+
 #### 20150524
 * Google+ community founded! https://goo.gl/Kz6Fd4
 
