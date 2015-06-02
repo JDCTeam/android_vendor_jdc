@@ -1,6 +1,15 @@
 #!/sbin/busybox sh
+#    ____  ____  __   ____  ____       
+#   (_  _)( ___)(  ) (_  _)( ___)      
+#  .-_)(   )__)  )(__  )(   )__)       
+#  \____) (__)  (____)(__) (____)      
+#   ____  ____  _  _  ___  _____  _  _ 
+#  (  _ \( ___)( \/ )/ __)(  _  )( \( )
+#   )(_) ))__)  \  /( (__  )(_)(  )  ( 
+#  (____/(____)  \/  \___)(_____)(_)\_)
 #
-# Copyright (c) 2015 - Jflte Developers Connection Team
+# Copyright (c) 2015 - Mattia "AntaresOne" D'Alleva
+# Copyright (c) 2015 - Jflte Dev Connection
 #
 # Export busybox path
 export BB=/sbin/busybox
