@@ -3,7 +3,11 @@
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
 # endif
-    
+
+# For keyboard gesture typing
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+
 # STweaks
 # ifeq ($(TARGET_SHIP_STWEAKS),true)
 PRODUCT_COPY_FILES += \
