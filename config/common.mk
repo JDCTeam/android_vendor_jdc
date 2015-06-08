@@ -8,6 +8,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
+# Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
+
 # STweaks
 # ifeq ($(TARGET_SHIP_STWEAKS),true)
 PRODUCT_COPY_FILES += \
