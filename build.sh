@@ -39,7 +39,6 @@ buildROM () {
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
-    anythingElse
 }
 
 repoSync(){
@@ -67,7 +66,6 @@ repoSync(){
             croot
         done <<< "$CHECK"
     fi
-    anythingElse
 }
 
 makeclean(){
@@ -76,7 +74,6 @@ makeclean(){
     ccache -C
     echo "Cleaning out folder"
     make clean
-    anythingElse
 }
 
 buildAlu() {
@@ -88,8 +85,6 @@ buildAlu() {
         echo "Alucard kernel build failure, do not repack"
     fi
     croot
-    anythingElse
-
 }
 
 repackRom() {
@@ -114,8 +109,6 @@ repackRom() {
     echo "Cleaning up"
     rm -rf "$TEMP"
     echo "Done"
-    anythingElse
-
 }
 
 flashRom() {
@@ -132,7 +125,6 @@ flashRom() {
     adb push openrecoveryscript /cache/recovery/openrecoveryscript
     echo "rebooting phone"
     adb reboot recovery
-    anythingElse
 }
 
 anythingElse() {
@@ -161,16 +153,17 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Clean" "Clean fully" "Push and flash"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Make Clean" "Make Clean All (inc ccache)" "Push and flash" "Build ROM, Kernel and Repackage"; do
     case $build in
-        "Build ROM" ) buildROM; break;;
-        "Sync" ) repoSync 1; break;;
-        "Sync and upstream merge" ) repoSync 2; break;;
-        "Build Alucard Kernel" ) buildAlu; break;;
-        "Repack ROM" ) repackRom; break;;
-        "Clean" ) make clean; anythingElse; break;;
-        "Clean fully" ) makeclean; break;;
-        "Push and flash" ) flashRom; break;; 
+        "Build ROM" ) buildROM; anythingElse; break;;
+        "Sync" ) repoSync 1; anythingElse; break;;
+        "Sync and upstream merge" ) repoSync 2; anythingElse; break;;
+        "Build Alucard Kernel" ) buildAlu; anythingElse; break;;
+        "Repack ROM" ) repackRom; anythingElse; break;;
+        "Make Clean" ) make clean; anythingElse; break;;
+        "Make Clean All (inc ccache)" ) makeclean; anythingElse; break;;
+        "Push and flash" ) flashRom; break;;
+        "Build ROM, Kernel and Repackage"  ) buildROM; buildAlu; repackRom; anythingElse; break;;
     esac
 done
 
