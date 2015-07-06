@@ -1,3 +1,7 @@
+# Dancing LED
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/etc/init.d/01led:system/etc/init.d/01led
+
 # EXT4/F2FS format script
 # ifeq ($(TARGET_CUSTOM_SYSTEM_FORMAT),true)
 PRODUCT_COPY_FILES += \
