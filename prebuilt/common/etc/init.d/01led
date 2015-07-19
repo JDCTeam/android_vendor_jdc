@@ -17,12 +17,14 @@ LED_R=/sys/class/leds/led_r/brightness
 # Value for color transition speed
 SPD="sleep 0.10"
 
+# Prevent from disabling before boot complete
+rm /cache/led_off
+
 EXIT() {
     # Reset
     $BRG 0 > $LED_B
     $BRG 0 > $LED_G
     $BRG 0 > $LED_R
-    rm /cache/led_off
     # Exit
     exit 0
 }
