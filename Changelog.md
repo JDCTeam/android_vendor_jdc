@@ -4,18 +4,70 @@
 
 [Alucard24](http://github.com/Alucard24) - Kernel Developer
 
-[Kryten2k35](http://github.com/Kryten2k35) - OTA Updates, git maintainer, scripting, tester
+[MattBooth](http://github.com/MattBooth) - OTA Updates, git maintainer, scripting, tester
+
+[hawkerpaul](http://github.com/hawkerpaul) - scripting, tester
 
 [angelcalibur](https://github.com/angelcalibur) - tester
 
 [B--B](https://github.com/B--B) - tester
 
+[Jimsilver73](https://github.com/Jimsilver73) - tester
+
 [smeroni68](https://github.com/smeroni68) - tester
-
-
 
 ### Changelog (short)
 Any build includes upstream merging from CM
+
+#### 20150720 - Internal (Pre-Beta #5)
+* Device:
+    * Fixed IR Blaster (IR remote apps now work)
+    * New way to handle Radio (RIL) properties for all jf variants
+    * Switch to binary Camera HAL, enhanced camera: this makes it much more reliable and working way better (shoot consecutive pictures, video mode is stable and front-facing camera works. NOTE: some crashes may still occur, but are sporadic against before)
+    * Loki tool:
+       * Fixed MultiROM environment recognition (not yet tested)
+       * New script body
+       * Updated strings
+* Kernel:
+    * Built with GCC 6.0
+    * Ramdisk updates
+    * Various code updates
+* ROM:
+    * Codebase updated to android-5.1.1_r6
+    * Fixed MultiROM support (not yet tested)
+    * Added back ArchiDroid Optimizations V4
+    * Added Dancing Notification LED at boot (rainbow pattern+reverse)
+    * Added Google Nexus Lollipop system audio files
+    * Fixed a bug where was impossible to have working custom ringtone sound
+    * Fixed high touch sensitivity and touchscreen hovering
+    * Increased Network Speed Meter multiple indicator (incoming+outgoing traffic) size
+    * Many APNs updates
+    * Updated FFMPEG to 2.7
+    * Format script:
+       * Fixed a bug where if current filesystem is impossible to be recognized, /system is formatted as F2FS instead of EXT4 as default.
+       * Fixed MultiROM environment recognition (not yet tested)
+       * Updated script body, bye-bye to the ugly one used since November 2014 in previous Optimized CM12 (5.0)
+       * Updated strings & description
+       * Whitespace fixes
+
+#### 20150701
+* Kernel:
+    * Various code updates
+* ROM:
+    * Removed ArchiDroid optimizations
+    * Various code updates (mainly test stuff)
+
+#### 20150616
+* Device:
+    * Removed CM Bug Report service
+* Kernel:
+    * Various code updates
+* ROM:
+    * Added prebuilt libjni for AOSP keyboard gesture typing
+    * Added some new APNs & updates
+    * Fixed back/menu keys remaining awake for a little time after screen lock
+    * Set Android M wallpaper as default
+    * Various code updates
 
 #### 20150602
 * Device:
