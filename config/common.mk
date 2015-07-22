@@ -1,3 +1,7 @@
+# BSOD Killer
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/bsod_killer:system/bin/bsod_killer
+
 # Changelog
 PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/etc/Changelog.md
