@@ -8,7 +8,7 @@ PRODUCT_COPY_FILES += \
 
 # Dancing LED
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/etc/init.d/01led:system/etc/init.d/01led
+    vendor/jdc/prebuilt/common/bin/dancing_led:system/bin/dancing_led
 
 # For keyboard gesture typing
 PRODUCT_COPY_FILES += \
