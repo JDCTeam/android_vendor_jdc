@@ -23,6 +23,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
+    SunBeam \
     STweaks \
     OTAUpdates
 PRODUCT_PROPERTY_OVERRIDES += \
