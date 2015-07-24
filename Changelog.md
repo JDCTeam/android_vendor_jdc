@@ -19,7 +19,30 @@
 ### Changelog (short)
 Any build includes upstream merging from CM
 
-#### 20150720 - Internal (Pre-Beta #5)
+#### 20150724 - Internal (Pre-Stable #1)
+* Device:
+    * Init:
+       * run BSOD Killer as service
+       * run dancing LED as service
+       * update jfltexx fingerprint to LRX22C
+       * update product name (jgedlte -> jflte)
+* Kernel:
+    * Ramdisk updates
+    * Many various code updates
+* ROM:
+    * New ROM name! OptimizedCM-12.1
+    * Added BSOD Killer: this will prevent you from falling in the BSOD, goodbye nasty boy!
+    * Added bug report feature in Settings->About phone
+    * Added JDCTeam Google+ community in Settings->About phone
+    * Added something secret somewhere (easter egg)
+    * Added sound panel in power menu
+    * Create jar files with 0 compression, improves speed and RAM usage
+    * Switch to prebuilt Google WebView (version 44.0.2403.73), ROM build time decreased by almost 50%
+    * Updated dancing LED (intercept when boot is complete, resed LEDs and disable)
+    * Updated Network Speed Meter strings & added translation for Italy
+    * Many other code updates
+
+#### 20150720 - Internal (Pre-Stable #1)
 * Device:
     * Fixed IR Blaster (IR remote apps now work)
     * New way to handle Radio (RIL) properties for all jf variants
