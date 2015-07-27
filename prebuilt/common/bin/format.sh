@@ -37,15 +37,9 @@ FORMAT() {
 # Primary ROM
 MAIN() {
     echo "Installing in /system"
-    # Mount /system
-    mount /system
-    # Copy mounts in a text file
-    mount > /tmp/mount.txt
-    # Unmount /system
-    umount /system
     # Recognize FS type
     FS=$(eval $(blkid /dev/block/mmcblk0p16 | cut -c 68-); echo $TYPE > /tmp/type.txt)
-    TYPE=$(cat /tmp/type.txt | grep "ext4")
+    TYPE=`cat /tmp/type.txt`
     FORMAT
 }
 
