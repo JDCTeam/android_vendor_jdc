@@ -19,6 +19,21 @@
 ### Changelog (short)
 Any build includes upstream merging from CM
 
+#### 20150811
+* Kernel:
+    * Ramdisk updates
+    * Huge updates on mm
+    * Added support for I9507
+    * Update Workqueue and Idr from 3.10 kernel
+    * More enhancements on MMC (Performance Mode)
+    * A lot of code updates
+* ROM:
+    * Some small fixes on Setting/Build/Device repos
+    * Use our bionic and art repos (forked from AOSP) tuned for Cortex-A15/Krait cpu
+    * Removed some logspam from proprietary files
+    * ROM compiled with GCC-4.8.5 (Sabermod) tuned for Cortex-A15/Krait CPU
+    * Terminal: reverted some cm changes (related to compiling) after latest changes
+
 #### 20150724 - Internal (Pre-Stable #1)
 * Device:
     * Init:
