@@ -19,7 +19,14 @@
 ### Changelog (short)
 Any build includes upstream merging from CM
 
-#### 20150811
+#### 20150817
+* Kernel:
+    * mm/slub/slab: Merged a lot of code from 3.10 kernel
+* ROM:
+    * Merged all updates from cm
+    * Fixed all stagefright vulnerability
+
+#### 20150811 - Internal
 * Kernel:
     * Ramdisk updates
     * Huge updates on mm
