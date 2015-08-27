@@ -1,5 +1,5 @@
 # Jflte DevCon
-### Developers
+### Developers & Testers
 [AntaresOne](http://github.com/AntaresOne) - Lead
 
 [Alucard24](http://github.com/Alucard24) - Kernel Developer
@@ -10,11 +10,15 @@
 
 [angelcalibur](https://github.com/angelcalibur) - tester
 
-[B--B](https://github.com/B--B) - tester
+[B--B](https://github.com/B--B) - AOSP Developer, tester
 
 [Jimsilver73](https://github.com/Jimsilver73) - tester
 
 [smeroni68](https://github.com/smeroni68) - tester
+
+[franzyroy](https://github.com/franzyroy) - tester, cm themer
+
+[smstiv](https://github.com/smstiv) - tester
 
 ### Changelog (short)
 Any build includes upstream merging from CM
