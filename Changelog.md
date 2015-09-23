@@ -12,6 +12,8 @@
 
 [B--B](https://github.com/B--B) - AOSP Developer, tester
 
+[javelinanddart](https://github.com/javelinanddart) - Kernel Developer
+
 [Jimsilver73](https://github.com/Jimsilver73) - tester
 
 [smeroni68](https://github.com/smeroni68) - tester
@@ -24,6 +26,9 @@
 
 ### Changelog (short)
 Any build includes upstream merging from CM
+
+#### Ongoing changes for the next build
+TBA
 
 #### 20150817
 * Kernel:
