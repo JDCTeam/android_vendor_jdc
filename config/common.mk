@@ -10,13 +10,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
 
-# Dancing LED
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/dancing_led:system/bin/dancing_led
-
 # For keyboard gesture typing
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+
+# LEDify
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
