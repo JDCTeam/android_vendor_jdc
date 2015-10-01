@@ -23,10 +23,10 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-    LibSwitcher \
     SunBeam \
     STweaks \
-    OTAUpdates
+    OTAUpdates \
+    Toolbox
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ota.romname=Optimized-CM-12.1 \
     ro.ota.version=$(shell date -u +%Y%m%d) \
