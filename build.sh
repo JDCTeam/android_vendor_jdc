@@ -1,17 +1,12 @@
 #! /bin/bash
 
-#
-#    ____  ____  __   ____  ____       
-#   (_  _)( ___)(  ) (_  _)( ___)      
-#  .-_)(   )__)  )(__  )(   )__)       
-#  \____) (__)  (____)(__) (____)      
-#   ____  ____  _  _  ___  _____  _  _ 
-#  (  _ \( ___)( \/ )/ __)(  _  )( \( )
-#   )(_) ))__)  \  /( (__  )(_)(  )  ( 
-#  (____/(____)  \/  \___)(_____)(_)\_)
+#      _____  __________      
+#  __ / / _ \/ ___/_  _/__ ___ ___ _
+# / // / // / /__  / // -_) _ `/  ' \ 
+# \___/____/\___/ /_/ \__/\_,_/_/_/_/ 
 #
 # Copyright 2015 Matt "Kryten2k35" Booth
-# Copyright 2015 Jflte Dev Connection
+# Copyright 2015 JDCTeam
 # Contact: kryten2k35@ultimarom.com
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,12 +22,12 @@
 # limitations under the License.
 
 
-TEAM_NAME="JFLTE Developers Connection"
+TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
 CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
-FILENAME=cm-"$CM_VER"-"$(date +%Y%m%d)"-OPTIMIZED-"$TARGET"
+FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 
 buildROM () { 
     ## Start the build
@@ -74,17 +69,46 @@ makeclean(){
     ccache -C
     echo "Cleaning out folder"
     make clean
+    ## Clean Alucard cache, including its compiler cache
+    if [ "$aluclean" == "true" ]; then
+	cd "$ALU_DIR"
+	./clean-all-cr-4.9.4.sh
+	croot
+    fi
 }
 
 buildAlu() {
     cd "$ALU_DIR"
-    ./build_kernel_cr_4.9.3.sh
+    ./build_kernel_cr_4.9.4.sh
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
     else
         echo "Alucard kernel build failure, do not repack"
     fi
     croot
+}
+
+checkRamdisk() {
+    echo "Going to build Alucard kernel, did you update the ramdisk?"
+    select choice in "Yes" "No"; do
+	case $choice in
+	    Yes ) buildAlu; break;;
+	    No ) 
+		if [ "$fullbuild" == "true" ]; then
+		    echo "You chosen to build ROM, kernel and repack but didn't update the ramdisk.\nTo prevent you from building a new kernel image with an old ramdisk I suspended the process.\nPlease update it and resume, I'll wait for you."
+		    echo ""
+		    echo "Are you ready?"
+		    select ready in "Yes" "No"; do
+			case $ready in
+			    Yes ) buildAlu; break;;
+			    No ) echo "Built ROM will not be deleted, once the ramdisk is updated run me again and select option 4 first, then option 5."; sleep 5; exit 0; break;;
+			esac
+		    done
+		else
+		    echo "Make sure you update the ramdisk, then run me again and select option 4." && sleep 5 | exit 0
+		fi; break;;
+	esac
+    done
 }
 
 repackRom() {
@@ -153,17 +177,19 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Make Clean" "Make Clean All (inc ccache)" "Push and flash" "Build ROM, Kernel and Repackage"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Make Clean" "Make Clean (inc ccache)" "Make Clean All (inc ccache+Alucard)" "Push and flash" "Build ROM, Kernel and Repackage" "Exit"; do
     case $build in
         "Build ROM" ) buildROM; anythingElse; break;;
         "Sync" ) repoSync 1; anythingElse; break;;
         "Sync and upstream merge" ) repoSync 2; anythingElse; break;;
-        "Build Alucard Kernel" ) buildAlu; anythingElse; break;;
+        "Build Alucard Kernel" ) checkRamdisk; anythingElse; break;;
         "Repack ROM" ) repackRom; anythingElse; break;;
         "Make Clean" ) make clean; anythingElse; break;;
-        "Make Clean All (inc ccache)" ) makeclean; anythingElse; break;;
+        "Make Clean (inc ccache)" ) makeclean; anythingElse; break;;
+	"Make Clean All (inc ccache+Alucard)" ) aluclean=true; makeclean; anythingElse; break;;
         "Push and flash" ) flashRom; break;;
-        "Build ROM, Kernel and Repackage"  ) buildROM; buildAlu; repackRom; anythingElse; break;;
+        "Build ROM, Kernel and Repackage"  ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
+	"Exit" ) exit 0; break;;
     esac
 done
 
