@@ -122,6 +122,7 @@ repackRom() {
     echo "Copying Alucard Kernel"
     rm -rf "$TEMP"/system/lib/modules/*
     cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
+    cp -r "$ALU_OUT"/system/wget "$TEMP"/system/wget
     cp "$ALU_OUT"/boot.img "$TEMP"
 
     cd "$TEMP"
