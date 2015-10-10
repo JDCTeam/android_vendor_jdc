@@ -10,6 +10,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
 
+# eMMC trim
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/emmc_trim:system/bin/emmc_trim
+
 # For keyboard gesture typing
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
