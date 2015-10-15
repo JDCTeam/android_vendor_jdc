@@ -36,9 +36,9 @@ PRODUCT_PACKAGES += \
     OTAUpdates \
     Toolbox
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ota.romname=Optimized-CM-12.1 \
+    ro.ota.romname=Optimized-CM-13 \
     ro.ota.version=$(shell date -u +%Y%m%d) \
-    ro.ota.manifest=https://romhut.com/roms/Optimized-CM-121/ota.xml
+    ro.ota.manifest=https://romhut.com/roms/Optimized-CM-13/ota.xml
 
 # Prebuilt ConsumerIR
 PRODUCT_COPY_FILES += \
