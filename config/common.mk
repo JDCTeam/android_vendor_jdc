@@ -1,5 +1,5 @@
 # BSOD Killer
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/bsod_killer:system/bin/bsod_killer
 
 # Changelog
@@ -32,7 +32,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     SunBeam \
-    STweaks \
+#    STweaks \
     OTAUpdates \
     Toolbox
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -45,5 +45,5 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/hw/consumerir.msm8960.old:system/lib/hw/consumerir.msm8960.old
 
 # Take a logcat
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
