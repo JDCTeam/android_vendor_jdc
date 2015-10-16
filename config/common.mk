@@ -1,5 +1,5 @@
 # Changelog
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/etc/Changelog.md
 
 # Custom format script
