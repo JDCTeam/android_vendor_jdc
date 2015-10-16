@@ -6,21 +6,11 @@ on fs
      start emmc_trim
 
 on boot
-     # Start BSOD Killer
-     start bsod_killer
-
      # Start LEDify
      start ledify
 
 # eMMC trim
 service emmc_trim /system/bin/emmc_trim
-     user root
-     group shell
-     disabled
-     oneshot
-
-# BSOD Killer
-service bsod_killer /system/bin/bsod_killer
      user root
      group shell
      disabled
