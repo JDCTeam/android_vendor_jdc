@@ -25,9 +25,15 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-CM_VER=12.1
+CM_VER=13
 ALU_DIR=kernel/samsung/alucard24
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
+
+disabled() {
+    # For features not yet enabled
+    echo -e "\e[1;91mFeature not yet enabled for Optimized CM $CM_VER"
+    echo -e "\e[0m "
+}
 
 buildROM () { 
     ## Start the build
@@ -183,13 +189,13 @@ select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kern
         "Build ROM" ) buildROM; anythingElse; break;;
         "Sync" ) repoSync 1; anythingElse; break;;
         "Sync and upstream merge" ) repoSync 2; anythingElse; break;;
-        "Build Alucard Kernel" ) checkRamdisk; anythingElse; break;;
-        "Repack ROM" ) repackRom; anythingElse; break;;
+        "Build Alucard Kernel" ) disabled; anythingElse; break;;
+        "Repack ROM" ) disabled; anythingElse; break;;
         "Make Clean" ) make clean; anythingElse; break;;
         "Make Clean (inc ccache)" ) makeclean; anythingElse; break;;
-	"Make Clean All (inc ccache+Alucard)" ) aluclean=true; makeclean; anythingElse; break;;
+	"Make Clean All (inc ccache+Alucard)" ) disabled; anythingElse; break;;
         "Push and flash" ) flashRom; break;;
-        "Build ROM, Kernel and Repackage"  ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
+        "Build ROM, Kernel and Repackage"  ) disabled; anythingElse; break;;
 	"Exit" ) exit 0; break;;
     esac
 done
