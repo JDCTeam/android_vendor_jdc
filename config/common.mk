@@ -1,3 +1,7 @@
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+
 # Changelog
 #PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/etc/Changelog.md
