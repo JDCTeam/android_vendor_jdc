@@ -47,6 +47,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/hw/consumerir.msm8960.old:system/lib/hw/consumerir.msm8960.old
 
+# Prebuilt Toolbox (if exists)
+PRODUCT_COPY_FILES += \
+    vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk
+
 # Take a logcat
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
