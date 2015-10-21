@@ -24,7 +24,9 @@
 
 [side](https://github.com/dkati) - tester, cm themer
 
-### Changelog (short)
+[FernBch](http://forum.xda-developers.com/member.php?u=2026117) - tester
+
+### Changelog
 Any build includes upstream merging from CM
 
 #### 20151021
@@ -32,6 +34,7 @@ Any build includes upstream merging from CM
     * Added back FFMPEG codecs
     * Added eMMC trim at each boot (log file is saved for each boot in /cache/trim.log)
     * Added our custom init script
+    * Custom Doze service (Settings->Gesture)
     * Fixed MMS
     * Fixed 2G data connection
     * Fstab: put f2fs above ext4
