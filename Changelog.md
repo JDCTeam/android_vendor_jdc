@@ -27,8 +27,107 @@
 ### Changelog (short)
 Any build includes upstream merging from CM
 
-#### Ongoing changes for the next build
-TBA
+#### 20151021
+* Device
+    * Added back FFMPEG codecs
+    * Added eMMC trim at each boot (log file is saved for each boot in /cache/trim.log)
+    * Added our custom init script
+    * Fixed MMS
+    * Fixed 2G data connection
+    * Fstab: put f2fs above ext4
+    * General RIL updates
+    * Moved dancing LED to LEDify
+    * Realtime CPU/GPU maximum frequency & RAM status in About phone (2/2)
+    * Reverted to new consumerIR  send command timing
+    * Updated fingerprint for some models
+    * Updated media codecs
+    * Updated power management at boot
+    * Updated RIL properties for I9505G
+* Kernel
+    * Linux kernel 3.4.109
+    * A lot of code updates & fixes including general code from Linux kernel 3.10
+    * Added back kexec-hardboot patch
+    * Added KMS and UKMS from Linux kernel 3.10
+    * Added VENO TCP protocol
+    * Added ZRAM (use STweaks to enable it)
+    * Changes and fixes on LMK
+    * Changes on OOM control, less battery usage
+    * CPU governors tuning/code cleaning
+    * Fixed some APNs
+    * Fixed sporadic system freeze
+    * Increased maximum on call freq to 1350.000 KHz (fixed slow InCallUI while in deep sleep)
+    * IPC: ported code from 3.10 kernel
+    * Optimized alucard, darkness, nightmare and ondemand CPU governors
+    * Various ramdisk optimizations & updates
+* ROM
+    * Android 5.1.1_r24
+    * Archidroid v4.1
+    * Built with GCC 4.9.4
+    * Improved build environment
+    * Bionic: reworked the whole branch:
+        * a lot of improvements and more optimizations for ARM-Cortex-A15/Krait CPU
+	* Implemented pty.h
+	* Removed unused/not needed optimizations
+	* Lots of cleaning
+    * Aapt: default apk compression to 0 ratio (improved speed & memory usage)
+    * Aapt: don't compress qmg, wbp and arsc assets
+    * Added battery saver tile
+    * Added JDC LEDify:
+        * Can be managed by the Toolbox app (below)
+        * Patterns:
+	    * JDCTeam dancing rainbox (default)
+	    * Hearbeat blue
+	    * Heartbeat green
+	    * Heartbeat red
+	    * Nexus-like
+	    * Nexus-like reversed
+	    * Police blue/red
+	    * Samsung default
+    * Added JDC Toolbox app, wrote from scratch:
+        * Manage LEDify settings (user-customizable notification LED at boot, prebuilt patterns)
+	* Manage the IR LED driver (easy way to make any IR app work)
+    * Added live lockscreen support & previews
+    * Added show volume to tile chooser
+    * Added volume boosted ringtones
+    * Allow disabling the privacy guard notification
+    * Audioflinger: do not build with -Os anymore
+    * Correctly import wget binary needed by some STweaks features
+    * Fixed remaining stagefright security issues & fixed some possible overflows
+    * Fixed encryption for F2FS
+    * Fixed ipv6 tethering
+    * Format script:
+        * Added ART cache & /cache autoclean 
+        * Added kernel settings autoclean, enabled when required like this build)
+	* Power on notification LED for debug purposes (blue if installing on /system, red if installing in MultiROM as secondary)
+    * Framework: various multimedia updates
+    * Improved SystemUI circle battery
+    * Include Android security patch level in Settings
+    * Libpng: small fixes from Marshmallow
+    * New JDCTeam ASCII art
+    * New bootanimation! Big thanks to @ovaxivanov
+    * Personalized SetupWizard UI
+    * Revamped Device Info in Settings:
+        * Added device hardware info (under "Common"):
+	    * CPU info (number of cores, realtime maximum frequency)
+	    * GPU info (model, realtime maximum frequency)
+	    * Realtime RAM status (size, used, free)
+	    * SoC info (manufacturer, model)
+	* Added ROM logo with team members below
+	* Added "ROM Thread" which links the user to ROM's thread on XDA (under "More")
+	* Device-related infos moved under "Common"
+	* ROM & kernel infos moved under "ROM"
+	* Issue report & JDCTeam on G+ moved under "More"
+	* Updated some strings
+    * Removed dancing LED (there's LEDify now)
+    * Reverted CM changes for BFQIO and cgroups
+    * Show icon of app associated with the toast notification
+    * Support for faster brightness response to light changes
+    * SystemUI: various updates & fixes, use new lockscreen music visualizer from Eleven
+    * Telephony: many framework updates & improvements
+    * Updated system icon to material
+    * Updated Webview to v46.0.2490.76
+    * Various SELinux updates
+    * Various other code updates (CM upstream merged 18 August~today)
 
 #### 20150817
 * Kernel:
