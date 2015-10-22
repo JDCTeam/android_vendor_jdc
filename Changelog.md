@@ -29,7 +29,7 @@
 ### Changelog
 Any build includes upstream merging from CM
 
-#### 20151021
+#### 20151022
 * Device
     * Added back FFMPEG codecs
     * Added eMMC trim at each boot (log file is saved for each boot in /cache/trim.log)
