@@ -163,7 +163,7 @@ JDCDEF() {
     # Orange
     $BRG 40 > $LED_G | $SPD
     # Red
-    $BRG 0 > $LED_G
+    $BRG 0 | tee $LED_G $LED_R
 }
 
 NEXUS() {
