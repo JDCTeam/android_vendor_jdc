@@ -29,6 +29,26 @@
 ### Changelog
 Any build includes upstream merging from CM
 
+#### 20151031
+* Kernel
+    * Linux kernel 3.4.110
+    * Minor ramdisk updates
+    * Restored maximum AC charge amperage
+    * Updated F2FS driver
+    * Various code updates
+* ROM
+    * Added high touch sensitivity
+    * Device Info->Hardware:
+	* Fixed showing values on activity resume
+	* Removed unneeded things
+    * Toolbox (v1.2.2):
+	* Added double press to exit
+	* Fixed IllegalStateException while exiting the easter egg if the countdown wasn't over
+	* Made some settings not selectable, they don't do anything but showing text
+	* Minor code updates & fixes
+    * Updated Settings app layout
+    * Various code updates
+
 #### 20151022
 * Device
     * Added back FFMPEG codecs
