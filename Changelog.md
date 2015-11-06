@@ -29,6 +29,9 @@
 ### Changelog
 Any build includes upstream merging from CM
 
+#### 20151101
+Includes all the changes of the previous build and fixes the bootloop for those who experienced it after upgrading to that version
+
 #### 20151031
 * Kernel
     * Linux kernel 3.4.110
