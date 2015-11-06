@@ -29,6 +29,17 @@
 ### Changelog
 Any build includes upstream merging from CM
 
+#### 20151106
+* Kernel
+    * Disabled MSM BT sleep (test for Bluetooth crash)
+    * Various code updates (mm, IntelliPlug, SELinux, UKSM)
+* ROM
+    * Android-5.1.1_r26
+    * Updated boosted ringtones
+    * Updated DeviceInfoNext, removed unuseful things & restored some others
+    * Toolbox: 1.2.3, added issue report for app & ROM, fixed another IllegalStateException
+    * Various other under-the-hood updates
+
 #### 20151101
 Includes all the changes of the previous build and fixes the bootloop for those who experienced it after upgrading to that version
 
