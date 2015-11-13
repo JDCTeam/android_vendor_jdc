@@ -29,15 +29,29 @@
 ### Changelog
 Any build includes upstream merging from CM
 
+#### 20151113 (two builds)
+* Device
+    * Include Qualcomm PowerHAL
+* Kernel
+    * Build 1 specific: disabled BT MSM bluesleep (test for BT crash)
+    * Build 2 specific: Disabled BT bluesleep bluedroid support (test for BT crash, MSM bluesleep is enabled)
+    * Common: disabled MSM watchdog V2, various code updates
+* ROM:
+    * Settings app:
+	* Do not show FCC ID & device name
+	* get rid of Hardware info (now is in our Toolbox app)
+    	* update team members & implement horizontal scrollview
+    * Toolbox: 1.3.0, add realtime CPU, GPU & RAM status, code styling & removed redundant code
+    * Various code updates
+
 #### 20151106
 * Kernel
-    * Disabled MSM BT sleep (test for Bluetooth crash)
     * Various code updates (mm, IntelliPlug, SELinux, UKSM)
 * ROM
     * Android-5.1.1_r26
     * Updated boosted ringtones
     * Updated DeviceInfoNext, removed unuseful things & restored some others
-    * Toolbox: 1.2.3, added issue report for app & ROM, fixed another IllegalStateException
+    * Toolbox: 1.2.3, added issue report for app, fixed another IllegalStateException
     * Various other under-the-hood updates
 
 #### 20151101
