@@ -28,6 +28,7 @@ VARIANT=userdebug
 CM_VER=13
 ALU_DIR=kernel/samsung/alucard24
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
+PREBUILTS=vendor/jdc/proprietary
 
 disabled() {
     # For features not yet enabled
@@ -36,6 +37,10 @@ disabled() {
 }
 
 buildROM () { 
+    if [ ! -d $PREBUILTS ]; then
+	# Download Toolbox
+	./vendor/jdc/get-prebuilts
+    fi
     ## Start the build
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
