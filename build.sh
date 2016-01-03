@@ -28,8 +28,13 @@ VARIANT=userdebug
 CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
+PREBUILTS=vendor/jdc/proprietary
 
 buildROM () { 
+    if [ ! -d $PREBUILTS ]; then
+	# Download Toolbox
+	./vendor/jdc/get-prebuilts
+    fi
     ## Start the build
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
