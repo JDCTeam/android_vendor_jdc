@@ -27,6 +27,8 @@ TARGET=jflte
 VARIANT=userdebug
 CM_VER=12.1
 ALU_DIR=kernel/samsung/alucard24
+ALU_BUILD=build_kernel.sh
+ALU_CLEAN=clean-all.sh
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 PREBUILTS=vendor/jdc/proprietary
 
@@ -77,14 +79,14 @@ makeclean(){
     ## Clean Alucard cache, including its compiler cache
     if [ "$aluclean" == "true" ]; then
 	cd "$ALU_DIR"
-	./clean-all-cr-4.9.4.sh
+	./$ALU_CLEAN
 	croot
     fi
 }
 
 buildAlu() {
     cd "$ALU_DIR"
-    ./build_kernel_cr_4.9.4.sh
+    ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
     else
