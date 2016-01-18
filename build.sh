@@ -86,6 +86,10 @@ makeclean(){
 
 buildAlu() {
     cd "$ALU_DIR"
+    if [ "$(cat $ALU_BUILD | grep "enforcing")" != "" ]; then
+    # Convert to androidboot.selinux
+    sed -i 's/enforcing=0 selinux=1/androidboot.selinux=permissive/' $ALU_BUILD
+    fi
     ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
