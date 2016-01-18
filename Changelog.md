@@ -1,30 +1,32 @@
-# Jflte DevCon
-### Developers & Testers
-[AntaresOne](http://github.com/AntaresOne) - Lead
+# Jflte DevConnection
+### Members
+[AntaresOne](http://github.com/AntaresOne)
 
-[Alucard24](http://github.com/Alucard24) - Kernel Developer
+[Alucard24](http://github.com/Alucard24)
 
-[MattBooth](http://github.com/MattBooth) - OTA Updates, git maintainer, scripting, tester
+[angelcalibur](https://github.com/angelcalibur)
 
-[hawkerpaul](http://github.com/hawkerpaul) - scripting, tester
+[B--B](https://github.com/B--B)
 
-[angelcalibur](https://github.com/angelcalibur) - tester
+[FernBch](http://forum.xda-developers.com/member.php?u=2026117)
 
-[B--B](https://github.com/B--B) - AOSP Developer, tester
+[franzyroy](https://github.com/franzyroy)
 
-[javelinanddart](https://github.com/javelinanddart) - Kernel Developer
+[hawkerpaul](http://github.com/hawkerpaul)
 
-[Jimsilver73](https://github.com/Jimsilver73) - tester
+[javelinanddart](https://github.com/javelinanddart)
 
-[smeroni68](https://github.com/smeroni68) - tester
+[Jimsilver73](https://github.com/Jimsilver73)
 
-[franzyroy](https://github.com/franzyroy) - tester, cm themer
+[JoseGalRe](https://github.com/JoseGalRe)
 
-[smstiv](https://github.com/smstiv) - tester
+[MattBooth](http://github.com/MattBooth)
 
-[side](https://github.com/dkati) - tester, cm themer
+[side](https://github.com/dkati)
 
-[FernBch](http://forum.xda-developers.com/member.php?u=2026117) - tester
+[smeroni68](https://github.com/smeroni68)
+
+[smstiv](https://github.com/smstiv)
 
 ### Changelog
 Any build includes upstream merging from CM
