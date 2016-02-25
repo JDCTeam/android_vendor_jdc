@@ -31,5 +31,5 @@
 ### Changelog
 Any build includes upstream merging from CM
 
-#### First build
-TBA
+#### 20160225
+ * Initial public release
