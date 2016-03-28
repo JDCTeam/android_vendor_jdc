@@ -76,6 +76,8 @@ makeclean(){
     ccache -C
     echo "Cleaning out folder"
     make clean
+    echo "Making clobber"
+    make clobber
     ## Clean Alucard cache, including its compiler cache
     if [ "$aluclean" == "true" ]; then
 	cd "$ALU_DIR"
