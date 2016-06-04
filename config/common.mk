@@ -60,6 +60,12 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/proprietary/LimeTheme.apk:system/priv-app/LimeTheme/LimeTheme.apk \
     vendor/jdc/proprietary/s7Theme.apk:system/priv-app/s7Theme/s7Theme.apk
 
+#Prebuilt apps(If exists)
+PRODUCT_COPY_FILES += \
+    vendor/jdc/proprietary/RocketMusic.apk:system/priv-app/RocketMusic/RocketMusic.apk \
+    vendor/jdc/proprietary/YuBrowser.apk:system/priv-app/YuBrowser/YuBrowser.apk \
+    vendor/jdc/proprietary/OpenCamera.apk:system/priv-app/OpenCamera/OpenCamera.apk
+    
 # Take a logcat
 #PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
