@@ -62,10 +62,8 @@ PRODUCT_COPY_FILES += \
 
 #Prebuilt apps(If exists)
 PRODUCT_COPY_FILES += \
-    vendor/jdc/proprietary/RocketMusic.apk:system/priv-app/RocketMusic/RocketMusic.apk \
-    vendor/jdc/proprietary/OpenCamera.apk:system/priv-app/OpenCamera/OpenCamera.apk \
-    vendor/jdc/proprietary/NovaLauncher.apk:system/priv-app/NovaLauncher/NovaLauncher.apk \
-    
+    vendor/jdc/proprietary/RocketMusic.apk:system/priv-app/RocketMusic/RocketMusic.apk
+  
 # Take a logcat
 #PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
