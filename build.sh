@@ -183,6 +183,10 @@ anythingElse() {
 
 useAroma()
 {
+    if [ ! -d "$AROMA_DIR" ]; then
+	echo "No AROMA directory found.Please check your sources"
+	break;
+    fi
     FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
     echo " "
     LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
