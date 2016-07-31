@@ -183,8 +183,9 @@ anythingElse() {
 
 useAroma()
 {
+    FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
     echo " "
-    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
+    LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP2=tmpAroma
     if [ -d "$TEMP2" ]; then 
     rm -rf "$TEMP2"
