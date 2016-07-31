@@ -191,7 +191,7 @@ useAroma()
     fi
     mkdir "$TEMP2"
     echo "Unpacking ROM to temp folder"
-    unzip -q "$OUT"/"$LATEST" -d"$TEMP2"
+    unzip -q "$LATEST" -d"$TEMP2"
     echo "Removing META-INF folder"
     rm -rf "$TEMP2"/META-INF
     echo "Copying Aroma Installer"
