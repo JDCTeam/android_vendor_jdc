@@ -53,12 +53,7 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt Toolbox (if exists)
 PRODUCT_COPY_FILES += \
-    vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk 
-
-#QS Themes (if exists)
-PRODUCT_COPY_FILES += \
-    vendor/jdc/proprietary/LimeTheme.apk:system/priv-app/LimeTheme/LimeTheme.apk \
-    vendor/jdc/proprietary/s7Theme.apk:system/priv-app/s7Theme/s7Theme.apk
+    vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk
 
 # Take a logcat
 #PRODUCT_COPY_FILES += \
