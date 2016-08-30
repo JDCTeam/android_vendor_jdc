@@ -45,7 +45,7 @@ buildROM () {
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
-    LOG="Build done\n"
+    LOG="Build done"
     writeBuildLog;
     
 }
@@ -102,7 +102,7 @@ buildAlu() {
     ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
-	LOG="Kernel build done\n"
+	LOG="Kernel build done"
 	writeBuildLog;
     else
         echo "Alucard kernel build failure, do not repack"
@@ -161,7 +161,7 @@ repackRom() {
     echo "Cleaning up"
     rm -rf "$TEMP"
     echo "Done"
-    LOG="Build Repacked with Alucard kernel\n"
+    LOG="Build Repacked with Alucard kernel"
     writeBuildLog;
 }
 
@@ -225,7 +225,7 @@ useAroma()
     echo "Cleaning up"
     rm -rf "$TEMP2"
     echo "Done"
-    LOG="Added AROMA\n"
+    LOG="Added AROMA"
     writeBuildLog;
 }
 
@@ -233,6 +233,7 @@ writeBuildLog()
 {
      if [ "$getlog" == "true" ]; then
 	echo $LOG > $LOGFILE
+	echo $'\n' > $LOGFILE
      fi
 }
 
