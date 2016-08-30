@@ -32,6 +32,9 @@ ALU_BUILD=build_kernel.sh
 ALU_CLEAN=clean-all.sh
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 PREBUILTS=vendor/jdc/proprietary
+getlog=false
+LOG=""
+LOGFILE=buildResults-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA.log
 
 buildROM () { 
     if [ ! -d $PREBUILTS ]; then
@@ -42,6 +45,9 @@ buildROM () {
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
+    LOG="Build done\n"
+    writeBuildLog;
+    
 }
 
 repoSync(){
@@ -96,10 +102,14 @@ buildAlu() {
     ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
+	LOG="Kernel build done\n"
+	writeBuildLog;
     else
         echo "Alucard kernel build failure, do not repack"
     fi
+    
     croot
+    
 }
 
 checkRamdisk() {
@@ -151,6 +161,8 @@ repackRom() {
     echo "Cleaning up"
     rm -rf "$TEMP"
     echo "Done"
+    LOG="Build Repacked with Alucard kernel\n"
+    writeBuildLog;
 }
 
 flashRom() {
@@ -213,6 +225,15 @@ useAroma()
     echo "Cleaning up"
     rm -rf "$TEMP2"
     echo "Done"
+    LOG="Added AROMA\n"
+    writeBuildLog;
+}
+
+writeBuildLog()
+{
+     if [ "$getlog" == "true" ]; then
+	echo $LOG > $LOGFILE
+     fi
 }
 
 echo " "
@@ -229,7 +250,7 @@ echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
 echo "Do you wish to build, sync or clean?"
-select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Make Clean" "Make Clean (inc ccache)" "Make Clean All (inc ccache+Alucard)" "Push and flash" "Build ROM, Kernel and Repackage" "Add Aroma Installer to ROM" "Exit"; do
+select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kernel" "Repack ROM" "Make Clean" "Make Clean (inc ccache)" "Make Clean All (inc ccache+Alucard)" "Push and flash" "Build ROM, Kernel and Repackage" "Add Aroma Installer to ROM" "Build ROM,kernel,repack,add aroma" "Exit"; do
     case $build in
         "Build ROM" ) buildROM; anythingElse; break;;
         "Sync" ) repoSync 1; anythingElse; break;;
@@ -242,6 +263,7 @@ select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kern
         "Push and flash" ) flashRom; break;;
         "Build ROM, Kernel and Repackage"  ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
 	"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
+	"Build ROM,kernel,repack,add aroma" ) getlog=true; fullbuild=true; buildROM; buildAlu; repackRom ; useAroma; getlog=false; anythingElse; break;;
 	"Exit" ) exit 0; break;;
     esac
 done
