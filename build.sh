@@ -45,8 +45,16 @@ buildROM () {
     echo "Building";
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
-    LOG="Build done"
-    writeBuildLog;
+    if [ "$?" == 0 ]; then
+        LOG="Build done"
+	writeBuildLog;
+    else
+        LOG="Build was corrupted."
+	writeBuildLog;
+	exit -1;
+	
+    fi
+    
     
 }
 
@@ -232,9 +240,15 @@ useAroma()
 writeBuildLog()
 {
      if [ "$getlog" == "true" ]; then
-	echo $LOG > $LOGFILE
-	echo $'\n' > $LOGFILE
+	echo -e $LOG >> $LOGFILE
+	echo -e $'\r\n'
+	
      fi
+}
+deleteOldLog()
+{
+	croot
+	rm -rf buildResults*
 }
 
 echo " "
@@ -264,7 +278,7 @@ select build in "Build ROM" "Sync" "Sync and upstream merge" "Build Alucard Kern
         "Push and flash" ) flashRom; break;;
         "Build ROM, Kernel and Repackage"  ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
 	"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
-	"Build ROM,kernel,repack,add aroma" ) getlog=true; fullbuild=true; buildROM; buildAlu; repackRom ; useAroma; getlog=false; anythingElse; break;;
+	"Build ROM,kernel,repack,add aroma" ) getlog=true; deleteOldLog;fullbuild=true; buildROM; buildAlu; repackRom ; useAroma; getlog=false; anythingElse; break;;
 	"Exit" ) exit 0; break;;
     esac
 done
