@@ -6,10 +6,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/bsod_killer:system/bin/bsod_killer
 
-# Changelog
-PRODUCT_COPY_FILES += \
-    vendor/jdc/Changelog.md:system/etc/Changelog.md
-
 # Custom format script
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
