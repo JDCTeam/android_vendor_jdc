@@ -43,13 +43,15 @@ buildROM () {
     fi
     ## Start the build
     echo "Building";
+    LOG="Starting the build..."-"$(date +%Y%m%d)"
+    writeBuildLog;
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
     if [ "$?" == 0 ]; then
-        LOG="Build done"
+        LOG="Build done"-"$(date +%Y%m%d)"
 	writeBuildLog;
     else
-        LOG="Build was corrupted."
+        LOG="Build was corrupted."-"$(date +%Y%m%d)"
 	writeBuildLog;
 	exit -1;
 	
@@ -107,6 +109,8 @@ buildAlu() {
     # Convert to androidboot.selinux
     sed -i 's/enforcing=0 selinux=1/androidboot.selinux=permissive/' $ALU_BUILD
     fi
+    LOG="Starting alucard kernel..."-"$(date +%Y%m%d)"
+    writeBuildLog;
     ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
@@ -147,7 +151,8 @@ repackRom() {
     LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
-
+    LOG="Unzipping files to repack alucard..."-"$(date +%Y%m%d)"
+    writeBuildLog;
     if [ -d "$TEMP" ]; then 
     rm -rf "$TEMP"
     fi
@@ -162,6 +167,8 @@ repackRom() {
 
     cd "$TEMP"
     echo "Repacking ROM"
+    LOG="Zipping files to repack alucard..."-"$(date +%Y%m%d)"
+    writeBuildLog;
     zip -rq9 ../"$FILENAME".zip *
     cd ..
     echo "Creating MD5"
@@ -203,6 +210,8 @@ anythingElse() {
 
 useAroma()
 {
+    LOG="Unzipping files to repack with AROMA..."-"$(date +%Y%m%d)"
+    writeBuildLog;
     if [ ! -d "$AROMA_DIR" ]; then
 	echo "No AROMA directory found.Please check your sources"
 	break;
@@ -233,8 +242,9 @@ useAroma()
     echo "Cleaning up"
     rm -rf "$TEMP2"
     echo "Done"
-    LOG="Added AROMA"
+    LOG="Added AROMA.Build finished successfully"-"$(date +%Y%m%d)"
     writeBuildLog;
+
 }
 
 writeBuildLog()
