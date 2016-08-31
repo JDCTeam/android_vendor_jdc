@@ -35,6 +35,7 @@ PREBUILTS=vendor/jdc/proprietary
 getlog=false
 LOG=""
 LOGFILE=buildResults-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA.log
+currentTime=$(date +"%T")
 
 buildROM () { 
     if [ ! -d $PREBUILTS ]; then
@@ -43,15 +44,15 @@ buildROM () {
     fi
     ## Start the build
     echo "Building";
-    LOG="Starting the build..."-"$(date +%Y%m%d)"
+    LOG="Starting the build..."/$currentTime
     writeBuildLog;
     CPU_NUM=$[$(nproc)+1]
     time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
     if [ "$?" == 0 ]; then
-        LOG="Build done"-"$(date +%Y%m%d)"
+        LOG="Build done"/$currentTime
 	writeBuildLog;
     else
-        LOG="Build was corrupted."-"$(date +%Y%m%d)"
+        LOG="Build was corrupted."/$currentTime
 	writeBuildLog;
 	exit -1;
 	
@@ -109,12 +110,12 @@ buildAlu() {
     # Convert to androidboot.selinux
     sed -i 's/enforcing=0 selinux=1/androidboot.selinux=permissive/' $ALU_BUILD
     fi
-    LOG="Starting alucard kernel..."-"$(date +%Y%m%d)"
+    LOG="Starting alucard kernel..."/$currentTime
     writeBuildLog;
     ./$ALU_BUILD
     if [ "$?" == 0 ]; then
         echo "Alucard Kernel built, ready to repack"
-	LOG="Kernel build done"
+	LOG="Kernel build done"/$currentTime
 	writeBuildLog;
     else
         echo "Alucard kernel build failure, do not repack"
@@ -151,7 +152,7 @@ repackRom() {
     LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
-    LOG="Unzipping files to repack alucard..."-"$(date +%Y%m%d)"
+    LOG="Unzipping files to repack alucard..."/$currentTime
     writeBuildLog;
     if [ -d "$TEMP" ]; then 
     rm -rf "$TEMP"
@@ -167,7 +168,7 @@ repackRom() {
 
     cd "$TEMP"
     echo "Repacking ROM"
-    LOG="Zipping files to repack alucard..."-"$(date +%Y%m%d)"
+    LOG="Zipping files to repack alucard..."/$currentTime
     writeBuildLog;
     zip -rq9 ../"$FILENAME".zip *
     cd ..
@@ -176,7 +177,7 @@ repackRom() {
     echo "Cleaning up"
     rm -rf "$TEMP"
     echo "Done"
-    LOG="Build Repacked with Alucard kernel"
+    LOG="Build Repacked with Alucard kernel"/$currentTime
     writeBuildLog;
 }
 
@@ -210,7 +211,7 @@ anythingElse() {
 
 useAroma()
 {
-    LOG="Unzipping files to repack with AROMA..."-"$(date +%Y%m%d)"
+    LOG="Unzipping files to repack with AROMA..."/$currentTime
     writeBuildLog;
     if [ ! -d "$AROMA_DIR" ]; then
 	echo "No AROMA directory found.Please check your sources"
@@ -242,7 +243,7 @@ useAroma()
     echo "Cleaning up"
     rm -rf "$TEMP2"
     echo "Done"
-    LOG="Added AROMA.Build finished successfully"-"$(date +%Y%m%d)"
+    LOG="Added AROMA.Build finished successfully"/$currentTime
     writeBuildLog;
 
 }
