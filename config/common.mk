@@ -35,7 +35,6 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-    SunBeam \
     STweaks \
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -47,7 +46,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/hw/consumerir.msm8960.old:system/lib/hw/consumerir.msm8960.old
 
-# Prebuilt Toolbox (if exists)
+# Prebuilt Toolbox
 PRODUCT_COPY_FILES += \
     vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk 
 
