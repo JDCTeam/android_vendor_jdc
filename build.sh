@@ -92,6 +92,7 @@ makeclean(){
     ## Fully wipe, including compiler cache
     echo "Cleaning ccache"
     ccache -C
+    ccache -c
     echo "Cleaning out folder"
     make clean
     echo "Making clobber"
