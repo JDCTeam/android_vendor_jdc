@@ -92,7 +92,7 @@ select build in "Build ROM" "Refresh build directory" "Refresh manifest" "Clean"
 	case $build in
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
-		"Refresh manifest" ) getMani; anythingElse; break;
+		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Clean" ) clean; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) clean; deepClean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
