@@ -26,7 +26,9 @@ VARIANT=userdebug
 CM_VER=14.0
 OUT="out/target/product/jflte"
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-GSM
-
+ALU_DIR=kernel/samsung/alucard24
+ALU_BUILD=build_kernel.sh
+ALU_CLEAN=clean-all.sh
 
 buildROM()
 {
@@ -38,6 +40,25 @@ buildROM()
 		echo "Build failed"
 	fi
 	croot
+}
+
+buildAlu() {
+    cd "$ALU_DIR"
+    if [ "$(cat $ALU_BUILD | grep "enforcing")" != "" ]; then
+    # Convert to androidboot.selinux
+    sed -i 's/enforcing=0 selinux=1/androidboot.selinux=permissive/' $ALU_BUILD
+    fi
+    LOG="Starting alucard kernel..."/$(date +"%T")
+    ./$ALU_BUILD
+    if [ "$?" == 0 ]; then
+        echo "Alucard Kernel built, ready to repack"
+	LOG="Kernel build done"/$(date +"%T")
+    else
+        echo "Alucard kernel build failure, do not repack"
+    fi
+    
+    croot
+    
 }
 
 anythingElse() {
@@ -88,9 +109,10 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Build ROM" "Refresh build directory" "Refresh manifest" "Clean" "Deep clean(inc. ccache)" "Rename ROM" "Exit"; do
+select build in "Build ROM" "Build alucard" "Refresh build directory" "Refresh manifest" "Clean" "Deep clean(inc. ccache)" "Rename ROM" "Exit"; do
 	case $build in
 		"Build ROM" ) buildROM; anythingElse; break;;
+		"Build alucard" ) buildAlu; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Clean" ) clean; anythingElse; break;;
