@@ -78,7 +78,19 @@ clean() {
 }
 
 deepClean() {
-	ccache -C && ccache -c
+	ccache -C
+	ccache -c
+	echo "Making clean"
+	make clean
+	echo "Making clobber"
+	make clobber
+	## Clean Alucard cache, including its compiler cache
+	if [ "$aluclean" == "true" ]; then
+		cd "$ALU_DIR"
+		./$ALU_CLEAN
+		croot
+	fi
+	
 }
 
 getBuild() {
@@ -116,7 +128,7 @@ select build in "Build ROM" "Build alucard" "Refresh build directory" "Refresh m
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Clean" ) clean; anythingElse; break;;
-		"Deep clean(inc. ccache)" ) clean; deepClean; anythingElse; break;;
+		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 
 	esac
