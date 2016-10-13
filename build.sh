@@ -106,7 +106,6 @@ getMani() {
 	croot
 	rm -rf .repo/manifest*
 	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.0  > /dev/null
-	repo sync --force-sync
 }
 
 
