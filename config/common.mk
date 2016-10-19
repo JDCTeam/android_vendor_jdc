@@ -37,6 +37,12 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
     STweaks \
     
+#Busybox and Aries
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/busybox/bb.zip:system/busybox/bb.zip \
+    vendor/jdc/prebuilt/common/arise/arise.zip:system/arise/arise.zip
+    
+    
 # SuperSU
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/supersu/supersu.zip:system/supersu/supersu.zip
