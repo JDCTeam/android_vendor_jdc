@@ -20,7 +20,7 @@
 # limitations under the License.
 
 
-TEAM_NAME="JDC"
+TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
 CM_VER=14.0
@@ -105,13 +105,14 @@ getBuild() {
 getMani() {
 	croot
 	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.0  > /dev/null
+	echo "Manifest refreshed"
 }
 upstreamMerge() {
 
 	echo "Syncing projects"
 	repo sync
         echo "Upstream merging"
-        ## local manifest location
+        ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/opt-cm-14.0.xml
         # Lines to loop over
         CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
@@ -119,21 +120,16 @@ upstreamMerge() {
         ## Upstream merging for forked repos
         while read -r line; do
             echo "Upstream merging for $line"
-            cd  "$line"
 	    
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
-            
-            PUSH_BRANCH=
+
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
             git push origin opt-cm-14.0
             croot
         done <<< "$CHECK"
 
 }
-
-
-
 
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
@@ -156,7 +152,6 @@ select build in "Upstream merge" "Build ROM" "Build alucard" "Refresh build dire
 		"Clean" ) clean; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
-
 	esac
 done
 exit 0
