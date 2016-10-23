@@ -104,9 +104,35 @@ getBuild() {
 
 getMani() {
 	croot
-	rm -rf .repo/manifest*
 	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.0  > /dev/null
 }
+upstreamMerge() {
+
+	echo "Syncing projects"
+	repo sync
+        echo "Upstream merging"
+        ## local manifest location
+        ROOMSER=.repo/manifests/snippets/opt-cm-14.0.xml
+        # Lines to loop over
+        CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
+
+        ## Upstream merging for forked repos
+        while read -r line; do
+            echo "Upstream merging for $line"
+            cd  "$line"
+	    
+            UPSTREAM=$(sed -n '1p' UPSTREAM)
+            BRANCH=$(sed -n '2p' UPSTREAM)
+            
+            PUSH_BRANCH=
+            git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
+            git push origin opt-cm-14.0
+            croot
+        done <<< "$CHECK"
+
+}
+
+
 
 
 echo " "
@@ -120,8 +146,9 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Build ROM" "Build alucard" "Refresh build directory" "Refresh manifest" "Clean" "Deep clean(inc. ccache)" "Rename ROM" "Exit"; do
+select build in "Upstream merge" "Build ROM" "Build alucard" "Refresh build directory" "Refresh manifest" "Clean" "Deep clean(inc. ccache)" "Rename ROM" "Exit"; do
 	case $build in
+		"Upstream merge" ) upstreamMerge; anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Build alucard" ) buildAlu; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
