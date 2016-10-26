@@ -120,7 +120,7 @@ upstreamMerge() {
         ## Upstream merging for forked repos
         while read -r line; do
             echo "Upstream merging for $line"
-	    
+	    cd "$line"
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
