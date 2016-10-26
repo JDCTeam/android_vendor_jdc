@@ -36,15 +36,6 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
-    
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/supersu/supersu.zip:system/supersu/supersu.zip
-    
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ota.romname=Optimized-CM-13 \
-    ro.ota.version=$(shell date -u +%Y%m%d) \
-    ro.ota.manifest=https://romhut.com/roms/Optimized-CM-13/ota.xml
 
 # Prebuilt ConsumerIR
 PRODUCT_COPY_FILES += \
