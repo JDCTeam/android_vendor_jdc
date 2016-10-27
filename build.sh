@@ -73,10 +73,6 @@ anythingElse() {
     done ;
 }
 
-clean() {
-	make clean && make clobber
-}
-
 deepClean() {
 	ccache -C
 	ccache -c
@@ -138,6 +134,37 @@ upstreamMerge() {
 
 }
 
+repackRom() {
+    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
+    TEMP=temp
+    ALU_OUT="$ALU_DIR"/READY-JB
+    LOG="Unzipping files to repack alucard..."/$(date +"%T")
+    writeBuildLog;
+    if [ -d "$TEMP" ]; then 
+    rm -rf "$TEMP"
+    fi
+    mkdir "$TEMP"
+    echo "Unpacking ROM to temp folder"
+    unzip -q "$OUT"/"$LATEST" -d"$TEMP"
+    echo "Copying Alucard Kernel"
+    rm -rf "$TEMP"/system/lib/modules/*
+    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
+    cp -r "$ALU_OUT"/system/wget "$TEMP"/system/wget
+    cp "$ALU_OUT"/boot.img "$TEMP"
+
+    cd "$TEMP"
+    echo "Repacking ROM"
+    LOG="Zipping files to repack alucard..."/$(date +"%T")
+    zip -rq9 ../"$FILENAME".zip *
+    cd ..
+    echo "Creating MD5"
+    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
+    echo "Cleaning up"
+    rm -rf "$TEMP"
+    echo "Done"
+    LOG="Build Repacked with Alucard kernel"/$(date +"%T")
+}
+
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -149,14 +176,14 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Upstream merge" "Build ROM" "Build alucard" "Refresh build directory" "Refresh manifest" "Clean" "Deep clean(inc. ccache)" "Rename ROM" "Exit"; do
+select build in "Upstream merge" "Build ROM" "Build alucard" "Repack with alucard" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
 	case $build in
 		"Upstream merge" ) upstreamMerge; anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Build alucard" ) buildAlu; anythingElse; break;;
+		"Repack with alucard" ) repackRom; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh manifest" ) getMani; anythingElse; break;;
-		"Clean" ) clean; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
