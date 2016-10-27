@@ -32,6 +32,10 @@ ALU_CLEAN=clean-all.sh
 
 buildROM()
 {
+	echo "Getting prebuilts..."
+	cd vendor/jdc
+	./get-prebuilts
+	croot
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
 	if [ "$?" == 0 ]; then
@@ -100,14 +104,14 @@ getBuild() {
 
 getMani() {
 	croot
-	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.1  > /dev/null
+	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1 
 	echo "Manifest refreshed"
 }
 upstreamMerge() {
 
 	croot
 	echo "Refreshing manifest"
-	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1  > /dev/null
+	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1
 	echo "Syncing projects"
 	repo sync --force-sync
 	echo "Getting prebuilts"
@@ -164,6 +168,66 @@ repackRom() {
     LOG="Build Repacked with Alucard kernel"/$(date +"%T")
 }
 
+checkRamdisk() {
+    echo "Going to build Alucard kernel, did you update the ramdisk?"
+    select choice in "Yes" "No"; do
+	case $choice in
+	    Yes ) buildAlu; break;;
+	    No ) 
+		if [ "$fullbuild" == "true" ]; then
+		    echo "You chosen to build ROM, kernel and repack but didn't update the ramdisk.\nTo prevent you from building a new kernel image with an old ramdisk I suspended the process.\nPlease update it and resume, I'll wait for you."
+		    echo ""
+		    echo "Are you ready?"
+		    select ready in "Yes" "No"; do
+			case $ready in
+			    Yes ) buildAlu; break;;
+			    No ) echo "Built ROM will not be deleted, once the ramdisk is updated run me again and select option 4 first, then option 5."; sleep 5; exit 0; break;;
+			esac
+		    done
+		else
+		    echo "Make sure you update the ramdisk, then run me again and select option 4." && sleep 5 | exit 0
+		fi; break;;
+	esac
+    done
+}
+
+useAroma()
+{
+    LOG="Unzipping files to repack with AROMA..."/$(date +"%T")
+    if [ ! -d "$AROMA_DIR" ]; then
+	echo "No AROMA directory found.Please check your sources"
+	break;
+    fi
+    FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
+    echo " "
+    LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
+    TEMP2=tmpAroma
+    if [ -d "$TEMP2" ]; then 
+    rm -rf "$TEMP2"
+    fi
+    mkdir "$TEMP2"
+    echo "Unpacking ROM to temp folder"
+    unzip -q "$LATEST" -d"$TEMP2"
+    echo "Removing META-INF folder"
+    rm -rf "$TEMP2"/META-INF
+    echo "Copying Aroma Installer"
+    cp -r "$AROMA_DIR"/jdc "$TEMP2"/jdc
+    cp -r "$AROMA_DIR"/xbin "$TEMP2"/xbin
+    cp -r "$AROMA_DIR"/META-INF "$TEMP2"/META-INF
+
+    cd "$TEMP2"
+    echo "Repacking ROM"
+    zip -rq9 ../"$FILENAME".zip *
+    cd ..
+    echo "Creating MD5"
+    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
+    echo "Cleaning up"
+    rm -rf "$TEMP2"
+    echo "Done"
+    LOG="Added AROMA.Build finished successfully"/$(date +"%T")
+
+}
+
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -175,12 +239,14 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Upstream merge" "Build ROM" "Build alucard" "Repack with alucard" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
 	case $build in
-		"Upstream merge" ) upstreamMerge; anythingElse; break;;
+		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
-		"Build alucard" ) buildAlu; anythingElse; break;;
-		"Repack with alucard" ) repackRom; anythingElse; break;;
+		"Build ROM,kernel and repack" ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
+		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
+		"Build Alucard Kernel" ) buildAlu; anythingElse; break;;
+		"Repack with Alucard" ) repackRom; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
