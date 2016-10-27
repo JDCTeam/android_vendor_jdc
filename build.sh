@@ -104,7 +104,7 @@ getBuild() {
 
 getMani() {
 	croot
-	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.0  > /dev/null
+	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.1  > /dev/null
 	echo "Manifest refreshed"
 }
 upstreamMerge() {
