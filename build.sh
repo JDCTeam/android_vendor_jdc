@@ -139,7 +139,6 @@ repackRom() {
     TEMP=temp
     ALU_OUT="$ALU_DIR"/READY-JB
     LOG="Unzipping files to repack alucard..."/$(date +"%T")
-    writeBuildLog;
     if [ -d "$TEMP" ]; then 
     rm -rf "$TEMP"
     fi
