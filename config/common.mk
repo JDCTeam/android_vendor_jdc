@@ -36,6 +36,10 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
+    
+# SuperSU
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/supersu/supersu.zip:system/supersu/supersu.zip
 
 # Prebuilt ConsumerIR
 PRODUCT_COPY_FILES += \
