@@ -29,6 +29,7 @@ FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-GSM
 ALU_DIR=kernel/samsung/alucard24
 ALU_BUILD=build_kernel.sh
 ALU_CLEAN=clean-all.sh
+AROMA_DIR=aroma
 
 buildROM()
 {
