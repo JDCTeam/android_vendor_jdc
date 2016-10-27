@@ -111,7 +111,7 @@ upstreamMerge() {
 
 	croot
 	echo "Refreshing manifest"
-	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.1  > /dev/null
+	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1  > /dev/null
 	echo "Syncing projects"
 	repo sync --force-sync
 	echo "Getting prebuilts"
