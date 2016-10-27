@@ -23,7 +23,7 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-CM_VER=14.0
+CM_VER=14.1
 OUT="out/target/product/jflte"
 FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-GSM
 ALU_DIR=kernel/samsung/alucard24
@@ -113,7 +113,7 @@ upstreamMerge() {
 	repo sync
         echo "Upstream merging"
         ## Our snippet/manifest
-        ROOMSER=.repo/manifests/snippets/opt-cm-14.0.xml
+        ROOMSER=.repo/manifests/snippets/opt-cm-14.1.xml
         # Lines to loop over
         CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
 
@@ -125,7 +125,7 @@ upstreamMerge() {
             BRANCH=$(sed -n '2p' UPSTREAM)
 
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push origin opt-cm-14.0
+            git push origin opt-cm-14.1
             croot
         done <<< "$CHECK"
 
