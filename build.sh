@@ -109,8 +109,11 @@ getMani() {
 }
 upstreamMerge() {
 
+	croot
+	echo "Refreshing manifest"
+	repo init -u git://github.com/dkati/optcm-manifest.git -b opt-cm-14.1  > /dev/null
 	echo "Syncing projects"
-	repo sync
+	repo sync --force-sync
         echo "Upstream merging"
         ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/opt-cm-14.1.xml
