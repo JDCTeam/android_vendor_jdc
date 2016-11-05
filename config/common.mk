@@ -11,12 +11,12 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
 
 # Custom init script
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc
+#PRODUCT_COPY_FILES += \
+ #   vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc
 
 # eMMC trim
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/emmc_trim:system/bin/emmc_trim
+#PRODUCT_COPY_FILES += \
+  #  vendor/jdc/prebuilt/common/bin/emmc_trim:system/bin/emmc_trim
 
 # For keyboard gesture typing
 PRODUCT_COPY_FILES += \
