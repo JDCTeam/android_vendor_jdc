@@ -63,28 +63,17 @@ buildROM () {
 
 repoSync(){
     ## Sync the repo
-    echo "Syncing repositories"
-    reposync
+    
+     if [ "$1" == "2" ]; then 
+	echo " "
+	echo -e "\e[1;91mAutomatic upstream merge option is removed.\nIf you want to dev on that rom,learn how to upstream merge..."
+	echo -e "\e[0m "
+	echo " "
+    fi
 
-    if [ "$1" == "2" ]; then 
-        echo "Upstream merging"
-        ## local manifest location
-        ROOMSER=.repo/local_manifests/local_manifest.xml
-        # Lines to loop over
-        CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
-        
-        ## Upstream merging for forked repos
-        while read -r line; do
-            echo "Upstream merging for $line"
-            cd  "$line"
-            UPSTREAM=$(sed -n '1p' UPSTREAM)
-            BRANCH=$(sed -n '2p' UPSTREAM)
-            ORIGIN=$(sed -n '3p' UPSTREAM)
-            PUSH_BRANCH=
-            git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push "$ORIGIN" HEAD:opt-"$BRANCH"
-            croot
-        done <<< "$CHECK"
+    if [ "$1" == "1" ]; then 
+	echo "Syncing repositories"
+	repo sync
     fi
 }
 
