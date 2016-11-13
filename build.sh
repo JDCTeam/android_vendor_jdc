@@ -145,6 +145,7 @@ upstreamMerge() {
 	    repo sync $line
 	    cd "$line"
 	    git branch -D opt-cm-14.1
+	    git checkout -b opt-cm-14.1
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
