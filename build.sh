@@ -141,7 +141,10 @@ upstreamMerge() {
         ## Upstream merging for forked repos
         while read -r line; do
             echo "Upstream merging for $line"
+	    rm -rf $line
+	    repo sync $line
 	    cd "$line"
+	    git branch -D opt-cm-14.1
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
