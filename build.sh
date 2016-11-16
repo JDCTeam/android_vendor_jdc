@@ -259,7 +259,7 @@ echo -e "\e[0m "
 echo " "
 select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifest,repo sync" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
 	case $build in
-		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; anythingElse; break;;
+		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Refresh manifest,repo sync" ) repoSync; anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Build ROM,kernel and repack" ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
