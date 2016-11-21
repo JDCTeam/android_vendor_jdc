@@ -52,3 +52,7 @@ PRODUCT_COPY_FILES += \
 # Take a logcat
 #PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
+    
+# Enable Storage Manager
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.storage_manager.enabled=1
