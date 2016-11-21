@@ -56,3 +56,7 @@ PRODUCT_COPY_FILES += \
 # Enable Storage Manager
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.storage_manager.enabled=1
+    
+# Google Assistant
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opa.eligible_device=true
