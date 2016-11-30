@@ -6,10 +6,12 @@
 #
 # File system trim at each boot
 #
+LED=/sys/class/sec/led/led_pattern
 LOG=/cache/trim.log
 echo "*** $(date -u +%Y-%m-%d) ***" >> $LOG
 fstrim -v /cache >> $LOG
 fstrim -v /data >> $LOG
 fstrim -v /system >> $LOG
 sync
+echo 6 > $LED
 exit 0
