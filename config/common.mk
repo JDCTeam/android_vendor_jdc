@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
 # Prebuilt Toolbox
 PRODUCT_COPY_FILES += \
     vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk 
+    
+# Proximity sensor reset
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/proximity.sh:install/bin/proximity.sh
 
 # Take a logcat
 #PRODUCT_COPY_FILES += \
