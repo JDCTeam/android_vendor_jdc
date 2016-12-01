@@ -246,6 +246,46 @@ useAroma()
 
 }
 
+repackAll()
+{
+    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
+    TEMP=temp
+    FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
+    ALU_OUT="$ALU_DIR"/READY-JB
+    LOG="Unzipping files to repack alucard..."/$(date +"%T")
+    if [ -d "$TEMP" ]; then 
+    rm -rf "$TEMP"
+    fi
+    mkdir "$TEMP"
+    echo "Unpacking ROM to temp folder"
+    unzip -q "$OUT"/"$LATEST" -d"$TEMP"
+    echo "Packing alucard..."
+    rm -rf "$TEMP"/system/lib/modules/*
+    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
+    cp -r "$ALU_OUT"/system/wget "$TEMP"/system/wget
+    cp "$ALU_OUT"/boot.img "$TEMP"
+
+    echo "Removing META-INF folder"
+    rm -rf "$TEMP"/META-INF
+    echo "Copying Aroma Installer"
+    cp -r "$AROMA_DIR"/jdc "$TEMP"/jdc
+    cp -r "$AROMA_DIR"/xbin "$TEMP"/xbin
+    cp -r "$AROMA_DIR"/META-INF "$TEMP"/META-INF
+
+    cd "$TEMP"
+    
+    echo "Repacking ROM"
+    zip -rq9 ../"$FILENAME".zip *
+    cd ..
+    echo "Creating MD5"
+    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
+    echo "Cleaning up"
+    rm -rf "$TEMP"
+    echo "Done"
+    
+    
+}
+
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -257,7 +297,7 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifest,repo sync" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifest,repo sync" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucand AND aroma" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Refresh manifest,repo sync" ) repoSync; anythingElse; break;;
@@ -266,6 +306,7 @@ select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifes
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Build Alucard Kernel" ) buildAlu; anythingElse; break;;
 		"Repack with Alucard" ) repackRom; anythingElse; break;;
+		"Repack with Alucand AND aroma" ) repackAll; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
