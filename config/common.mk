@@ -64,3 +64,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Google Assistant
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opa.eligible_device=true
+
+# Set cache location
+ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.device.cache_dir=/data/cache
+else
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.device.cache_dir=/cache
+endif
+
+# Needed by some RILs and for some gApps packages
+PRODUCT_PACKAGES += \
+    librsjni \
+    libprotobuf-cpp-full
