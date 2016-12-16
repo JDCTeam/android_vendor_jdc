@@ -151,8 +151,13 @@ PRODUCT_PACKAGES += \
     procrank
 endif
 
+# Prebuilt Apps
+$(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
+
+# Vendor Overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
+# Version System
 PRODUCT_VERSION_MAJOR = 1
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE := 0
@@ -248,4 +253,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 -include vendor/liquid/config/partner_gms.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
