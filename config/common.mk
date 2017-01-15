@@ -36,6 +36,8 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
+    Substratum \
+    masquerade
     
 # SuperSU
 PRODUCT_COPY_FILES += \
@@ -57,6 +59,10 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
     
+#Substratum Verified
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.substratum.verified=true
+
 # Enable Storage Manager
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.storage_manager.enabled=1
