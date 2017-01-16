@@ -271,6 +271,7 @@ makeFlashables()
 {
 	cd flashables
 	./make.sh
+	./release.sh
 	cd ..
 }
 
