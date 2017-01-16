@@ -103,24 +103,6 @@ getBuild() {
 	repo sync build/blueprint
 }
 
-getMani() {
-	croot
-	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1 
-	echo "Manifest refreshed"
-}
-
-repoSync() {
-	croot
-	echo "Refreshing manifest"
-	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1
-	echo "Syncing projects"
-	repo sync --force-sync
-	echo "Getting prebuilts"
-	cd vendor/jdc
-	./get-prebuilts
-	croot
-}
-
 upstreamMerge() {
 
 	croot
@@ -297,10 +279,9 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifest,repo sync" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucard AND aroma" "Refresh build directory" "Refresh manifest" "Deep clean(inc. ccache)" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucard AND aroma" "Refresh build directory" "Deep clean(inc. ccache)" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
-		"Refresh manifest,repo sync" ) repoSync; anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Build ROM,kernel and repack" ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
@@ -308,7 +289,6 @@ select build in "Refresh manifest,repo sync and upstream merge" "Refresh manifes
 		"Repack with Alucard" ) repackRom; anythingElse; break;;
 		"Repack with Alucard AND aroma" ) repackAll; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
-		"Refresh manifest" ) getMani; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
