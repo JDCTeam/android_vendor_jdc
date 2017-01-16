@@ -269,7 +269,9 @@ repackAll()
 }
 makeFlashables()
 {
-	. flashables/make.sh
+	cd flashables
+	./make.sh
+	cd ..
 }
 
 echo " "
