@@ -267,6 +267,10 @@ repackAll()
     
     
 }
+makeFlashables()
+{
+	. flashables/make.sh
+}
 
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
@@ -279,7 +283,7 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucard AND aroma" "Refresh build directory" "Deep clean(inc. ccache)" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucard AND aroma" "Refresh build directory" "Deep clean(inc. ccache)" "Update and build flashables" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
@@ -290,6 +294,7 @@ select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Bui
 		"Repack with Alucard AND aroma" ) repackAll; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
+		"Update and build flashables" ) makeFlashables; break;;
 		"Exit" ) exit 0; break;;
 	esac
 done
