@@ -101,6 +101,8 @@ getBuild() {
 	repo sync build/kati
 	repo sync build/soong
 	repo sync build/blueprint
+	
+	echo "Please update your device tree,webview,prebuilt apps from aroma"
 }
 
 upstreamMerge() {
