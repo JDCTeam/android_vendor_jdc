@@ -102,7 +102,13 @@ getBuild() {
 	repo sync build/soong
 	repo sync build/blueprint
 	
-	echo "Please update your device tree,webview,prebuilt apps from aroma"
+	
+	echo -e "\e[1;91m==============================================================="
+	echo -e "\e[0m "
+	echo -e "\e[1;91mPlease update your device tree,webview,prebuilt apps from aroma"
+	echo ""
+	echo "==============================================================="
+	echo -e "\e[0m "
 }
 
 upstreamMerge() {
