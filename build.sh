@@ -105,7 +105,7 @@ getBuild() {
 	
 	echo -e "\e[1;91m==============================================================="
 	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your device tree,webview,prebuilt apps from aroma"
+	echo -e "\e[1;91mPlease update your device tree,EXTERNAL WEBVIEW,prebuilt apps from aroma"
 	echo ""
 	echo "==============================================================="
 	echo -e "\e[0m "
