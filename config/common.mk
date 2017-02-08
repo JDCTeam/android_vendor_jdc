@@ -36,7 +36,6 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
-    Substratum \
     masquerade
     
 # SuperSU
