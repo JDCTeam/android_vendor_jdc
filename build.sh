@@ -30,7 +30,7 @@ ALU_DIR=kernel/samsung/alucard24
 AROMA_DIR=aroma
 ALU_BUILD=build_kernel.sh
 ALU_CLEAN=clean-all.sh
-FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-"$USER"
+FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-"$USER"
 PREBUILTS=vendor/jdc/proprietary
 getlog=false
 LOG=""
@@ -218,7 +218,7 @@ useAroma()
 	echo "No AROMA directory found.Please check your sources"
 	break;
     fi
-    FILENAME=OptimizedCM-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
+    FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
     echo " "
     LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP2=tmpAroma
