@@ -1,6 +1,6 @@
 #Arise
 PRODUCT_COPY_FILES += \
-	vendor/jdc/prebuilt/common/arize/arize.zip:system/arize/arize.zip
+	vendor/jdc/prebuilt/common/arise/arise.zip:system/arise/arise.zip
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
