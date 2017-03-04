@@ -2,6 +2,11 @@
 PRODUCT_COPY_FILES += \
 	vendor/jdc/prebuilt/common/arise/arise.zip:system/arise/arise.zip
 
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/jdc/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/jdc/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
+
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
