@@ -45,7 +45,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
-    masquerade
+    ThemeInterfacer
     
 # SuperSU
 PRODUCT_COPY_FILES += \
