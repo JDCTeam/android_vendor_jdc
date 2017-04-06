@@ -134,13 +134,13 @@ upstreamMerge() {
 	    rm -rf $line
 	    repo sync $line
 	    cd "$line"
-	    git branch -D opt-cm-14.1
-	    git checkout -b opt-cm-14.1
+	    git branch -D opt-cm-14.1-7.1.2
+	    git checkout -b opt-cm-14.1-7.1.2
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push origin opt-cm-14.1
+            git push origin opt-cm-14.1-7.1.2
             croot
         done <<< "$CHECK"
 
