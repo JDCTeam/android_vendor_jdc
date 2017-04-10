@@ -1,5 +1,5 @@
 ==============
-Copyright 2015 - JDCTeam
+Copyright 2017 - JDCTeam
 --------------
 Addons/common files for ROMs
 
