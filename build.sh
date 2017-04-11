@@ -137,8 +137,8 @@ upstreamMerge() {
 	    git branch -D opt-cm-14.1-7.1.2
 	    git checkout -b opt-cm-14.1-7.1.2
             UPSTREAM=$(sed -n '1p' UPSTREAM)
-            BRANCH=$(sed -n '2p' UPSTREAM)
-
+            BRANCH=staging/cm-14.1_android-7.1.2_r2
+	    
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
             git push origin opt-cm-14.1-7.1.2
             croot
