@@ -6,6 +6,11 @@
 export C=/tmp/backupdir
 export S=/system
 
+LED=/sys/class/sec/led/led_pattern
+# Debug: check if script is running, blink red for 3 seconds
+echo 2 > $LED
+sleep 3 && echo 0 > $LED
+
 # Scripts in /system/addon.d expect to find backuptool.functions in /tmp
 cp -f /tmp/install/bin/backuptool.functions /tmp
 
