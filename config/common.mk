@@ -56,10 +56,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/supersu/supersu.zip:system/supersu/supersu.zip
 
-# Prebuilt ConsumerIR
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/lib/hw/consumerir.msm8960.old:system/lib/hw/consumerir.msm8960.old
-
 # Prebuilt Toolbox
 PRODUCT_COPY_FILES += \
     vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk 
