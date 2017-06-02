@@ -1,7 +1,7 @@
 ### Changes since Optimized LineageOS14.1-Stable3
 
-* Upstream merge until 
-* Update stock kernel to 
+* Upstream merge until 3-June-2016
+* Update stock kernel to 3-June-2016
 * Remove SDCARDfs again
 * Fix tethering on some devices
 * Reenabled logcat-no qmuxd drain
@@ -27,3 +27,4 @@
 * Disable Dreams by default
 * Double tap to lock screen to sleep option
 * Enable power save config for system apps too.Select your apps!
+* Updates on Substratum core
