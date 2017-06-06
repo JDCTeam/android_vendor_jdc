@@ -3,6 +3,7 @@
 * Upstream merge until 3-June-2016
 * Update stock kernel to 3-June-2016
 * Update to _r17 android 7.1.2
+* Update builder PC to java9
 * Remove SDCARDfs again
 * Fix tethering on some devices
 * Reenabled logcat-no qmuxd drain
