@@ -13,3 +13,4 @@
 * Allow GMS power saving
 * Hack to make YouTube 4K videos work
 * aroma:Update Magisk to 13.3
+* Enable "Panic Detection" mode
