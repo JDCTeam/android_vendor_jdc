@@ -21,3 +21,7 @@
 * default/battery/exbattery profiles:Set maxcoreslimit_sleep=1
 * APNs:Add freedomLTE
 * Bluetooth:Fix car audio (?)
+* Pure CAF Gallery
+* Update our flashables
+*AROMAs camera is PURE caf camera.selfie seems broken.
+GRAB THE LINEAGE SNAP CAMERA FROM SETTINGS/OPT SETTINGS/SNAP
