@@ -25,3 +25,7 @@
 * Update our flashables
 *AROMAs camera is PURE caf camera.selfie seems broken.
 GRAB THE LINEAGE SNAP CAMERA FROM SETTINGS/OPT SETTINGS/SNAP
+
+* More SafetyNet patches
+* Reduce DEFAULT_MIN_BOOST_FREQ at alucard kernel
+* debug.hwui.use_buffer_age=false Affects display updates
