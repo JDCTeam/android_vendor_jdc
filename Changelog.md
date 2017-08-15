@@ -1,32 +1,34 @@
 ### Changes since Optimized LineageOS14.1-Stable5
 
-* Upstream merge until 6-August-2017
-* Update stock kernel to 6-August-2017
-* Stable 6 wallpaper
-* Update to _r29
-* PhoneToggler: Update preferred network mode setting
-* Update Alucard kernel
-* More Sprint variant edits on signal
-* Build Alucard with 7.1.1 Linaro TC
-* device:capacitive keys: light up only when pressed
-* device:animate screen lights
-* Doze: do not build SamsungDoze for the moment
-* Pin camera app in memory for faster executions
-* Allow GMS power saving
-* Hack to make YouTube 4K videos work
-* aroma:Update Magisk to 13.3
-* Enable "Panic Detection" mode
-* Aroma:Fix an unexpected format on removing option
-* ramdisk-tweaks/cortexbrain:make script less aggresive
-* Kernel:Default profile:Enable power_efficiency_workqueue
-* All profiles:Slightly reduce voltages
-* default/battery/exbattery profiles:Set maxcoreslimit_sleep=1
-* APNs:Add freedomLTE
-* Bluetooth:Fix car audio (?)
-* Pure CAF Gallery
-* Update our flashables
-* More SafetyNet patches
-* Reduce DEFAULT_MIN_BOOST_FREQ at alucard kernel
-* debug.hwui.use_buffer_age=false Affects display updates
-* Fix a Sprint connections property overwrite
-* Speed up PlayStore installations
+* Upstream merge until 15-August-2017 
+* Update stock kernel to 15-August-2017 
+* Stable 6 wallpaper 
+* Update to _r29 
+* PhoneToggler: Update preferred network mode setting 
+* Update Alucard kernel 
+* More Sprint variant edits on signal 
+* Build Alucard with 7.1.1 Linaro TC 
+* device:capacitive keys: light up only when pressed 
+* device:animate screen lights 
+* Doze: Use pure Samsungs app 
+* Pin camera app in memory for faster executions 
+* Allow GMS power saving 
+* Hack to make YouTube 4K videos work 
+* aroma:Update Magisk to 13.3 
+* Enable "Panic Detection" mode 
+* Aroma:Fix an unexpected format on removing option 
+* ramdisk-tweaks/cortexbrain:make script less aggresive 
+* Kernel:Default profile:Enable power_efficiency_workqueue 
+* All profiles:Slightly reduce voltages 
+* default/battery/exbattery profiles:Set maxcoreslimit_sleep=1 
+* APNs:Add freedomLTE 
+* Bluetooth:Fix car audio (?) 
+* Pure CAF Gallery 
+* Update our flashables 
+* More SafetyNet patches 
+* Reduce DEFAULT_MIN_BOOST_FREQ at alucard kernel 
+* debug.hwui.use_buffer_age=false Affects display updates 
+* Fix a Sprint connections property overwrite 
+* Speed up PlayStore installations 
+* Enable GLONASS (?)  
+* Add some stock system prop flags 
