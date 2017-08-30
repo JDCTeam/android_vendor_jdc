@@ -1,7 +1,7 @@
 ### Changes since Optimized LineageOS14.1-Version6
 
-* Upstream merge until 29-August-2017
-* Update stock kernel to 29-August-2017
+* Upstream merge until 30-August-2017
+* Update stock kernel to 30-August-2017
 * Version 7 wallpaper
 * Updated Alucard kernel
 * Updated Linaro ToolChain for Alucard
