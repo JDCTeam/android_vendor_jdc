@@ -99,6 +99,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libemoji \
     LiveWallpapersPicker
+	
+# Themes
+PRODUCT_PACKAGES += \
+    PixelTheme \
+    Stock	
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
