@@ -148,10 +148,6 @@ PRODUCT_PACKAGES += \
     procrank
 endif
 
-
-endif
-endif
-
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
 PRODUCT_VERSION_MAJOR = 1
