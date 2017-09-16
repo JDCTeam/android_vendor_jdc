@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= LiquidRemix
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -26,9 +26,11 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 endif
 
+ifneq ($(TARGET_BUILD_VARIANT),userdebug)
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+endif
 endif
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
@@ -41,37 +43,32 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/lineage/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/lineage/prebuilt/common/bin/50-lineage.sh:system/addon.d/50-lineage.sh \
-    vendor/lineage/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/liquid/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/liquid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/liquid/prebuilt/common/bin/50-liquid.sh:system/addon.d/50-liquid.sh \
+    vendor/liquid/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
-
-# Signature compatibility validation
-PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/liquid/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/lineage/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/liquid/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/liquid/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# Lineage-specific init file
+# LiquidRemix specific init file
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init.local.rc:root/init.lineage.rc
+    vendor/liquid/prebuilt/common/etc/init.local.rc:root/init.liquid.rc
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+    vendor/liquid/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -81,101 +78,53 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is Lineage!
+# Include LiquidRemix audio files
+include vendor/liquid/config/liquid_audio.mk
+
+# Include LiquidRemix boot animation
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
-
-# Include Lineage audio files
-include vendor/lineage/config/lineage_audio.mk
-
-ifneq ($(TARGET_DISABLE_CMSDK), true)
-# CMSDK
-include vendor/lineage/config/cmsdk_common.mk
-endif
+    vendor/liquid/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/lineage/config/twrp.mk
+include vendor/liquid/config/twrp.mk
 endif
 
-# Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
-
-# Required Lineage packages
+# Required packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    CMAudioService \
-    CMParts \
-    Development \
-    Profiles \
-    WeatherManagerService
+    Launcher3
 
 # Optional packages
 PRODUCT_PACKAGES += \
     libemoji \
-    LiveWallpapersPicker \
-    PhotoTable \
-    Terminal
+    LiveWallpapersPicker
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# Custom Lineage packages
+# Custom packages
 PRODUCT_PACKAGES += \
-    AudioFX \
-    CMSettingsProvider \
-    LineageSetupWizard \
-    Eleven \
     ExactCalculator \
-    Jelly \
-    LockClock \
-    Trebuchet \
-    Updater \
-    WallpaperPicker \
-    WeatherProvider
+    Gallery2
 
 # Exchange support
 PRODUCT_PACKAGES += \
     Exchange2
 
-# Extra tools in Lineage
+# Extra tools
 PRODUCT_PACKAGES += \
-    7z \
-    bash \
-    bzip2 \
-    curl \
-    fsck.ntfs \
-    gdbserver \
-    htop \
-    lib7z \
     libsepol \
+    gdbserver \
     micro_bench \
     mke2fs \
-    mkfs.ntfs \
-    mount.ntfs \
     oprofiled \
-    pigz \
     powertop \
     sqlite3 \
     strace \
-    tune2fs \
-    unrar \
-    unzip \
-    vim \
-    wget \
-    zip
-
-# Custom off-mode charger
-ifneq ($(WITH_LINEAGE_CHARGER),false)
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    lineage_charger_res_images \
-    font_log.png \
-    libhealthd.lineage
-endif
+    tune2fs
 
 # ExFAT support
 WITH_EXFAT ?= true
@@ -187,30 +136,6 @@ PRODUCT_PACKAGES += \
     mkfs.exfat
 endif
 
-# Openssh
-PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-    start-ssh
-
-# rsync
-PRODUCT_PACKAGES += \
-    rsync
-
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libffmpeg_extractor \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
 # Storage manager
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.storage_manager.enabled=true
@@ -220,138 +145,106 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     procmem \
     procrank
+endif
 
-# Conditionally build in su
-ifeq ($(WITH_SU),true)
-PRODUCT_PACKAGES += \
-    su
+
 endif
 endif
 
-DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
-PRODUCT_VERSION_MAJOR = 15
+PRODUCT_VERSION_MAJOR = 1
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE := 0
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
-    LINEAGE_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
+    LIQUID_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
 else
-    LINEAGE_VERSION_MAINTENANCE := 0
+    LIQUID_VERSION_MAINTENANCE := 0
 endif
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
+# Set LIQUID_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
-ifndef LINEAGE_BUILDTYPE
+ifndef LIQUID_BUILDTYPE
     ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
+        # Starting with "LIQUID_" is optional
+        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LIQUID_||g')
+        LIQUID_BUILDTYPE := $(RELEASE_TYPE)
     endif
 endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE :=
+ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LIQUID_BUILDTYPE)),)
+    LIQUID_BUILDTYPE :=
 endif
 
-ifdef LINEAGE_BUILDTYPE
-    ifneq ($(LINEAGE_BUILDTYPE), SNAPSHOT)
-        ifdef LINEAGE_EXTRAVERSION
+ifdef LIQUID_BUILDTYPE
+    ifneq ($(LIQUID_BUILDTYPE), SNAPSHOT)
+        ifdef LIQUID_EXTRAVERSION
             # Force build type to EXPERIMENTAL
-            LINEAGE_BUILDTYPE := EXPERIMENTAL
-            # Remove leading dash from LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := -$(LINEAGE_EXTRAVERSION)
+            LIQUID_BUILDTYPE := EXPERIMENTAL
+            # Remove leading dash from LIQUID_EXTRAVERSION
+            LIQUID_EXTRAVERSION := $(shell echo $(LIQUID_EXTRAVERSION) | sed 's/-//')
+            # Add leading dash to LIQUID_EXTRAVERSION
+            LIQUID_EXTRAVERSION := -$(LIQUID_EXTRAVERSION)
         endif
     else
-        ifndef LINEAGE_EXTRAVERSION
+        ifndef LIQUID_EXTRAVERSION
             # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            LINEAGE_BUILDTYPE := EXPERIMENTAL
+            LIQUID_BUILDTYPE := EXPERIMENTAL
         else
-            # Remove leading dash from LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := -$(LINEAGE_EXTRAVERSION)
+            # Remove leading dash from LIQUID_EXTRAVERSION
+            LIQUID_EXTRAVERSION := $(shell echo $(LIQUID_EXTRAVERSION) | sed 's/-//')
+            # Add leading dash to LIQUID_EXTRAVERSION
+            LIQUID_EXTRAVERSION := -$(LIQUID_EXTRAVERSION)
         endif
     endif
 else
-    # If LINEAGE_BUILDTYPE is not defined, set to UNOFFICIAL
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
+    # If LIQUID_BUILDTYPE is not defined, set to UNOFFICIAL
+    LIQUID_BUILDTYPE := UNOFFICIAL
+    LIQUID_EXTRAVERSION :=
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+ifeq ($(LIQUID_BUILDTYPE), UNOFFICIAL)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
+        LIQUID_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
     endif
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), RELEASE)
+ifeq ($(LIQUID_BUILDTYPE), RELEASE)
     ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LINEAGE_BUILD)
+        LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LIQUID_BUILD)
     else
         ifeq ($(TARGET_BUILD_VARIANT),user)
-            ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-                LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+            ifeq ($(LIQUID_VERSION_MAINTENANCE),0)
+                LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LIQUID_BUILD)
             else
-                LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+                LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LIQUID_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LIQUID_BUILD)
             endif
         else
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LINEAGE_BUILD)
+            LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LIQUID_BUILD)
         endif
     endif
 else
-    ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+    ifeq ($(LIQUID_VERSION_MAINTENANCE),0)
+        LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(LIQUID_BUILDTYPE)$(LIQUID_EXTRAVERSION)-$(LIQUID_BUILD)
     else
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+        LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LIQUID_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(LIQUID_BUILDTYPE)$(LIQUID_EXTRAVERSION)-$(LIQUID_BUILD)
     endif
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.modversion=$(LINEAGE_VERSION) \
-    ro.lineagelegal.url=https://lineageos.org/legal
+    ro.liquid.version=$(LIQUID_VERSION) \
+    ro.liquid.releasetype=$(LIQUID_BUILDTYPE) \
+    ro.liquid.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.modversion=$(LIQUID_VERSION)
 
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/lineage/build/target/product/security/lineage
-
--include vendor/lineage-priv/keys/keys.mk
-
-LINEAGE_DISPLAY_VERSION := $(LINEAGE_VERSION)
-
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),)
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
-    ifneq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
-        ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-            ifneq ($(LINEAGE_EXTRAVERSION),)
-                # Remove leading dash from LINEAGE_EXTRAVERSION
-                LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-                TARGET_VENDOR_RELEASE_BUILD_ID := $(LINEAGE_EXTRAVERSION)
-            else
-                TARGET_VENDOR_RELEASE_BUILD_ID := $(shell date -u +%Y%m%d)
-            endif
-        else
-            TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
-        endif
-        ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-            LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
-        else
-            LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
-        endif
-    endif
-endif
-endif
+LIQUID_DISPLAY_VERSION := $(LIQUID_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
+    ro.liquid.display.version=$(LIQUID_DISPLAY_VERSION)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/lineage/config/partner_gms.mk
--include vendor/cyngn/product.mk
+-include vendor/liquid/config/partner_gms.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)

@@ -1,8 +1,4 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit common LiquidRemix stuff
+$(call inherit-product, vendor/liquid/config/common.mk)
 
 PRODUCT_SIZE := full
-
-# Recorder
-PRODUCT_PACKAGES += \
-    Recorder

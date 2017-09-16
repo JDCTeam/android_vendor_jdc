@@ -1,5 +1,5 @@
 #
-# Lineage-specific variable clears
+# LiquidRemix-specific variable clears
 #
 LOCAL_IGNORE_SUBDIR :=
 
