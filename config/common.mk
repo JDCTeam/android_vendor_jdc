@@ -113,8 +113,7 @@ PRODUCT_PACKAGES += \
 # Custom packages
 PRODUCT_PACKAGES += \
     ExactCalculator \
-    Eleven \
-    Gallery2
+    Eleven
 
 # Exchange support
 PRODUCT_PACKAGES += \
