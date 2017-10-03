@@ -14,11 +14,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.setupwizard.rotation_locked=true
 
-# Default notification/alarm sounds
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
-
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
@@ -90,9 +85,6 @@ PRODUCT_COPY_FILES += \
 # Enable wireless Xbox 360 controller support
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
-
-# Include LiquidRemix audio files
-include vendor/liquid/config/liquid_audio.mk
 
 # Include LiquidRemix boot animation
 PRODUCT_COPY_FILES += \
