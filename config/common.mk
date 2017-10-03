@@ -119,17 +119,11 @@ PRODUCT_PACKAGES += \
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full \
     librsjni
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    ExactCalculator \
-    Eleven
-
-# Exchange support
-PRODUCT_PACKAGES += \
-    Exchange2
+    ExactCalculator
 
 # Extra tools
 PRODUCT_PACKAGES += \
