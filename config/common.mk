@@ -97,7 +97,8 @@ endif
 
 # Required packages
 PRODUCT_PACKAGES += \
-    Launcher3
+    Launcher3 \
+    LiquidLounge
 
 # Optional packages
 PRODUCT_PACKAGES += \
