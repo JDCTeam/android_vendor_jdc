@@ -116,7 +116,8 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    ExactCalculator
+    ExactCalculator \
+    OmniJaws
 
 # Extra tools
 PRODUCT_PACKAGES += \
