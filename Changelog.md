@@ -14,4 +14,5 @@ Upstream merge until 19-Oct-2017
 * Add burnIn option 
 * BT Audio edits from upstream 
 * Add CMSettings package to power_off_alarm_apps 
+* Enable variable button brightness
 
