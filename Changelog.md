@@ -15,4 +15,6 @@ Upstream merge until 19-Oct-2017
 * BT Audio edits from upstream 
 * Add CMSettings package to power_off_alarm_apps 
 * Enable variable button brightness
-
+* aroma:Add SamsungOne fonts
+* aroma:Add Pixel2 Contacts/Dialer/Messages
+* Please READ THE DESCRIPTION AT AROMA
