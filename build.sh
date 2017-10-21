@@ -23,7 +23,7 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-CM_VER=14.1
+CM_VER=15.0
 OUT="out/target/product/jflte"
 FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 ALU_DIR=kernel/samsung/alucard24
@@ -33,10 +33,6 @@ AROMA_DIR=aroma
 
 buildROM()
 {
-	echo "Getting prebuilts..."
-	cd vendor/jdc
-	./get-prebuilts
-	croot
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
 	if [ "$?" == 0 ]; then
@@ -115,7 +111,7 @@ upstreamMerge() {
 
 	croot
 	echo "Refreshing manifest"
-	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-14.1
+	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-15.0
 	echo "Syncing projects"
 	repo sync --force-sync
 	echo "Getting prebuilts"
@@ -124,7 +120,7 @@ upstreamMerge() {
 	croot
         echo "Upstream merging"
         ## Our snippet/manifest
-        ROOMSER=.repo/manifests/snippets/opt-cm-14.1.xml
+        ROOMSER=.repo/manifests/snippets/opt-cm-15.0.xml
         # Lines to loop over
         CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
 
@@ -140,7 +136,7 @@ upstreamMerge() {
             BRANCH=$(sed -n '2p' UPSTREAM)
 
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push origin opt-cm-14.1
+            git push origin opt-cm-15.0
             croot
         done <<< "$CHECK"
 
