@@ -46,11 +46,8 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
-    ThemeInterfacer
-
-# Prebuilt Toolbox
-PRODUCT_COPY_FILES += \
-    vendor/jdc/proprietary/Toolbox.apk:system/priv-app/Toolbox/Toolbox.apk 
+    ThemeInterfacer \
+    Toolbox
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
