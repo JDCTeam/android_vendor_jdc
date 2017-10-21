@@ -1,7 +1,3 @@
-#Arise
-PRODUCT_COPY_FILES += \
-	vendor/jdc/prebuilt/common/arise/arise.zip:system/arise/arise.zip
-
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
@@ -51,10 +47,6 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
     STweaks \
     ThemeInterfacer
-    
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/supersu/supersu.zip:system/supersu/supersu.zip
 
 # Prebuilt Toolbox
 PRODUCT_COPY_FILES += \
@@ -66,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Take a logcat
 #PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
+#vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
     
 #Substratum Verified
 PRODUCT_PROPERTY_OVERRIDES := \
