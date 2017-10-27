@@ -16,10 +16,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	vendor/jdc/Changelog.md:system/etc/Changelog.md
 
-# Custom format script
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/format.sh:install/bin/format.sh
-
 # Custom init script
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc
