@@ -130,8 +130,8 @@ upstreamMerge() {
 	    rm -rf $line
 	    repo sync $line
 	    cd "$line"
-	    git branch -D opt-cm-14.1
-	    git checkout -b opt-cm-14.1
+	    git branch -D opt-cm-15.0
+	    git checkout -b opt-cm-15.0
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
@@ -285,7 +285,7 @@ echo -e "\e[0m "
 echo "Setting up build environment..."
 . build/envsetup.sh > /dev/null
 echo "Setting build target $TARGET""..."
-lunch cm_"$TARGET"-"$VARIANT" > /dev/null
+lunch lineage_"$TARGET"-"$VARIANT" > /dev/null
 echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
