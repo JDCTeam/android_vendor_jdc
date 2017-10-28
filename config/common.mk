@@ -43,6 +43,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
     STweaks \
     ThemeInterfacer \
+    Substratum \
     Toolbox
     
 # Proximity sensor reset
