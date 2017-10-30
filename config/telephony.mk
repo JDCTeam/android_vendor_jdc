@@ -20,3 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # (for devices that check this)
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# Default ringtone
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=The_big_adventure.ogg
