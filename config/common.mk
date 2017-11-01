@@ -178,6 +178,16 @@ $(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
 # Vendor Overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
+# Themes
+$(call inherit-product, vendor/liquid/Themes/Themes.mk)
+
+PRODUCT_PACKAGES += \
+    Blue \
+    Green \
+    Pixel \
+    Red \
+    Stock
+
 # Version System
 PRODUCT_VERSION_MAJOR = 9
 PRODUCT_VERSION_MINOR = 1
