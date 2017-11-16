@@ -102,6 +102,14 @@ ifeq ($(WITH_TWRP),true)
 include vendor/liquid/config/twrp.mk
 endif
 
+# DU Utils Library
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
+
+# DU Utils Package
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
+
 # Required packages
 PRODUCT_PACKAGES += \
     Launcher3 \
