@@ -186,7 +186,13 @@ PRODUCT_PACKAGES += \
     Green \
     Pixel \
     Red \
-    Stock
+    Stock \
+    DeepPurpleTheme \
+    IndigoTheme \
+    PinkTheme \
+    SkyBlueTheme \
+    TealTheme \
+    YellowTheme
 
 # Version System
 PRODUCT_VERSION_MAJOR = 9
