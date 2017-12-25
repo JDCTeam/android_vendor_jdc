@@ -175,8 +175,8 @@ $(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
 # Version System
-PRODUCT_VERSION_MAJOR = 8
-PRODUCT_VERSION_MINOR = 1
+PRODUCT_VERSION_MAJOR = 9
+PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE := 0
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
