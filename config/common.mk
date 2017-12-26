@@ -112,6 +112,7 @@ endif
 
 # Required packages
 PRODUCT_PACKAGES += \
+    Gallery2 \
     Launcher3
 #    LiquidLounge
 
