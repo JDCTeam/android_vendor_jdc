@@ -1,17 +1,8 @@
-### Changes since Optimized LineageOS14.1-Version8
+### Changes since Optimized LineageOS14.1-Version9
 
 ---------------------------------------------------
-* Upstream merge until 12-Dec-2017
-* Update stock kernel to 12-Dec-2017
+* Upstream merge until 3-Jan-2018
+* Update stock kernel to 3-Jan-2018
 * Updated Alucard kernel and Ramdisk
-* Update to _r36 revision
 * Minor edits here and there and some clean up
-* Update mixplorer app
-* Add runtime themer (Settings->Display->Theme)
-* Version9 wallpaper
-* prop:Push the dex even more
-* Add 4G/LTE switch at tweaks section
-* SystemUI:Set recents taskbar delay to 0
-* config:Enable lockscreen rotation(Display/Rotation)
-
-
+* Version 10 wallpaper
