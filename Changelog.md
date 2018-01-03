@@ -6,3 +6,4 @@
 * Updated Alucard kernel and Ramdisk
 * Minor edits here and there and some clean up
 * Version 10 wallpaper
+* Speed up some things around, like animations 
