@@ -103,24 +103,24 @@ include vendor/liquid/config/twrp.mk
 endif
 
 # DU Utils Library
-#PRODUCT_BOOT_JARS += \
-#    org.dirtyunicorns.utils
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
 
 # DU Utils Package
-#PRODUCT_PACKAGES += \
-#    org.dirtyunicorns.utils
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
 
 # Required packages
 PRODUCT_PACKAGES += \
     Gallery2 \
-    Launcher3
-#    LiquidLounge
+    Launcher3 \
+    LiquidLounge
 
 # Optional packages
 PRODUCT_PACKAGES += \
     libemoji \
     LiveWallpapersPicker
-	
+
 # Themes
 PRODUCT_PACKAGES += \
     PixelTheme \
@@ -132,9 +132,9 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    ExactCalculator
-#    OmniJaws \
-#    OmniStyle
+    ExactCalculator \
+    OmniJaws \
+    OmniStyle
 
 # Extra tools
 PRODUCT_PACKAGES += \
