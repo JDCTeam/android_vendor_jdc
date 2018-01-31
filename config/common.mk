@@ -102,15 +102,6 @@ ifeq ($(WITH_TWRP),true)
 include vendor/liquid/config/twrp.mk
 endif
 
-# CAF Telephony Library
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
-# CAF Telepony Packages
-PRODUCT_PACKAGES += \
-    telephony-ext \
-    ims-ext-common
-
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
