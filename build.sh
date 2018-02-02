@@ -23,7 +23,7 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-CM_VER=15.0
+CM_VER=15.1
 OUT="out/target/product/jflte"
 FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 ALU_DIR=kernel/samsung/alucard24
