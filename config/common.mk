@@ -12,7 +12,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enterprise_mode=1 \
     ro.com.android.dataroaming=false \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
-    ro.setupwizard.rotation_locked=true
+    ro.setupwizard.rotation_locked=true \
+    ro.config.calibration_cad=/system/etc/calibration_cad.xml
 
 # Security Enhanced Linux
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -96,6 +97,10 @@ PRODUCT_COPY_FILES += \
 # Include LiquidRemix boot animation
 PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+
+# AR
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/etc/calibration_cad.xml:system/etc/calibration_cad.xml
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
