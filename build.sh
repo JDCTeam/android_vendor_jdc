@@ -120,7 +120,7 @@ upstreamMerge() {
 	croot
         echo "Upstream merging"
         ## Our snippet/manifest
-        ROOMSER=.repo/manifests/snippets/opt-cm-15.1.xml
+        ROOMSER=.repo/manifests/snippets/optcm.xml
         # Lines to loop over
         CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
 
