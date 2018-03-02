@@ -93,7 +93,7 @@ deepClean() {
 getBuild() {
 	croot
 	rm -rf build
-	repo sync build
+	repo sync build/make
 	repo sync build/kati
 	repo sync build/soong
 	repo sync build/blueprint
