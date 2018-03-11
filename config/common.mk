@@ -20,7 +20,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.setupwizard.rotation_locked=true \
-    ro.config.calibration_cad=/system/etc/calibration_cad.xml
+    ro.config.calibration_cad=/system/etc/calibration_cad.xml \
+    persist.debug.wfd.enable=1 \
+    persist.sys.wfd.virtual=0
 
 # Security Enhanced Linux
 PRODUCT_PROPERTY_OVERRIDES += \
