@@ -182,6 +182,15 @@ DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 # Themes
 $(call inherit-product, vendor/liquid/Themes/Themes.mk)
 
+# UI Variants
+PRODUCT_PACKAGES += \
+    SystemDarkTheme \
+    SettingsDarkTheme \
+    DuiDarkTheme \
+    SystemBlackTheme \
+    SettingsBlackTheme \
+    DuiBlackTheme
+
 PRODUCT_PACKAGES += \
     Blue \
     Green \
