@@ -101,7 +101,7 @@ getBuild() {
 	
 	echo -e "\e[1;91m==============================================================="
 	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your device tree,EXTERNAL WEBVIEW,aroma,Substratum"
+	echo -e "\e[1;91mPlease update your device tree,aroma,Substratum"
 	echo ""
 	echo "==============================================================="
 	echo -e "\e[0m "
