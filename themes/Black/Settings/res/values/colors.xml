@@ -14,4 +14,8 @@
     <!-- Color for the background of the shortcut icons.-->
     <color name="shortcut_background">@*android:color/black</color>
 
+    <!-- Expanded desktop -->
+    <drawable name="expanded_item_bg_activated">@*android:color/black</drawable>
+    <drawable name="expanded_item_bg">@*android:color/black</drawable>
+
 </resources>
