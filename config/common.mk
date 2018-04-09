@@ -42,7 +42,8 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
     STweaks \
-    Toolbox
+    Toolbox \
+    MusicFX
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
