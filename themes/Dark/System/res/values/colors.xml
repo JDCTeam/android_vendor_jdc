@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Two target preference vertical divider color -->
+    <color name="list_divider_dark">#64eeeeee</color>
+
     <!-- Resolver -->
     <color name="resolver_list_bg">@*android:color/background_material_dark</color>
 
