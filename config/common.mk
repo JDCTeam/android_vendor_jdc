@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     OmniJaws \
     OmniStyle \
+    OmniSwitch \
     DU-Fonts
 
 # Extra tools
