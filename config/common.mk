@@ -198,15 +198,20 @@ PRODUCT_PACKAGES += \
     BlueGreyAccent \
     BrownAccent \
     CyanAccent \
+    CandyRedAccent \
     DeepOrangeAccent \
     DeepPurpleAccent \
+    ExtendedGreenAccent \
     GreenAccent \
     GreyAccent \
     IndigoAccent \
+    JadeGreenAccent \
     LightBlueAccent \
     LightGreenAccent \
     LimeAccent \
     OrangeAccent \
+    PaleBlueAccent \
+    PaleRedAccent \
     PinkAccent \
     PurpleAccent \
     RedAccent \
@@ -221,7 +226,10 @@ PRODUCT_PACKAGES += \
     DuiDarkTheme \
     SystemBlackTheme \
     SettingsBlackTheme \
-    DuiBlackTheme
+    DuiBlackTheme \
+    SystemExtendedTheme \
+    SettingsExtendedTheme \
+    DuiExtendedTheme
 
 # Version System
 PRODUCT_VERSION_MAJOR = 9

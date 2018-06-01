@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black">#ff242038</color>
 
     <!-- Resolver -->
     <color name="resolver_list_bg">@*android:color/black</color>
@@ -58,10 +59,9 @@
     <color name="toast_bg_color">@*android:color/black</color>
     <color name="toast_text_color">@android:color/white</color>
 
-    <color name="background_floating_material_dark">#ff111111</color>
+    <color name="background_floating_material_dark">@*android:color/black</color>
 
     <!-- Two target preference vertical divider color -->
-    <color name="list_divider_dark">@*android:color/black</color>
+    <color name="list_divider_dark">#332d4f</color>
 
 </resources>
-
