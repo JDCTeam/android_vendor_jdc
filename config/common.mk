@@ -117,8 +117,13 @@ PRODUCT_PACKAGES += \
 
 # Required packages
 PRODUCT_PACKAGES += \
+    Eleven \
     Gallery2 \
-    Launcher3 \
+    Jelly \
+    Launcher3
+
+# Liquid packages
+PRODUCT_PACKAGES += \
     LiquidLounge \
     LiquidOTA
 
@@ -132,12 +137,14 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    Eleven \
-    ExactCalculator \
+    DU-Fonts \
+    ExactCalculator
+
+# Omni packages
+PRODUCT_PACKAGES += \
     OmniJaws \
     OmniStyle \
-    OmniSwitch \
-    DU-Fonts
+    OmniSwitch
 
 # Extra tools
 PRODUCT_PACKAGES += \
