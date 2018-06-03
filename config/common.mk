@@ -132,6 +132,7 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
+    Eleven \
     ExactCalculator \
     OmniJaws \
     OmniStyle \
