@@ -119,7 +119,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Gallery2 \
     Launcher3 \
-    LiquidLounge
+    LiquidLounge \
+    LiquidOTA
 
 # Optional packages
 PRODUCT_PACKAGES += \
