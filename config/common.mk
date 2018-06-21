@@ -229,7 +229,10 @@ PRODUCT_PACKAGES += \
     DuiBlackTheme \
     SystemExtendedTheme \
     SettingsExtendedTheme \
-    DuiExtendedTheme
+    DuiExtendedTheme \
+    SystemChocolateTheme \
+    SettingsChocolateTheme \
+    DuiChocolateTheme
 
 # Version System
 PRODUCT_VERSION_MAJOR = 9
