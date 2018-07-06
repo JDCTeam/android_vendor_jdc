@@ -200,7 +200,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 PRODUCT_PACKAGES += \
     PixelTheme \
     AmberAccent \
-    BlackAccent \
     BlueAccent \
     BlueGreyAccent \
     BrownAccent \
@@ -223,8 +222,7 @@ PRODUCT_PACKAGES += \
     PurpleAccent \
     RedAccent \
     TealAccent \
-    YellowAccent \
-    WhiteAccent
+    YellowAccent
 
 # UI Variants
 PRODUCT_PACKAGES += \
