@@ -239,7 +239,19 @@ PRODUCT_PACKAGES += \
     DuiExtendedTheme \
     SystemChocolateTheme \
     SettingsChocolateTheme \
-    DuiChocolateTheme
+    DuiChocolateTheme \
+    ContactsThemeBlack \
+    DialerThemeBlack \
+    FilesThemeBlack \
+    ContactsThemeDark \
+    DialerThemeDark \
+    FilesThemeDark \
+    ContactsThemeChocolate \
+    DialerThemeChocolate \
+    FilesThemeChocolate \
+    ContactsThemeExtended \
+    DialerThemeExtended \
+    FilesThemeExtended
 
 # Version System
 PRODUCT_VERSION_MAJOR = 9

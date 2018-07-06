@@ -4,6 +4,8 @@
     <!-- Two target preference vertical divider color -->
     <color name="list_divider_dark">#64eeeeee</color>
 
+    <color name="black">@*android:color/background_material_dark</color>
+  
     <!-- Resolver -->
     <color name="resolver_list_bg">@*android:color/background_material_dark</color>
 
