@@ -56,9 +56,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.substratum.verified=true
 
-# Enable Storage Manager
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.storage_manager.enabled=1
+# Storage manager
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.storage_manager.enabled=true
     
 # Google Assistant
 PRODUCT_PROPERTY_OVERRIDES += \
