@@ -1,9 +1,11 @@
-# Copyright (c) 2015, JDCTeam
+# Copyright (c) 2018, JDCTeam
 #
 
 on fs
      # Trim partitions
      start emmc_trim
+     # Reset proximity sensor
+     start proximity
 
 on boot
      # Start LEDify
@@ -18,6 +20,13 @@ service emmc_trim /system/bin/emmc_trim
 
 # LEDify
 service ledify /system/bin/ledify
+     user root
+     group shell
+     disabled
+     oneshot
+
+# Proximity
+service proximity /system/bin/proximity
      user root
      group shell
      disabled
