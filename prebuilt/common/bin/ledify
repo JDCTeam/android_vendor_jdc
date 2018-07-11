@@ -88,7 +88,7 @@ HEARTBEAT() {
     # Between a beat and the other
     SPD2="sleep 0.02"
     # Between end of two beats and start of another two
-    SPD3="sleep 1.5"
+    SPD3="sleep 0.5"
     $BRG 30 > $LED | $SPD
     $BRG 55 > $LED | $SPD
     $BRG 80 > $LED | $SPD
