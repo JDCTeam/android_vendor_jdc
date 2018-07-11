@@ -46,7 +46,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/proximity.sh:install/bin/proximity.sh
+    vendor/jdc/prebuilt/common/bin/proximity:install/bin/proximity
 
 # Take a logcat
 #PRODUCT_COPY_FILES += \
