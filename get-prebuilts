@@ -1,7 +1,0 @@
-#/* Copyright (c) JDCTeam - All Rights Reserved
-# * Unauthorized rework, copy or redistribution of "Toolbox" app is strictly prohibited without the express permission of the respective owner.
-# * Written by Mattia D'Alleva <antaresone@antaresone.eu>, October 2015
-# */
-CURRPATH=`dirname $0`
-mkdir -p $CURRPATH/proprietary
-curl -L -o $CURRPATH/proprietary/Toolbox.apk -O -L http://www.antaresone.eu/jdcteam/prebuilts/Toolbox.apk
