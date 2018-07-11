@@ -40,9 +40,8 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
-#PRODUCT_PACKAGES += \
-#    Toolbox \
-#    MusicFX
+PRODUCT_PACKAGES += \
+   Turbo
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
