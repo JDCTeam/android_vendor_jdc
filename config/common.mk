@@ -67,7 +67,14 @@ PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/bin/50-liquid.sh:system/addon.d/50-liquid.sh \
     vendor/liquid/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
-# Backup Services whitelist
+ifeq ($(AB_OTA_UPDATER),true)
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/liquid/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/liquid/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+endif
+
+# Backup services whitelist
 PRODUCT_COPY_FILES += \
     vendor/liquid/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
