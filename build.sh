@@ -114,10 +114,6 @@ upstreamMerge() {
 	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-15.1
 	echo "Syncing projects"
 	repo sync --force-sync
-	echo "Getting prebuilts"
-	cd vendor/jdc
-	./get-prebuilts
-	croot
         echo "Upstream merging"
         ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/optcm.xml
