@@ -24,6 +24,7 @@ TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
 CM_VER=15.1
+VERSION_BRANCH=opt-cm-15.1
 OUT="out/target/product/jflte"
 FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
 ALU_DIR=kernel/samsung/alucard24
@@ -111,7 +112,7 @@ upstreamMerge() {
 
 	croot
 	echo "Refreshing manifest"
-	repo init -u git://github.com/JDCTeam/manifests.git -b opt-cm-15.1
+	repo init -u git://github.com/"$TEAM_NAME"/manifests.git -b "$VERSION_BRANCH"
 	echo "Syncing projects"
 	repo sync --force-sync
         echo "Upstream merging"
@@ -126,13 +127,13 @@ upstreamMerge() {
 	    rm -rf $line
 	    repo sync $line
 	    cd "$line"
-	    git branch -D opt-cm-15.1
-	    git checkout -b opt-cm-15.1
+	    git branch -D "$VERSION_BRANCH"
+	    git checkout -b "$VERSION_BRANCH"
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
             git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
-            git push origin opt-cm-15.1
+            git push origin "$VERSION_BRANCH"
             croot
         done <<< "$CHECK"
 
