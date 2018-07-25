@@ -273,7 +273,7 @@ ifndef LIQUID_BUILDTYPE
 endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LIQUID_BUILDTYPE)),)
+ifeq ($(filter RELEASE SNAPSHOT EXPERIMENTAL WEEKLY FINAL,$(LIQUID_BUILDTYPE)),)
     LIQUID_BUILDTYPE :=
 endif
 
@@ -282,6 +282,10 @@ ifdef LIQUID_BUILDTYPE
         ifdef LIQUID_EXTRAVERSION
             # Force build type to EXPERIMENTAL
             LIQUID_BUILDTYPE := EXPERIMENTAL
+            # Force build type to WEEKLY
+            LIQUID_BUILDTYPE := WEEKLY
+            # Force build type to FINAL
+            LIQUID_BUILDTYPE := FINAL
             # Remove leading dash from LIQUID_EXTRAVERSION
             LIQUID_EXTRAVERSION := $(shell echo $(LIQUID_EXTRAVERSION) | sed 's/-//')
             # Add leading dash to LIQUID_EXTRAVERSION
@@ -291,6 +295,10 @@ ifdef LIQUID_BUILDTYPE
         ifndef LIQUID_EXTRAVERSION
             # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
             LIQUID_BUILDTYPE := EXPERIMENTAL
+            # Force build type to WEEKLY, SNAPSHOT mandates a tag
+            LIQUID_BUILDTYPE := WEEKLY
+            # Force build type to FINAL, SNAPSHOT mandates a tag
+            LIQUID_BUILDTYPE := FINAL
         else
             # Remove leading dash from LIQUID_EXTRAVERSION
             LIQUID_EXTRAVERSION := $(shell echo $(LIQUID_EXTRAVERSION) | sed 's/-//')
