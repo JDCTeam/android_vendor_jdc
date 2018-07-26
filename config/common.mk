@@ -63,7 +63,8 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
    Turbo \
    Toolbox \
-   Mixplorer
+   Mixplorer \
+   Bromide
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
