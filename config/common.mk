@@ -64,7 +64,8 @@ PRODUCT_PACKAGES += \
    Turbo \
    Toolbox \
    Mixplorer \
-   Bromide
+   Bromide \
+   Launcher3
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
