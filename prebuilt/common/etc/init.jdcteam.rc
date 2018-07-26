@@ -19,14 +19,14 @@ service emmc_trim /system/bin/emmc_trim
      oneshot
 
 # LEDify
-service ledify /system/bin/ledify
+service ledify /system/vendor/bin/ledify
      user root
      group shell
      disabled
      oneshot
 
 # Proximity
-service proximity /system/bin/proximity
+service proximity /system/vendor/bin/proximity
      user root
      group shell
      disabled
