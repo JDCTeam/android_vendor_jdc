@@ -50,7 +50,8 @@ PRODUCT_COPY_FILES += \
 
 # LEDify
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify
+    vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify \
+    vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
 
 # Log banner
 PRODUCT_COPY_FILES += \
