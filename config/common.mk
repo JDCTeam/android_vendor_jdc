@@ -63,7 +63,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 # Packages
 PRODUCT_PACKAGES += \
    Turbo \
-   Toolbox \
    Mixplorer \
    Bromide
     
