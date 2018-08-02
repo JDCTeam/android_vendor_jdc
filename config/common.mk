@@ -12,10 +12,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/bsod_killer:system/bin/bsod_killer
 
-# Official Changelog
-PRODUCT_COPY_FILES += \
-	vendor/jdc/Changelog.md:system/etc/Changelog.md
-
 # Custom init script
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc
