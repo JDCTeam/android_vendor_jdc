@@ -143,14 +143,6 @@ useAroma()
 
 }
 
-makeFlashables()
-{
-	cd flashables
-	./make.sh
-	./release.sh
-	cd ..
-}
-
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -162,13 +154,12 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory" "Update and build flashables" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
-		"Update and build flashables" ) makeFlashables; break;;
 		"Exit" ) exit 0; break;;
 	esac
 done
