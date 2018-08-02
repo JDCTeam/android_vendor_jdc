@@ -31,6 +31,7 @@ ALU_DIR=kernel/samsung/alucard24
 ALU_BUILD=build_kernel.sh
 ALU_CLEAN=clean-all.sh
 AROMA_DIR=aroma
+ROM_VERSION=4
 
 buildROM()
 {
@@ -38,6 +39,7 @@ buildROM()
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j"$CPU_NUM" "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
+		mv $OUT/lineage*.zip $OUT/Optimized-Lineage-15.1-Version$ROM_VERSION.zip 
 	else
 		echo "Build failed"
 	fi
