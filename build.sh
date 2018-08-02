@@ -26,10 +26,6 @@ VARIANT=userdebug
 LOS_VER=15.1
 VERSION_BRANCH=opt-cm-15.1
 OUT="out/target/product/jflte"
-FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"
-ALU_DIR=kernel/samsung/alucard24
-ALU_BUILD=build_kernel.sh
-ALU_CLEAN=clean-all.sh
 AROMA_DIR=aroma
 ROM_VERSION=4
 
