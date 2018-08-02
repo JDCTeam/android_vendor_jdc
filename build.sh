@@ -46,25 +46,6 @@ buildROM()
 	croot
 }
 
-buildAlu() {
-    cd "$ALU_DIR"
-    if [ "$(cat $ALU_BUILD | grep "enforcing")" != "" ]; then
-    # Convert to androidboot.selinux
-    sed -i 's/enforcing=0 selinux=1/androidboot.selinux=permissive/' $ALU_BUILD
-    fi
-    LOG="Starting alucard kernel..."/$(date +"%T")
-    ./$ALU_BUILD
-    if [ "$?" == 0 ]; then
-        echo "Alucard Kernel built, ready to repack"
-	LOG="Kernel build done"/$(date +"%T")
-    else
-        echo "Alucard kernel build failure, do not repack"
-    fi
-    
-    croot
-    
-}
-
 anythingElse() {
     echo " "
     echo " "
@@ -75,22 +56,6 @@ anythingElse() {
             No ) exit 0; break;;
         esac
     done ;
-}
-
-deepClean() {
-	ccache -C
-	ccache -c
-	echo "Making clean"
-	make clean
-	echo "Making clobber"
-	make clobber
-	## Clean Alucard cache, including its compiler cache
-	if [ "$aluclean" == "true" ]; then
-		cd "$ALU_DIR"
-		./$ALU_CLEAN
-		croot
-	fi
-	
 }
 
 getBuild() {
@@ -141,59 +106,6 @@ upstreamMerge() {
 
 }
 
-repackRom() {
-    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
-    TEMP=temp
-    ALU_OUT="$ALU_DIR"/READY-JB
-    LOG="Unzipping files to repack alucard..."/$(date +"%T")
-    if [ -d "$TEMP" ]; then 
-    rm -rf "$TEMP"
-    fi
-    mkdir "$TEMP"
-    echo "Unpacking ROM to temp folder"
-    unzip -q "$OUT"/"$LATEST" -d"$TEMP"
-    echo "Copying Alucard Kernel"
-    rm -rf "$TEMP"/system/lib/modules/*
-    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
-    cp -r "$ALU_OUT"/system/wget "$TEMP"/system/wget
-    cp "$ALU_OUT"/boot.img "$TEMP"
-
-    cd "$TEMP"
-    echo "Repacking ROM"
-    LOG="Zipping files to repack alucard..."/$(date +"%T")
-    zip -rq9 ../"$FILENAME".zip *
-    cd ..
-    echo "Creating MD5"
-    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
-    echo "Cleaning up"
-    rm -rf "$TEMP"
-    echo "Done"
-    LOG="Build Repacked with Alucard kernel"/$(date +"%T")
-}
-
-checkRamdisk() {
-    echo "Going to build Alucard kernel, did you update the ramdisk?"
-    select choice in "Yes" "No"; do
-	case $choice in
-	    Yes ) buildAlu; break;;
-	    No ) 
-		if [ "$fullbuild" == "true" ]; then
-		    echo "You chosen to build ROM, kernel and repack but didn't update the ramdisk.\nTo prevent you from building a new kernel image with an old ramdisk I suspended the process.\nPlease update it and resume, I'll wait for you."
-		    echo ""
-		    echo "Are you ready?"
-		    select ready in "Yes" "No"; do
-			case $ready in
-			    Yes ) buildAlu; break;;
-			    No ) echo "Built ROM will not be deleted, once the ramdisk is updated run me again and select option 4 first, then option 5."; sleep 5; exit 0; break;;
-			esac
-		    done
-		else
-		    echo "Make sure you update the ramdisk, then run me again and select option 4." && sleep 5 | exit 0
-		fi; break;;
-	esac
-    done
-}
-
 useAroma()
 {
     LOG="Unzipping files to repack with AROMA..."/$(date +"%T")
@@ -231,45 +143,6 @@ useAroma()
 
 }
 
-repackAll()
-{
-    LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
-    TEMP=temp
-    FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
-    ALU_OUT="$ALU_DIR"/READY-JB
-    LOG="Unzipping files to repack alucard..."/$(date +"%T")
-    if [ -d "$TEMP" ]; then 
-    rm -rf "$TEMP"
-    fi
-    mkdir "$TEMP"
-    echo "Unpacking ROM to temp folder"
-    unzip -q "$OUT"/"$LATEST" -d"$TEMP"
-    echo "Packing alucard..."
-    rm -rf "$TEMP"/system/lib/modules/*
-    cp -r "$ALU_OUT"/system/lib/modules "$TEMP"/system/lib/modules
-    cp -r "$ALU_OUT"/system/wget "$TEMP"/system/wget
-    cp "$ALU_OUT"/boot.img "$TEMP"
-
-    echo "Removing META-INF folder"
-    rm -rf "$TEMP"/META-INF
-    echo "Copying Aroma Installer"
-    cp -r "$AROMA_DIR"/jdc "$TEMP"/jdc
-    cp -r "$AROMA_DIR"/xbin "$TEMP"/xbin
-    cp -r "$AROMA_DIR"/META-INF "$TEMP"/META-INF
-
-    cd "$TEMP"
-    
-    echo "Repacking ROM"
-    zip -rq9 ../"$FILENAME".zip *
-    cd ..
-    echo "Creating MD5"
-    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
-    echo "Cleaning up"
-    rm -rf "$TEMP"
-    echo "Done"
-    
-    
-}
 makeFlashables()
 {
 	cd flashables
@@ -289,17 +162,12 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Build ROM,kernel and repack" "Add Aroma Installer to ROM" "Build Alucard Kernel" "Repack with Alucard" "Repack with Alucard AND aroma" "Refresh build directory" "Deep clean(inc. ccache)" "Update and build flashables" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory" "Update and build flashables" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
-		"Build ROM,kernel and repack" ) fullbuild=true; buildROM; checkRamdisk; repackRom; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
-		"Build Alucard Kernel" ) buildAlu; anythingElse; break;;
-		"Repack with Alucard" ) repackRom; anythingElse; break;;
-		"Repack with Alucard AND aroma" ) repackAll; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
-		"Deep clean(inc. ccache)" ) aluclean=true; deepClean; anythingElse; break;;
 		"Update and build flashables" ) makeFlashables; break;;
 		"Exit" ) exit 0; break;;
 	esac
