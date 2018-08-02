@@ -23,10 +23,10 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-CM_VER=15.1
+LOS_VER=15.1
 VERSION_BRANCH=opt-cm-15.1
 OUT="out/target/product/jflte"
-FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"
+FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"
 ALU_DIR=kernel/samsung/alucard24
 ALU_BUILD=build_kernel.sh
 ALU_CLEAN=clean-all.sh
@@ -201,7 +201,7 @@ useAroma()
 	echo "No AROMA directory found.Please check your sources"
 	break;
     fi
-    FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
+    FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
     echo " "
     LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP2=tmpAroma
@@ -235,7 +235,7 @@ repackAll()
 {
     LATEST=$(ls -t $OUT | grep -v .zip.md5 | grep .zip | head -n 1)
     TEMP=temp
-    FILENAME=Optimized-LineageOS-"$CM_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
+    FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
     ALU_OUT="$ALU_DIR"/READY-JB
     LOG="Unzipping files to repack alucard..."/$(date +"%T")
     if [ -d "$TEMP" ]; then 
