@@ -237,6 +237,11 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_build_soong.git
 	croot
+	#fw/native
+	cd frameworks/native
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
+	croot
 
 	echo " "
 	echo "Remotes refreshed..."
