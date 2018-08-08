@@ -139,6 +139,110 @@ useAroma()
 
 }
 
+createRemotes () 
+{
+	croot
+	#vendor/jdc
+	cd vendor/jdc
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_vendor_jdc.git
+	croot
+	#vendor/samsung
+	cd vendor/samsung
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/proprietary_vendor_samsung.git
+	croot
+	#vendor/lineage
+	cd vendor/lineage
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_vendor_lineage.git
+	croot
+	#device/qcom/sepolicy
+	cd device/qcom/sepolicy
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_device_qcom_sepolicy.git
+	croot
+	#device/samsung/jf-common
+	cd device/samsung/jf-common
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jf-common.git
+	croot
+	#device/samsung/jflte
+	cd device/samsung/jflte
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte.git
+	croot
+	#device/samsung/qcom-common
+	cd device/samsung/qcom-common
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_device_samsung_qcom-common.git
+	croot
+	#packages/apps/Settings
+	cd packages/apps/Settings
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_Settings.git
+	croot
+	#packages/apps/Snap
+	cd packages/apps/Snap
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_Snap.git
+	croot
+	#packages/apps/CarrierConfig
+	cd packages/apps/CarrierConfig
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
+	croot
+	#frameworks/opt/telephony
+	cd frameworks/opt/telephony
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_opt_telephony.git
+	croot
+	#dalvik
+	cd dalvik
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_dalvik.git
+	croot
+	#system/core
+	cd system/core
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_system_core.git
+	croot
+	#frameworks/base
+	cd frameworks/base
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_base.git
+	croot
+	#bionic
+	cd bionic
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_bionic.git
+	croot
+	#art
+	cd art
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_art.git
+	croot
+	#lineage-sdk
+	cd lineage-sdk
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_lineage-sdk.git
+	croot
+	#build
+	cd build/make
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_build.git
+	croot
+	#soong
+	cd build/soong
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_build_soong.git
+	croot
+
+	echo " "
+	echo "Remotes refreshed..."
+	echo " " 
+
+}
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -150,12 +254,13 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
+		"Refresh remotes" ) createRemotes; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
 done
