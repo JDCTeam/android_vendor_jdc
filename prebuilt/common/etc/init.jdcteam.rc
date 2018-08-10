@@ -12,7 +12,7 @@ on boot
      start ledify
 
 # eMMC trim
-service emmc_trim /system/bin/emmc_trim
+service emmc_trim /system/vendor/bin/emmc_trim
      user root
      group shell
      disabled

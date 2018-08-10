@@ -12,7 +12,7 @@ PRODUCT_COPY_FILES += \
 
 # eMMC trim
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/emmc_trim:system/bin/emmc_trim
+    vendor/jdc/prebuilt/common/bin/emmc_trim:system/vendor/bin/emmc_trim
 
 # Fonts
 PRODUCT_COPY_FILES += \
