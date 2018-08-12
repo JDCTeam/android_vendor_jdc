@@ -192,6 +192,7 @@ endif
 $(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
 
 # Vendor Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/liquid/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
 # Version System
