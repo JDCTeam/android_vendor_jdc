@@ -121,14 +121,6 @@ ifeq ($(WITH_TWRP),true)
 include vendor/liquid/config/twrp.mk
 endif
 
-# DU Utils Library
-PRODUCT_BOOT_JARS += \
-    org.dirtyunicorns.utils
-
-# DU Utils Package
-PRODUCT_PACKAGES += \
-    org.dirtyunicorns.utils
-
 # Required packages
 PRODUCT_PACKAGES += \
     Eleven \
@@ -137,9 +129,9 @@ PRODUCT_PACKAGES += \
     Launcher3
 
 # Liquid packages
-PRODUCT_PACKAGES += \
-    LiquidLounge \
-    LiquidOTA
+#PRODUCT_PACKAGES += \
+#    LiquidLounge \
+#    LiquidOTA
 
 # Optional packages
 PRODUCT_PACKAGES += \
@@ -151,14 +143,13 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    DU-Fonts \
     ExactCalculator
 
 # Omni packages
-PRODUCT_PACKAGES += \
-    OmniJaws \
-    OmniStyle \
-    OmniSwitch
+#PRODUCT_PACKAGES += \
+#    OmniJaws \
+#    OmniStyle \
+#    OmniSwitch
 
 # Extra tools
 PRODUCT_PACKAGES += \
@@ -203,70 +194,15 @@ $(call inherit-product-if-exists, vendor/liquid/prebuilt/common/prebuilt.mk)
 # Vendor Overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
 
-# Color Accents
-PRODUCT_PACKAGES += \
-    PixelTheme \
-    AmberAccent \
-    BlueAccent \
-    BlueGreyAccent \
-    BrownAccent \
-    CyanAccent \
-    CandyRedAccent \
-    DeepOrangeAccent \
-    DeepPurpleAccent \
-    ExtendedGreenAccent \
-    GreenAccent \
-    GreyAccent \
-    IndigoAccent \
-    JadeGreenAccent \
-    LightBlueAccent \
-    LightGreenAccent \
-    LimeAccent \
-    OrangeAccent \
-    PaleBlueAccent \
-    PaleRedAccent \
-    PinkAccent \
-    PurpleAccent \
-    RedAccent \
-    TealAccent \
-    YellowAccent
-
-# UI Variants
-PRODUCT_PACKAGES += \
-    SystemDarkTheme \
-    SettingsDarkTheme \
-    DuiDarkTheme \
-    SystemBlackTheme \
-    SettingsBlackTheme \
-    DuiBlackTheme \
-    SystemExtendedTheme \
-    SettingsExtendedTheme \
-    DuiExtendedTheme \
-    SystemChocolateTheme \
-    SettingsChocolateTheme \
-    DuiChocolateTheme \
-    ContactsThemeBlack \
-    DialerThemeBlack \
-    FilesThemeBlack \
-    ContactsThemeDark \
-    DialerThemeDark \
-    FilesThemeDark \
-    ContactsThemeChocolate \
-    DialerThemeChocolate \
-    FilesThemeChocolate \
-    ContactsThemeExtended \
-    DialerThemeExtended \
-    FilesThemeExtended
-
 # Version System
-PRODUCT_VERSION_MAJOR = 9
-PRODUCT_VERSION_MINOR = 1
-PRODUCT_VERSION_MAINTENANCE := 4
+PRODUCT_VERSION_MAJOR = 10
+PRODUCT_VERSION_MINOR = 0
+PRODUCT_VERSION_MAINTENANCE := Beta
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
     LIQUID_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
 else
-    LIQUID_VERSION_MAINTENANCE := 4
+    LIQUID_VERSION_MAINTENANCE := Beta
 endif
 
 # Set LIQUID_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
@@ -327,7 +263,7 @@ endif
 
 ifeq ($(LIQUID_BUILDTYPE), RELEASE)
     ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-        LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-OFFICIAL-$(LIQUID_BUILD)
+        LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-OFFICIAL-$(LIQUID_BUILD)
     else
         ifeq ($(TARGET_BUILD_VARIANT),user)
             ifeq ($(LIQUID_VERSION_MAINTENANCE),0)
@@ -336,7 +272,7 @@ ifeq ($(LIQUID_BUILDTYPE), RELEASE)
                 LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LIQUID_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LIQUID_BUILD)
             endif
         else
-            LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LIQUID_BUILD)
+            LIQUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LIQUID_BUILD)
         endif
     endif
 else
