@@ -32,7 +32,7 @@ ROM_VERSION=4
 buildROM()
 {
 	echo "Building..."
-	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j99 "$@"
+	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j12 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-15.1-Version$ROM_VERSION.zip 
