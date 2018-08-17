@@ -27,7 +27,7 @@ LOS_VER=15.1
 VERSION_BRANCH=opt-cm-15.1
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
-ROM_VERSION=4
+ROM_VERSION=5
 
 buildROM()
 {
