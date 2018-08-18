@@ -173,7 +173,7 @@ def add_to_manifest(repositories, fallback_branch = None):
         project = ElementTree.Element("project", attrib = { "path": repo_target,
             "remote": "github", "name": "LiquidRemix-Devices/%s" % repo_name })
 
-        fallback_branch = "oc-mr2"
+        fallback_branch = "pie"
         if 'branch' in repository:
             project.set('revision',repository['branch'])
         elif fallback_branch:
@@ -262,7 +262,7 @@ else:
             repo_path = "device/%s/%s" % (manufacturer, device)
             adding = {'repository':repo_name,'target_path':repo_path}
             
-            fallback_branch = "oc-mr2"
+            fallback_branch = "pie"
             if not has_branch(result, default_revision):
                 if os.getenv('ROOMSERVICE_BRANCHES'):
                     fallbacks = list(filter(bool, os.getenv('ROOMSERVICE_BRANCHES').split(' ')))
