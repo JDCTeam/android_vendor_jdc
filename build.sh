@@ -192,11 +192,6 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_LineageParts.git
 	croot
-	#packages/apps/ScreenStabilization
-	cd packages/apps/ScreenStabilization
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_ScreenStabilization.git
-	croot
 	#packages/apps/CarrierConfig
 	cd packages/apps/CarrierConfig
 	git remote remove origin
