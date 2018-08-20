@@ -118,4 +118,7 @@
     <dimen name="config_buttonCornerRadius">8.0dip</dimen> <!-- default: 2dp -->
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen> <!-- default: 0 -->
 
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
+
 </resources>
