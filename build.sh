@@ -28,7 +28,7 @@ VERSION_BRANCH=opt-cm-15.1
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
 ROM_VERSION=6
-
+export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 buildROM()
 {
 	echo "Building..."
