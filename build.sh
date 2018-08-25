@@ -197,6 +197,11 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_frameworks_opt_telephony.git
 	croot
+	#aroma
+	cd AromaInstaller
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/AromaInstaller.git
+	croot
 	#dalvik
 	cd dalvik
 	git remote remove origin
