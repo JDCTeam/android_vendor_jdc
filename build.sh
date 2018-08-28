@@ -139,6 +139,17 @@ useAroma()
 
 }
 
+audit () 
+{
+	croot
+	cd external/selinux/prebuilts/bin
+	adb pull /sys/fs/selinux/policy
+	adb logcat -b all -d | ./audit2allow -p policy > ../../../../policies_from_audit.txt
+	echo " "
+	echo "Policies produced"
+	echo " "
+
+}
 createRemotes () 
 {
 	croot
@@ -264,13 +275,14 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
+		"Produce audit2allow results" ) audit; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
 done
