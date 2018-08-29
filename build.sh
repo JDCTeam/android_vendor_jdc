@@ -142,6 +142,7 @@ useAroma()
 audit () 
 {
 	croot
+	rm -rf policies_from_audit.txt
 	cd external/selinux/prebuilts/bin
 	adb pull /sys/fs/selinux/policy
 	adb logcat -b all -d | ./audit2allow -p policy > ../../../../policies_from_audit.txt
