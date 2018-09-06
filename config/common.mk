@@ -129,7 +129,6 @@ endif
 # Required packages
 PRODUCT_PACKAGES += \
     Eleven \
-    Gallery2 \
     Jelly \
     Launcher3
 
@@ -145,10 +144,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     librsjni
-
-# Custom packages
-PRODUCT_PACKAGES += \
-    ExactCalculator
 
 # Omni packages
 #PRODUCT_PACKAGES += \
