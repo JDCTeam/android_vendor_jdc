@@ -261,9 +261,9 @@ createRemotes ()
 	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
 	croot
 	#adiutor
-	cd kerneladiutor
+	cd buffcoreapp
 	git remote remote origin
-	git remote add origin git@github.com:jdcteam/MTweaks-KernelAdiutorMOD.git
+	git remote add origin git@github.com:jdcteam/BuffCoreApp.git
 	croot
 
 	echo " "
