@@ -275,6 +275,7 @@ createRemotes ()
 buildAdiutor () {
 	croot
 	cd kerneladiutor
+	./gradlew clean
 	./gradlew build
 }
 echo " "
