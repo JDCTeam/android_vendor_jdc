@@ -29,6 +29,7 @@ OUT="out/target/product/jflte"
 AROMA_DIR=aroma
 ROM_VERSION=6
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
+export ANDROID_HOME=~/Android/Sdk
 buildROM()
 {
 	echo "Building..."
@@ -259,11 +260,22 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
 	croot
+	#adiutor
+	cd kerneladiutor
+	git remote remote origin
+	git remote add origin git@github.com:jdcteam/MTweaks-KernelAdiutorMOD.git
+	croot
 
 	echo " "
 	echo "Remotes refreshed..."
 	echo " " 
 
+}
+
+buildAdiutor () {
+	croot
+	cd kerneladiutor
+	./gradlew build
 }
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
@@ -276,7 +288,7 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Exit"; do
+select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
 	case $build in
 		"Refresh manifest,repo sync and upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build ROM" ) buildROM; anythingElse; break;;
@@ -284,6 +296,7 @@ select build in "Refresh manifest,repo sync and upstream merge" "Build ROM" "Add
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
 		"Produce audit2allow results" ) audit; anythingElse; break;;
+		"Build Kernel Adiutor" ) buildAdiutor; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
 done
