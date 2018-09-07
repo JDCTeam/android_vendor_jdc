@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify \
     vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
 
+# Respecting AROMA
+PRODUCT_COPY_FILES += \
+	vendor/jdc/prebuilt/common/bin/file.txt:system/file.txt
+		
 # Log banner
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
