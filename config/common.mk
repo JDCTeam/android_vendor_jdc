@@ -134,8 +134,8 @@ PRODUCT_PACKAGES += \
     Launcher3
 
 # Liquid packages
-#PRODUCT_PACKAGES += \
-#    LiquidLounge \
+PRODUCT_PACKAGES += \
+    LiquidLounge \
 #    LiquidOTA
 
 # Optional packages
