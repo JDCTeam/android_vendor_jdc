@@ -318,11 +318,16 @@ else
     endif
 endif
 
+TARGET_PRODUCT_SHORT := $(subst liquid_,,$(LIQUID_BUILDTYPE))
+
+ROM_FINGERPRINT := LiquidRemix/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date +%Y%m%d)
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.liquid.version=$(LIQUID_VERSION) \
     ro.liquid.releasetype=$(LIQUID_BUILDTYPE) \
     ro.liquid.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.modversion=$(LIQUID_VERSION)
+    ro.modversion=$(LIQUID_VERSION) \
+    ro.liquid.fingerprint=$(ROM_FINGERPRINT)
 
 LIQUID_DISPLAY_VERSION := $(LIQUID_VERSION)
 
