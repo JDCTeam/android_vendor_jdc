@@ -65,6 +65,15 @@ PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
+# Themes
+PRODUCT_PACKAGES += \
+    SettingsDarkTheme \
+    SystemDarkTheme \
+    SystemUIDarkTheme \
+    SettingsBlackTheme \
+    SystemBlackTheme \
+    SystemUIBlackTheme
+
 # Accents
 PRODUCT_PACKAGES += \
     AmberAccent \
