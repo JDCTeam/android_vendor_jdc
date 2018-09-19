@@ -164,7 +164,12 @@ PRODUCT_PACKAGES += \
     Eleven \
     Email \
     Jelly \
-    Launcher3
+    PixelLauncher
+
+# Sysconfig
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml \
+    vendor/liquid/prebuilt/common/etc/sysconfig/google-hiddenapi-package-whitelist.xml:system/etc/sysconfig/google-hiddenapi-package-whitelist.xml
 
 # Liquid packages
 PRODUCT_PACKAGES += \
