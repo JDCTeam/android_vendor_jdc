@@ -64,7 +64,7 @@
     <bool name="config_enableWifiDisplay">true</bool>
 
     <!-- Enable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
+    <bool name="config_enableLockScreenRotation">false</bool>
 
     <!-- Whether to persist the notification for when a usb drive device is plugged in -->
     <bool name="config_persistUsbDriveNotification">true</bool>
