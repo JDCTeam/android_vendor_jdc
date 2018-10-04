@@ -203,6 +203,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/etc/calibration_cad.xml:system/etc/calibration_cad.xml
 
+# Google Markup
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
+    vendor/liquid/prebuilt/common/lib64/libsketchology_native.so:system/lib64/libsketchology_native.so
+
 # TWRP
 ifeq ($(WITH_TWRP),true)
 include vendor/liquid/config/twrp.mk
@@ -229,7 +234,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librsjni
 
-# Omni packages
+# Google packages
+PRODUCT_PACKAGES += \
+    MarkupGoogle
+
+# Weather packages
 PRODUCT_PACKAGES += \
     OmniJaws
 
