@@ -185,10 +185,8 @@ PRODUCT_PACKAGES += \
     librsjni
 
 # Omni packages
-#PRODUCT_PACKAGES += \
-#    OmniJaws \
-#    OmniStyle \
-#    OmniSwitch
+PRODUCT_PACKAGES += \
+    OmniJaws
 
 # Extra tools
 PRODUCT_PACKAGES += \
