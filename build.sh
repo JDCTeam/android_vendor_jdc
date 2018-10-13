@@ -158,12 +158,12 @@ createRemotes ()
 	#vendor/jdc
 	cd vendor/jdc
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_vendor_jdc.git
+	git remote add origin git@github.com:jdcteam/android_vendor_jdc-private.git
 	croot
 	#vendor/samsung
 	cd vendor/samsung
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/proprietary_vendor_samsung.git
+	git remote add origin git@github.com:jdcteam/proprietary_vendor_samsung-private.git
 	croot
 	#vendor/lineage
 	cd vendor/lineage
@@ -173,12 +173,12 @@ createRemotes ()
 	#device/samsung/jf-common
 	cd device/samsung/jf-common
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jf-common.git
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jf-common-private.git
 	croot
 	#device/samsung/jflte
 	cd device/samsung/jflte
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte.git
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte-private.git
 	croot
 	#aroma
 	cd AromaInstaller
