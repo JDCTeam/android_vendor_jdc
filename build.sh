@@ -227,6 +227,15 @@ createRemotes ()
 	croot
 
 
+	#Fix up manifest
+	cd .repo/manifests
+	git branch -D opt-cm-16.0
+	git checkout -b opt-cm-16.0
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/manifests.git
+	croot
+
+
 	echo " "
 	echo "Remotes refreshed..."
 	echo " " 
