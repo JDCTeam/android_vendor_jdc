@@ -23,11 +23,11 @@
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
-LOS_VER=15.1
-VERSION_BRANCH=opt-cm-15.1
+LOS_VER=16.0
+VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
-ROM_VERSION=6
+ROM_VERSION=1
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 export ANDROID_HOME=~/Android/Sdk
 buildROM()
@@ -170,11 +170,6 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_vendor_lineage.git
 	croot
-	#device/qcom/sepolicy
-	cd device/qcom/sepolicy
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_qcom_sepolicy.git
-	croot
 	#device/samsung/jf-common
 	cd device/samsung/jf-common
 	git remote remove origin
@@ -185,80 +180,10 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte.git
 	croot
-	#device/samsung/qcom-common
-	cd device/samsung/qcom-common
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_qcom-common.git
-	croot
-	#packages/apps/Settings
-	cd packages/apps/Settings
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_Settings.git
-	croot
-	#packages/apps/LineageParts
-	cd packages/apps/LineageParts
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_LineageParts.git
-	croot
-	#packages/apps/CarrierConfig
-	cd packages/apps/CarrierConfig
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
-	croot
-	#frameworks/opt/telephony
-	cd frameworks/opt/telephony
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_opt_telephony.git
-	croot
 	#aroma
 	cd AromaInstaller
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/AromaInstaller.git
-	croot
-	#dalvik
-	cd dalvik
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_dalvik.git
-	croot
-	#system/core
-	cd system/core
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_system_core.git
-	croot
-	#frameworks/base
-	cd frameworks/base
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_base.git
-	croot
-	#bionic
-	cd bionic
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_bionic.git
-	croot
-	#art
-	cd art
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_art.git
-	croot
-	#lineage-sdk
-	cd lineage-sdk
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_lineage-sdk.git
-	croot
-	#build
-	cd build/make
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_build.git
-	croot
-	#soong
-	cd build/soong
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_build_soong.git
-	croot
-	#fw/native
-	cd frameworks/native
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
 	croot
 	#adiutor
 	cd buffcoreapp
