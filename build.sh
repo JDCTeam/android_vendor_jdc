@@ -200,6 +200,26 @@ createRemotes ()
 	git remote remote origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
 	croot
+    #dalvik
+	cd dalvik
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_dalvik.git
+	croot
+	#system/core
+	cd system/core
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_system_core.git
+	croot
+	#bionic
+	cd bionic
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_bionic.git
+	croot
+	#art
+	cd art
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_art.git
+	croot
 
 	echo " "
 	echo "Remotes refreshed..."
