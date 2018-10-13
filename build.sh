@@ -208,7 +208,7 @@ createRemotes ()
 	#system/core
 	cd system/core
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_system_core.git
+	git remote add origin git@github.com:jdcteam/android_system_core-pie.git
 	croot
 	#bionic
 	cd bionic
