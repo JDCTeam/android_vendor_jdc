@@ -8,7 +8,8 @@ PRODUCT_COPY_FILES += \
 
 # Custom init script
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc
+    vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc \
+    vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:init.jdcteam.rc \
 
 # eMMC trim
 PRODUCT_COPY_FILES += \
