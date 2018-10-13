@@ -190,6 +190,16 @@ createRemotes ()
 	git remote remote origin
 	git remote add origin git@github.com:jdcteam/BuffCoreApp.git
 	croot
+	#frameworks/opt/telephony
+	cd frameworks/opt/telephony
+	git remote remote origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_opt_telephony.git
+	croot
+	#packages/apps/CarrierConfig
+	cd packages/apps/CarrierConfig
+	git remote remote origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
+	croot
 
 	echo " "
 	echo "Remotes refreshed..."
