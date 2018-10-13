@@ -220,6 +220,12 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_art.git
 	croot
+	#build
+	cd build/make
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_build.git
+	croot
+
 
 	echo " "
 	echo "Remotes refreshed..."
