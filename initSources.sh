@@ -17,6 +17,19 @@
 #repopick 223085; # adbd: Disable "adb root" by system property (2/3)
 #repopick 223500; # Add back fuse support
 #repopick 224264; # debuggerd: Resolve tombstoned missing O_CREAT mode
+
+# packages/apps/Settings
+#repopick -c 11 226142; # Settings: Add developer setting for root access
+#repopick -c 10 226148; # Settings: "Security & location" -> "Security & privacy"
+#repopick 226150; # Settings: add Trust interface hook
+#repopick 226151; # Settings: show Trust brading in confirm_lock_password UI
+#repopick 225755; # Settings: Hide AOSP theme-related controllers
+#repopick 225756; # Settings: fix dark style issues
+#repopick 226154; # fingerprint: Allow devices to configure sensor location
+#repopick 227120; # Settings: Check interfaces before enabling ADB over network
+#repopick 228403; # Settings: forward port lock pattern grid size (2/2)
+#repopick 228404; # Forward port pattern visibility settings (2/2)
+#repopick 227929; # Settings: Remove battery percentage switch
 #=====================================================
 
 # repopick 229491; # build: Automatically replace old-style kernel header includes with new header lib
@@ -104,19 +117,7 @@ repopick 225289; # DocumentsUI: support night mode
 
 repopick 227930; # LineageParts: Bring back and refactor battery icon options
 repopick 221756; # StatusBarSettings: Hide battery preference category based on icon visibility
-# packages/apps/Settings
 
-repopick -c 11 226142; # Settings: Add developer setting for root access
-repopick -c 10 226148; # Settings: "Security & location" -> "Security & privacy"
-repopick 226150; # Settings: add Trust interface hook
-repopick 226151; # Settings: show Trust brading in confirm_lock_password UI
-repopick 225755; # Settings: Hide AOSP theme-related controllers
-repopick 225756; # Settings: fix dark style issues
-repopick 226154; # fingerprint: Allow devices to configure sensor location
-repopick 227120; # Settings: Check interfaces before enabling ADB over network
-repopick 228403; # Settings: forward port lock pattern grid size (2/2)
-repopick 228404; # Forward port pattern visibility settings (2/2)
-repopick 227929; # Settings: Remove battery percentage switch
 # packages/apps/SettingsIntelligence
 
 repopick 230519 -P packages/apps/SettingsIntelligence; # Fix dark style issues
