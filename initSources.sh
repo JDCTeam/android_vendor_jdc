@@ -1,20 +1,29 @@
 . build/envsetup.sh
 
+#Merged to jdc repos
+#=====================================================
 # bionic
+#repopick 223067; # libc fortify: Ignore open() O_TMPFILE mode bits warning
 
-repopick 223067; # libc fortify: Ignore open() O_TMPFILE mode bits warning
 # build/make
+#repopick 222733; # core: Disable vendor restrictions
+#repopick 222760; # Add LOCAL_AIDL_FLAGS
 
-repopick 222733; # core: Disable vendor restrictions
-repopick 222760; # Add LOCAL_AIDL_FLAGS
+# dalvik
+#repopick 225475; # dexdeps: Add option for --include-lineage-classes.
+#repopick 225476; # dexdeps: Ignore static initializers on analysis.
+
+# system/core
+#repopick 223085; # adbd: Disable "adb root" by system property (2/3)
+#repopick 223500; # Add back fuse support
+#repopick 224264; # debuggerd: Resolve tombstoned missing O_CREAT mode
+#=====================================================
+
 # repopick 229491; # build: Automatically replace old-style kernel header includes with new header lib
 # build/soong
 # repopick 224613; # soong: Add LOCAL_AIDL_FLAGS handling
 # repopick 229411; # soong sbox: Add option to allow copying all generated output
-# dalvik
 
-repopick 225475; # dexdeps: Add option for --include-lineage-classes.
-repopick 225476; # dexdeps: Ignore static initializers on analysis.
 # external/perfetto
 
 repopick 223413; # perfetto_cmd: Resolve missing O_CREAT mode
@@ -117,11 +126,7 @@ repopick 225422; # Bluetooth: Read BLE vendor capability to proceed on Secure co
 repopick 223945; # Prevent abort in case of command timeout
 repopick 225423; # Add support to force disable enhanced sco commands
 repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX
-# system/core
 
-repopick 223085; # adbd: Disable "adb root" by system property (2/3)
-repopick 223500; # Add back fuse support
-repopick 224264; # debuggerd: Resolve tombstoned missing O_CREAT mode
 # system/sepolicy
 
 repopick 223748; # Build sepolicy tools with Android.bp.
