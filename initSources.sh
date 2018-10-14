@@ -121,6 +121,8 @@ repopick 221756; # StatusBarSettings: Hide battery preference category based on 
 # packages/apps/SettingsIntelligence
 
 repopick 230519 -P packages/apps/SettingsIntelligence; # Fix dark style issues
+repopick 231538; # SettingsIntelligence: Match Settings style
+repopick 231539; # SettingsIntelligence: Regen database on build version change
 # system/bt
 
 repopick 225422; # Bluetooth: Read BLE vendor capability to proceed on Secure conn
