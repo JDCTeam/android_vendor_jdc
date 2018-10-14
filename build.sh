@@ -200,7 +200,12 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
 	croot
-    	#dalvik
+	#packages/apps/CarrierConfig
+	cd packages/apps/Settings
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_Settings.git
+	croot
+    #dalvik
 	cd dalvik
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_dalvik.git
