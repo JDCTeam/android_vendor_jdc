@@ -133,22 +133,3 @@ repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX
 # system/sepolicy
 
 repopick 223748; # Build sepolicy tools with Android.bp.
-
-#hw/samsung
-repopick 228524;
-repopick 226076;
-repopick 226077;
-repopick 227453;
-repopick 227454;
-repopick 226075;
-repopick 231194;
-repopick 225628;
-repopick 225629;
-repopick 225630;
-repopick 225631;
-repopick 225632;
-repopick 225633;
-repopick 225634;
-repopick 225635;
-repopick 226080;
-repopick 231660;
