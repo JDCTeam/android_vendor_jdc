@@ -75,13 +75,13 @@ getBuild() {
 upstreamMerge() {
 
 	croot
-	echo "Refreshing manifest"
-	repo init -u git://github.com/"$TEAM_NAME"/manifests.git -b "$VERSION_BRANCH"
-	echo "Syncing projects"
-	repo sync --force-sync
+	#echo "Refreshing manifest"
+	#repo init -u git://github.com/"$TEAM_NAME"/manifests.git -b "$VERSION_BRANCH"
+	#echo "Syncing projects"
+	#repo sync --force-sync
         echo "Upstream merging"
         ## Our snippet/manifest
-        ROOMSER=.repo/manifests/snippets/optcm.xml
+        ROOMSER=.repo/manifests/snippets/optlos.xml
         # Lines to loop over
         CHECK=$(cat ${ROOMSER} | grep -e "<remove-project" | cut -d= -f3 | sed 's/revision//1' | sed 's/\"//g' | sed 's|/>||g')
 
