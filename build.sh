@@ -229,6 +229,11 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_build.git
 	croot
+	#hw/samsung
+	cd hardware/samsung
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_hardware_samsung.git
+	croot
 
 
 	#Fix up manifest
