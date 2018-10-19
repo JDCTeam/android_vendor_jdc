@@ -117,6 +117,7 @@
     <dimen name="config_dialogCornerRadius">16.0dip</dimen> <!-- default: 2dp -->
     <dimen name="config_buttonCornerRadius">8.0dip</dimen> <!-- default: 2dp -->
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen> <!-- default: 0 -->
+    <dimen name="recents_task_view_rounded_corners_radius">8.0dip</dimen>
 
     <!-- Flag indicating whether we should enable smart battery. -->
     <bool name="config_smart_battery_available">true</bool>
