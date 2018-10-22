@@ -86,6 +86,9 @@ PRODUCT_PACKAGES += \
     QStileCircleTrim \
     QStileDefault \
     QStileDualToneCircle \
+    QStileOreo \
+    QStileOreoCircleTrim \
+    QStileOreoSquircleTrim \
     QStileSquircleTrim
 
 # Accents
