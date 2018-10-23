@@ -3,21 +3,6 @@
 ##### # external/perfetto
 repopick 223413; # perfetto_cmd: Resolve missing O_CREAT mode  
 
-##### # frameworks/base
-repopick -c 17 226236; # SystemUI: add navbar button layout inversion tuning  
-repopick -c 16 224844; # lockscreen: Add option for showing unlock screen directly  
-repopick -c 15 225754; # SystemUI: Berry styles  
-repopick -c 14 225582; # [TEMP]: Revert "OMS: harden permission checks"  
-repopick -c 13 227108; # SystemUI: Fix several issues in the ADB over Network tile  
-repopick -c 12 226615; # NavigationBarView: Avoid NPE before mPanelView is created  
-repopick -c 11 227821; # GlobalScreenshot: Fix screenshot not saved when appending appname with some languages  
-repopick -c 10 228405; # Forward port CM Screen Security settings (1/2)  
-repopick 229230; # SystemUI: allow the power menu to be relocated  
-repopick 230016; # Implement expanded desktop feature  
-repopick 224446; # SystemUI: Make tablets great again  
-repopick 224513; # SystemUI: Disable config_keyguardUserSwitcher on sw600dp  
-repopick 221716; # Where's my circle battery, dude?  
-
 ##### # frameworks/native
 repopick 224443; # libbinder: Don't log call trace when waiting for vendor service on non-eng builds  
 repopick 225546; # AppOpsManager: Update with the new ops  
