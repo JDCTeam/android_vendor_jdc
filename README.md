@@ -1,6 +1,4 @@
 ==============
-Copyright 2015 - JDCTeam
+Copyright 2018 - JDCTeam
 --------------
 Addons/common files for ROMs
-
-WORK IN PROGRESS.
