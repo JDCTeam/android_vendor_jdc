@@ -32,7 +32,7 @@ export ANDROID_HOME=~/Android/Sdk
 buildROM()
 {
 	echo "Building..."
-	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j12 "$@"
+	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-Version$ROM_VERSION.zip 
