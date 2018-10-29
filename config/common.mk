@@ -60,7 +60,8 @@ PRODUCT_PACKAGES += \
    Turbo \
    Mixplorer \
    Bromide \
-   Buffcore
+   Buffcore \
+   Launcher3QuickStep
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
