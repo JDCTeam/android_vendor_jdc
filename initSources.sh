@@ -14,28 +14,12 @@ repopick 223338; # Revert "msm8x74: remove from top level makefile"
 repopick 225117; # msm8960: Add some missing out/in types  
 repopick 225118; # msm8960: Add two stub microphone functions  
 
-##### # hardware/qcom/bt-caf
-repopick -c 12 226648; # libbt: Fix case where SoC type is not set  
-repopick -c 11 226649; # Bluetooth: load btaddr from NV if QCOM_BT_USE_BTNV is set  
-repopick -c 10 226650; # libbt-qcom: Allow reading BT address from property  
-repopick 226651; # Add vendor-specific message types for FM.  
-repopick 226652; # Remove hardcoded LOCAL_MODULE_PATHS from vendor components. (bt)  
-repopick 226653; # BT: Moving chipset version parameters' initialization out of ALOG  
-repopick 226654; # Apply the Cherokee's mechanism of stopping hci_filter to ROME  
-repopick 226655; # Add missing headers to libbt-vendor  
-repopick 226656; # Load bluetooth firmwares from /vendor  
-repopick 226658; # Don't build libbt-hidlclient for OSS builds  
-repopick 227449; # libbt-vendor: Fix BLUETOOTH_MAC_ADDR_BOOT_PROPERTY definition  
-repopick 227450; # libbt-vendor: Add missing vendor prefix to a bluetooth.status prop  
-
 ##### # hardware/qcom/power
 repopick 230513; # power: msm8960: Implement performance profiles  
 
 ##### # hardware/qcom/wlan-caf
 repopick 226638; # wcnss_qmi: Generate a fixed random mac address if the NV doesn't provide one  
 repopick 226643; # wcnss_service: Read serial number from custom property  
-repopick 227449; # libbt-vendor: Fix BLUETOOTH_MAC_ADDR_BOOT_PROPERTY definition  
-repopick 227450; # libbt-vendor: Add missing vendor prefix to a bluetooth.status prop  
 
 ##### # lineage-sdk
 repopick 225581; # lineage-sdk: Make styles init at system services ready  
@@ -59,16 +43,23 @@ repopick 221756; # StatusBarSettings: Hide battery preference category based on 
 repopick 230519 -P packages/apps/SettingsIntelligence; # Fix dark style issues  
 
 ##### # system/bt
-repopick 225422; # Bluetooth: Read BLE vendor capability to proceed on Secure conn  
-repopick 223945; # Prevent abort in case of command timeout  
-repopick 225423; # Add support to force disable enhanced sco commands  
 repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX  
-
-##### # system/core
-repopick 223085; # adbd: Disable "adb root" by system property (2/3)  
-repopick 223500; # Add back fuse support  
-repopick 224264; # debuggerd: Resolve tombstoned missing O_CREAT mode  
 
 ##### # system/sepolicy
 repopick 223748; # Build sepolicy tools with Android.bp.  
+
+##### # hardware/qcom/display
+repopick 223340 223341 223342 222686 222687 222688 222689 223343 223344 223345 223346 224958; 
+
+##### # build/soong
+repopick 224613; # soong: Add LOCAL_AIDL_FLAGS handling
+
+##### # hardware/qcom/keymaster
+repopick 224945-224954; ## AOSP Keymaster Chain: Broken crypto in current state, on hold
+
+##### # hardware/qcom/media
+repopick 224955 224956 224957; ## AOSP 8960 Media Chain
+
+
+
 
