@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
    Mixplorer \
    Bromide \
    Buffcore \
-   Launcher3QuickStep
+   Launcher3QuickStep \
+   Gallery2
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
