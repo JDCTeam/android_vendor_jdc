@@ -13,13 +13,13 @@
 # limitations under the License.
 
 # Prebuilt Packages
-#PRODUCT_PACKAGES += \
-#    Turbo
+PRODUCT_PACKAGES += \
+    Turbo
 
 # Permissions
-#PRODUCT_COPY_FILES += \
-#    vendor/liquid/prebuilt/common/etc/permissions/privapp-permissions-turbo.xml:system/etc/permissions/privapp-permissions-turbo.xml
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/etc/permissions/privapp-permissions-turbo.xml:system/etc/permissions/privapp-permissions-turbo.xml
 
 # Sysconfig
-#PRODUCT_COPY_FILES += \
-#    vendor/liquid/prebuilt/common/etc/sysconfig/turbo.xml:system/etc/sysconfig/turbo.xml
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/etc/sysconfig/turbo.xml:system/etc/sysconfig/turbo.xml
