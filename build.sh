@@ -29,7 +29,21 @@ AROMA_DIR=aroma
 ROM_VERSION=2
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 export ANDROID_HOME=~/Android/Sdk
-buildROM()
+
+buildTest()
+{
+	export z=`date "+%H%M%S-%d%m%y"`
+	echo "Building..."
+	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
+	if [ "$?" == 0 ]; then
+		echo "Build done"
+		mv $OUT/lineage*.zip $OUT/OptLos16-V$ROM_VERSION-$z.zip 
+	else
+		echo "Build failed"
+	fi
+	croot
+}
+buildRelease()
 {
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
@@ -268,10 +282,11 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Upstream merge" "Build ROM" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
+select build in "Upstream merge" "Build Test" "Build Release" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
 	case $build in
 		"Upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
-		"Build ROM" ) buildROM; anythingElse; break;;
+		"Build Test" ) buildTest; anythingElse; break;;
+		"Build Release" ) buildRelease; anythingElse; break;;
 		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
