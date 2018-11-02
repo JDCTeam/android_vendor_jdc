@@ -57,9 +57,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-   Turbo \
    Mixplorer \
-   Bromide \
    Buffcore \
    Launcher3QuickStep \
    Gallery2 \
