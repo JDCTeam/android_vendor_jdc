@@ -59,7 +59,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
    Mixplorer \
    Buffcore \
-   Launcher3QuickStep \
+   TrebuchetQuickStep \
    Gallery2 \
    Markup
     
