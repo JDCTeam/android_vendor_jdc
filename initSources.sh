@@ -1,5 +1,12 @@
 . build/envsetup.sh
 
+# bionic
+repopick 223067; # libc fortify: Ignore open() O_TMPFILE mode bits warning
+
+# dalvik
+repopick 225475; # dexdeps: Add option for --include-lineage-classes.
+repopick 225476; # dexdeps: Ignore static initializers on analysis.
+
 ##### # external/perfetto
 repopick 223413; # perfetto_cmd: Resolve missing O_CREAT mode  
 
