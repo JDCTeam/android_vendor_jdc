@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
    Buffcore \
    TrebuchetQuickStep \
    Gallery2 \
+   Bromide \
    Markup
     
 # Proximity sensor reset
