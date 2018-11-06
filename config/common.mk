@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
+# Ambient Play
+PRODUCT_PACKAGES += \
+    AmbientPlayHistoryProvider
+
 # Subs OMS
 PRODUCT_PACKAGES += \
     SubstratumSignature \
