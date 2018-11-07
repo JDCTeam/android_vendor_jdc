@@ -52,11 +52,8 @@ repopick 230519 -P packages/apps/SettingsIntelligence; # Fix dark style issues
 ##### # system/bt
 repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX  
 
-##### # system/sepolicy
-repopick 223748; # Build sepolicy tools with Android.bp.  
-
 ##### # hardware/qcom/display
-repopick 223340 223341 223342 222686 222687 222688 222689 223343 223344 223345 223346 224958; 
+repopick 223340 223341 223342 222686 223343 223344 223345 223346 224958; 
 
 ##### # build/soong
 repopick 224613; # soong: Add LOCAL_AIDL_FLAGS handling
