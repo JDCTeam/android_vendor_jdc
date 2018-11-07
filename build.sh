@@ -26,7 +26,7 @@ LOS_VER=16.0
 VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
-ROM_VERSION=2
+ROM_VERSION=3
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 export ANDROID_HOME=~/Android/Sdk
 
