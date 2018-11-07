@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
+# Subs OMS
+PRODUCT_PACKAGES += \
+    SubstratumSignature \
+
 # Themes
 PRODUCT_PACKAGES += \
     SettingsDarkTheme \
