@@ -39,7 +39,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
    Mixplorer \
    Buffcore \
-   TrebuchetQuickStep \
+   Launcher3QuickStep \
    Gallery2 \
    Bromide \
    Markup
