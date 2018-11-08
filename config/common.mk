@@ -41,14 +41,12 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 endif
 
-ifeq ($(TARGET_BUILD_VARIANT),eng)
 ifeq ($(TARGET_BUILD_VARIANT),userdebug)
 # Disable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+PRODUCT_PROPERTY_OVERRIDES += ro.adb.secure=0
 else
 # Enable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
-endif
+PRODUCT_PROPERTY_OVERRIDES += ro.adb.secure=1
 endif
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
