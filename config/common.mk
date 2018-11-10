@@ -95,6 +95,12 @@ PRODUCT_PACKAGES += \
     QStileOreoSquircleTrim \
     QStileSquircleTrim
 
+# Notification themes
+PRODUCT_PACKAGES += \
+    NotificationBlackTheme \
+    NotificationDarkTheme \
+    NotificationLightTheme
+
 # Accents
 PRODUCT_PACKAGES += \
     Amber \
