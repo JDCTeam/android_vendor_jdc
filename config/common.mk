@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += \
    Buffcore \
    Launcher3QuickStep \
    Gallery2 \
-   Bromide \
+   Brave \
    Markup
     
 # Proximity sensor reset
