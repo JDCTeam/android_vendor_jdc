@@ -14,7 +14,8 @@
 
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
-    Turbo
+    Turbo \
+     WeatherProvider
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -23,3 +24,8 @@ PRODUCT_COPY_FILES += \
 # Sysconfig
 PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/etc/sysconfig/turbo.xml:system/etc/sysconfig/turbo.xml
+
+# WeatherProvider
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/common/etc/permissions/com.android.providers.weather.xml:system/etc/permissions/com.android.providers.weather.xml \
+    vendor/liquid/prebuilt/common/etc/default-permissions/com.android.providers.weather.xml:system/etc/default-permissions/com.android.providers.weather.xml
