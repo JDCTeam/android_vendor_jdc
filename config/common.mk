@@ -95,6 +95,14 @@ PRODUCT_PACKAGES += \
     QStileOreoSquircleTrim \
     QStileSquircleTrim
 
+# QS header styles
+PRODUCT_PACKAGES += \
+    QSHeaderBlack \
+    QSHeaderGrey \
+    QSHeaderLightGrey \
+    QSHeaderAccent \
+    QSHeaderTransparent
+
 # Notification themes
 PRODUCT_PACKAGES += \
     NotificationBlackTheme \
