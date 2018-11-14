@@ -1,12 +1,5 @@
 . build/envsetup.sh
 
-# bionic
-repopick 223067; # libc fortify: Ignore open() O_TMPFILE mode bits warning
-
-# dalvik
-repopick 225475; # dexdeps: Add option for --include-lineage-classes.
-repopick 225476; # dexdeps: Ignore static initializers on analysis.
-
 ##### # external/perfetto
 repopick 223413; # perfetto_cmd: Resolve missing O_CREAT mode  
 
@@ -29,7 +22,6 @@ repopick 226638; # wcnss_qmi: Generate a fixed random mac address if the NV does
 repopick 226643; # wcnss_service: Read serial number from custom property  
 
 ##### # lineage-sdk
-repopick 225581; # lineage-sdk: Make styles init at system services ready  
 repopick 227931; # lineagesdk: Refactor battery icon options  
 
 ##### # packages/apps/Camera2
@@ -38,16 +30,6 @@ repopick 225265; # Add Storage preference (1/2)
 
 ##### # packages/apps/DeskClock
 repopick 226131; # DeskClock: Add support of power off alarm feature  
-
-##### # packages/apps/DocumentsUI
-repopick 225289; # DocumentsUI: support night mode  
-
-##### # packages/apps/LineageParts
-repopick 227930; # LineageParts: Bring back and refactor battery icon options  
-repopick 221756; # StatusBarSettings: Hide battery preference category based on icon visibility  
-
-##### # packages/apps/SettingsIntelligence
-repopick 230519 -P packages/apps/SettingsIntelligence; # Fix dark style issues  
 
 ##### # system/bt
 repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX  
@@ -63,7 +45,3 @@ repopick 224945-224954; ## AOSP Keymaster Chain: Broken crypto in current state,
 
 ##### # hardware/qcom/media
 repopick 224955 224956 224957; ## AOSP 8960 Media Chain
-
-
-
-
