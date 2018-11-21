@@ -79,7 +79,7 @@ getBuild() {
 	
 	echo -e "\e[1;91m==============================================================="
 	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your device tree,aroma,Substratum"
+	echo -e "\e[1;91mPlease update your libcxx , aroma"
 	echo ""
 	echo "==============================================================="
 	echo -e "\e[0m "
@@ -92,6 +92,14 @@ upstreamMerge() {
 	#repo init -u git://github.com/"$TEAM_NAME"/manifests.git -b "$VERSION_BRANCH"
 	#echo "Syncing projects"
 	#repo sync --force-sync
+	
+	echo -e "\e[1;91m==============================================================="
+	echo -e "\e[0m "
+	echo -e "\e[1;91mPlease update your libcxx , aroma"
+	echo ""
+	echo "==============================================================="
+	echo -e "\e[0m "
+
         echo "Upstream merging"
         ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/optlos.xml
@@ -113,6 +121,13 @@ upstreamMerge() {
             git push origin "$VERSION_BRANCH"
             croot
         done <<< "$CHECK"
+
+        echo -e "\e[1;91m==============================================================="
+		echo -e "\e[0m "
+		echo -e "\e[1;91mPlease update your libcxx , aroma"
+		echo ""
+		echo "==============================================================="
+		echo -e "\e[0m "
 
 }
 
