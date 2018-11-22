@@ -72,6 +72,10 @@ endif
 PRODUCT_PACKAGES += \
     AmbientPlayHistoryProvider
 
+# Fonts
+PRODUCT_PACKAGES += \
+    Liquid-Fonts
+
 # Subs OMS
 PRODUCT_PACKAGES += \
     SubstratumSignature \
