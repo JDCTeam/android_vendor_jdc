@@ -2,7 +2,18 @@
 
 export Changelog=$PWD/Changelog.txt
 
-if [ -f $Changelog ];
+if [ -z $CHGLOGDUR ];
+then
+    CHGLOGDUR="10"
+fi
+
+if [ $CHGLOGDUR -gt 30 ];
+then
+    echo "Duration greater than 30 is not allowed, resetting to 10"
+    CHGLOGDUR="10"
+fi
+
+if [ -f $Changelog ]; 
 then
 	rm -f $Changelog
 fi
@@ -11,7 +22,7 @@ touch $Changelog
 
 echo "Generating changelog..."
 
-for i in $(seq 10);
+for i in $(seq $CHGLOGDUR);
 do
 export After_Date=`date --date="$i days ago" +%m-%d-%Y`
 k=$(expr $i - 1)

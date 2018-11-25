@@ -23,5 +23,5 @@ LIQUID_TARGET_PACKAGE := $(PRODUCT_OUT)/liquid_remix-$(LIQUID_VERSION).zip
 liquid: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LIQUID_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(LIQUID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LIQUID_TARGET_PACKAGE).md5sum
-	$(hide) ./vendor/liquid/tools/generate_json_build_info.sh $(HAVOC_TARGET_PACKAGE)
+	$(hide) ./vendor/liquid/tools/generate_json_build_info.sh $(LIQUID_TARGET_PACKAGE)
 	@echo "Package Complete: $(LIQUID_TARGET_PACKAGE)" >&2
