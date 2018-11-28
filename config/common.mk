@@ -253,8 +253,6 @@ endif
 # Required packages
 PRODUCT_PACKAGES += \
     Eleven \
-    Email \
-    Jelly \
     Launcher3
 
 # Liquid packages
