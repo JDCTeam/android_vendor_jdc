@@ -15,7 +15,7 @@
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
     Turbo \
-     WeatherProvider
+    WeatherProvider
 
 # Permissions
 PRODUCT_COPY_FILES += \

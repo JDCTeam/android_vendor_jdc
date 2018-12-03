@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
 # Subs OMS
 PRODUCT_PACKAGES += \
     SubstratumSignature \
+	
+# Wallpapers
+PRODUCT_PACKAGES += \
+    LiquidPapers \
 
 # Themes
 PRODUCT_PACKAGES += \
