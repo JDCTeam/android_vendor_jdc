@@ -123,6 +123,11 @@ PRODUCT_PACKAGES += \
     QSHeaderAccent \
     QSHeaderTransparent
 
+# UI themes
+PRODUCT_PACKAGES += \
+    AOSPUI \
+    PixelUI
+
 # Notification themes
 PRODUCT_PACKAGES += \
     NotificationBlackTheme \
