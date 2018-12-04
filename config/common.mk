@@ -41,13 +41,13 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 endif
 
-ifeq ($(TARGET_BUILD_VARIANT),userdebug)
 # Disable ADB authentication
-PRODUCT_PROPERTY_OVERRIDES += ro.adb.secure=0
-else
-# Enable ADB authentication
-PRODUCT_PROPERTY_OVERRIDES += ro.adb.secure=1
-endif
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.secure=0 \
+    persist.service.adb.enable=1 \
+    persist.sys.usb.config=mtp,adb
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
   PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
