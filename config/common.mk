@@ -34,8 +34,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
-# Default notification/alarm sounds
+# Default ringtone/notification/alarm sounds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=Zen_too.ogg,Dione.ogg \
     ro.config.notification_sound=Popcorn.ogg \
     ro.config.alarm_alert=Bright_morning.ogg
 
