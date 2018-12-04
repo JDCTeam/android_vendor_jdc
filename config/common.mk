@@ -11,22 +11,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 # Google property overides
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.error.receiver.system.apps=com.google.android.gms \
+    ro.com.google.clientidbase=android-google \
+    ro.com.android.wifi-watchlist=GoogleGuest \
     ro.setupwizard.enterprise_mode=1 \
+    ro.setupwizard.network_required=false \
+    ro.setupwizard.gservices_delay=-1 \
     ro.com.android.dataroaming=false \
-    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+    drm.service.enabled=true \
+    net.tethering.noprovisioning=true \
+    persist.sys.dun.override=0 \
+    ro.build.selinux=1 \
+    ro.adb.secure=0 \
     ro.setupwizard.rotation_locked=true \
-    ro.config.calibration_cad=/system/etc/calibration_cad.xml \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
-
-# Security Enhanced Linux
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+    ro.opa.eligible_device=true \
+    persist.sys.disable_rescue=true \
+    ro.config.calibration_cad=/system/etc/calibration_cad.xml
 
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
@@ -187,6 +190,10 @@ PRODUCT_PACKAGES += \
     ColdYellow \
     NewHouseOrange \
     IllusionsPurple
+
+# Whitelist packages
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.services.whitelist.packagelist=com.google.android.gms
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
