@@ -19,7 +19,7 @@ PRODUCT_PACKAGES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/permissions/privapp-permissions-turbo.xml:system/etc/permissions/privapp-permissions-turbo.xml
+    vendor/liquid/prebuilt/common/etc/permissions/privapp-permissions-liquid.xml:system/etc/permissions/privapp-permissions-liquid.xml
 
 # Sysconfig
 PRODUCT_COPY_FILES += \
