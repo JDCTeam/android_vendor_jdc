@@ -1,12 +1,5 @@
 . build/envsetup.sh
 
-##### # external/perfetto
-repopick 223413; # perfetto_cmd: Resolve missing O_CREAT mode  
-
-##### # frameworks/native
-repopick 224443; # libbinder: Don't log call trace when waiting for vendor service on non-eng builds  
-repopick 225546; # AppOpsManager: Update with the new ops  
-
 ##### # hardware/qcom/audio
 repopick 222693; # msm8960: treblize configuration  
 repopick 222694; # audio: Make CVD version retrieval nonfatal with ACDB v1  
@@ -45,3 +38,6 @@ repopick 224945-224954; ## AOSP Keymaster Chain: Broken crypto in current state,
 
 ##### # hardware/qcom/media
 repopick 224955 224956 224957; ## AOSP 8960 Media Chain
+
+##### # lineage overlays
+repopick 236134;
