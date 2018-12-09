@@ -20,14 +20,11 @@ repopick 227931; # lineagesdk: Refactor battery icon options
 repopick 224752; # Use mCameraAgentNg for getting camera info when available  
 repopick 225265; # Add Storage preference (1/2)  
 
-##### # packages/apps/DeskClock
-repopick 226131; # DeskClock: Add support of power off alarm feature  
-
 ##### # system/bt
 repopick 224813; # bt: osi: undef PROPERTY_VALUE_MAX  
 
 ##### # hardware/qcom/display
-repopick 223340 223341 223342 222686 223343 223344 223345 223346 224958; 
+repopick 223341 223342 222686 223343 223344 224958; 
 
 ##### # build/soong
 repopick 224613; # soong: Add LOCAL_AIDL_FLAGS handling
