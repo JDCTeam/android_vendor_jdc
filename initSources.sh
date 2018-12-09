@@ -3,7 +3,6 @@
 ##### # hardware/qcom/audio
 repopick 222693; # msm8960: treblize configuration  
 repopick 222694; # audio: Make CVD version retrieval nonfatal with ACDB v1  
-repopick 223338; # Revert "msm8x74: remove from top level makefile"  
 repopick 225117; # msm8960: Add some missing out/in types  
 repopick 225118; # msm8960: Add two stub microphone functions  
 
