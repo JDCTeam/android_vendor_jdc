@@ -131,8 +131,7 @@ PRODUCT_PACKAGES += \
 # Notification themes
 PRODUCT_PACKAGES += \
     NotificationBlackTheme \
-    NotificationDarkTheme \
-    NotificationLightTheme
+    NotificationDarkTheme
 
 # Accents
 PRODUCT_PACKAGES += \
