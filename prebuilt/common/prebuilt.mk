@@ -14,8 +14,13 @@
 
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
+    AmbientSensePrebuilt \
     Turbo \
     WeatherProvider
+
+# AmbientSense
+PRODUCT_COPY_FILES +=  \
+    vendor/liquid/prebuilt/common/etc/ambient/matcher_tah.leveldb:system/etc/ambient/matcher_tah.leveldb
 
 # Permissions
 PRODUCT_COPY_FILES += \
