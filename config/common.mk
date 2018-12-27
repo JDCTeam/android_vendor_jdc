@@ -123,6 +123,11 @@ PRODUCT_PACKAGES += \
     QSHeaderAccent \
     QSHeaderTransparent
 
+# QS accents
+PRODUCT_PACKAGES += \
+    QSAccentBlack \
+    QSAccentWhite
+
 # UI themes
 PRODUCT_PACKAGES += \
     AOSPUI \
