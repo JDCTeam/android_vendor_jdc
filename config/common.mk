@@ -133,6 +133,12 @@ PRODUCT_PACKAGES += \
     AOSPUI \
     PixelUI
 
+# Switch themes
+PRODUCT_PACKAGES += \
+    MD2Switch \
+    OnePlusSwitch \
+    StockSwitch
+
 # Notification themes
 PRODUCT_PACKAGES += \
     NotificationBlackTheme \
