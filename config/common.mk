@@ -11,10 +11,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/emmc_trim:system/vendor/bin/emmc_trim
 
-# Respecting AROMA
+# For keyboard gesture typing
 PRODUCT_COPY_FILES += \
-	vendor/jdc/prebuilt/common/bin/file.txt:system/file.txt
-		
+    vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+
+# Snap camera permissions
+PRODUCT_COPY_FILES += \
+    vendor/jdc/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
+
 # Log banner
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
@@ -47,11 +51,11 @@ PRODUCT_COPY_FILES += \
 # Take a logcat
 #PRODUCT_COPY_FILES += \
 #vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
-    
+
 #Substratum Verified
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.substratum.verified=true
-    
+
 # Google Assistant
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opa.eligible_device=true
