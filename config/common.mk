@@ -36,6 +36,10 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/gzosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
+# Snap camera permissions
+PRODUCT_COPY_FILES += \
+    vendor/gzosp/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
+
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
     vendor/gzosp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
