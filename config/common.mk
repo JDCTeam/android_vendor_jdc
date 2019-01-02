@@ -19,6 +19,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
+# Snap camera permissions
+PRODUCT_COPY_FILES += \
+    vendor/jdc/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
+
 # Ubuntu Fonts
 FONTS := Roboto-BlackItalic.ttf Roboto-Italic.ttf Roboto-Black.ttf Roboto-LightItalic.ttf \
 		 Roboto-BoldItalic.ttf Roboto-Light.ttf Roboto-Bold.ttf Roboto-MediumItalic.ttf \
@@ -33,7 +37,7 @@ PRODUCT_COPY_FILES += $(foreach font,$(FONTS),\
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify \
     vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
-		
+
 # Log banner
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
@@ -49,7 +53,7 @@ PRODUCT_PACKAGES += \
    Turbo \
    privapp-permissions-turbo.xml \
    SoundPickerPrebuilt
-    
+
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/proximity:system/vendor/bin/ledify
@@ -57,11 +61,11 @@ PRODUCT_COPY_FILES += \
 # Take a logcat
 #PRODUCT_COPY_FILES += \
 #vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
-    
+
 #Substratum Verified
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.substratum.verified=true
-    
+
 # Google Assistant
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opa.eligible_device=true
