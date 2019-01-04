@@ -53,14 +53,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
     persist.service.adb.enable=1 \
     persist.sys.usb.config=mtp,adb
 
-# Enable Wi-Fi Displays
-PRODUCT_PROPERTY_OVERRIDES := \
-    persist.sys.wfd.nohdcp=1 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
-
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
   PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.device.cache_dir=/data/cache
