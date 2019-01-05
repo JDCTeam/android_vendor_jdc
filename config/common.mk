@@ -304,12 +304,8 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    libemoji \
     LiveWallpapers \
     LiveWallpapersPicker
-
-PRODUCT_PACKAGES += \
-    librsjni
 
 # Google packages
 PRODUCT_PACKAGES += \
