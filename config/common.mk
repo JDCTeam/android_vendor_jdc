@@ -227,6 +227,10 @@ PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
+# Power whitelist
+PRODUCT_COPY_FILES += \
+    vendor/liquid/config/permissions/liquid-power-whitelist.xml:system/etc/sysconfig/liquid-power-whitelist.xml
+
 # LiquidRemix specific init file
 PRODUCT_COPY_FILES += \
     vendor/liquid/prebuilt/common/etc/init.local.rc:root/init.liquid.rc
