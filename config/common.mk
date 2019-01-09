@@ -53,14 +53,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
     persist.service.adb.enable=1 \
     persist.sys.usb.config=mtp,adb
 
-ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
-  PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.device.cache_dir=/data/cache
-else
-  PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.device.cache_dir=/cache
-endif
-
 # LatineIME Gesture swyping
 ifneq ($(filter shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES += \
