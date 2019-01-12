@@ -228,12 +228,12 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
 	croot
-	#packages/apps/CarrierConfig
+	#packages/apps/Setting
 	cd packages/apps/Settings
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_Settings.git
 	croot
-    #dalvik
+        #dalvik
 	cd dalvik
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_dalvik.git
@@ -263,8 +263,63 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_hardware_samsung.git
 	croot
-
-
+	#launcher
+	cd packages/apps/Launcher3
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/platform_packages_apps_launcher3.git
+	croot
+	#sdk
+	cd lineage-sdk
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_lineage-sdk.git
+	croot
+	# kernel
+	cd kernel/samsung/jf
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_kernel_samsung_jf-pieForCommunity.git
+	croot
+	# native SU
+	cd system/extras/su
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_system_extras_su.git
+	croot	
+	# lineageparts
+	cd packages/apps/LineageParts
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_LineageParts.git
+	croot	
+	# perfetto
+	cd external/perfetto
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_external_perfetto.git
+	croot	
+ 	# libcxx
+	cd external/libcxx
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_external_libcxx.git
+	croot
+	#fw/base
+	cd frameworks/base
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_base.git
+	croot
+	#fw/native
+	cd frameworks/native
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
+	croot
+	#overlays
+	cd packages/overlays/Lineage
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_overlays_Lineage.git
+	croot
+	# Recorder
+	cd packages/apps/Recorder
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_Recorder.git
+	croot
+	
+	
 	#Fix up manifest
 	cd .repo/manifests
 	git branch -D opt-cm-16.0
