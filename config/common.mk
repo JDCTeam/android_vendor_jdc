@@ -19,6 +19,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
 
+# Pico Gapps
+PRODUCT_COPY_FILES += \
+    vendor/jdc/proprietary/gappsPico.zip:/tmp/_gapps.zip
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
