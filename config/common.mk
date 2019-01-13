@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    AssistantGo \
    FilesGo \
-   FilesGo-Stub \
    GMailGo \
    GoogleSearchGo \
    MapsGo \
