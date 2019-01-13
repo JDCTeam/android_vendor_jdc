@@ -26,6 +26,16 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
    Launcher3Go \
    Gallery2
+
+# Go gApps
+PRODUCT_PACKAGES += \
+   AssistantGo \
+   FilesGo \
+   FilesGo-Stub \
+   GMailGo \
+   GoogleSearchGo \
+   MapsGo \
+   YouTubeGo
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
