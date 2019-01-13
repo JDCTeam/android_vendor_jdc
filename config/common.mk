@@ -24,7 +24,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-   Launcher3QuickStep \
+   Launcher3Go \
    Gallery2
     
 # Proximity sensor reset
