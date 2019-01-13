@@ -7,24 +7,13 @@ on fs
      # Reset proximity sensor
      start proximity
 
-on boot
-     # Start LEDify
-     start ledify
-
 # eMMC trim
 service emmc_trim /system/vendor/bin/emmc_trim
      user root
      group shell
      disabled
      oneshot
-
-# LEDify
-service ledify /system/vendor/bin/ledify
-     user root
-     group shell
-     disabled
-     oneshot
-
+     
 # Proximity
 service proximity /system/vendor/bin/proximity
      user root
