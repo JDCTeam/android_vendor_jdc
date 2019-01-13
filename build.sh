@@ -318,6 +318,11 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_packages_apps_Recorder.git
 	croot
+	# Messaging
+	cd packages/apps/Messaging
+	git remote remove origin
+	git remote add origin git@github.com:jdcteam/android_packages_apps_Messaging.git
+	croot
 	
 	
 	#Fix up manifest
