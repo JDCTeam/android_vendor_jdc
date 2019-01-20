@@ -19,7 +19,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+export LC_ALL=C
 TEAM_NAME="JDCTeam"
 TARGET=jflte
 VARIANT=userdebug
