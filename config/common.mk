@@ -37,11 +37,8 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-   Mixplorer \
-   Buffcore \
    Launcher3QuickStep \
    Gallery2 \
-   Brave \
    Markup
     
 # Proximity sensor reset
