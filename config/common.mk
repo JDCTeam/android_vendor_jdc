@@ -81,9 +81,11 @@ PRODUCT_PACKAGES += \
     SettingsDarkTheme \
     SystemDarkTheme \
     SystemUIDarkTheme \
+    WellbeingDarkTheme \
     SettingsBlackTheme \
     SystemBlackTheme \
-    SystemUIBlackTheme
+    SystemUIBlackTheme \
+    WellbeingBlackTheme \
 
 # QS tile styles
 PRODUCT_PACKAGES += \
