@@ -76,13 +76,6 @@ getBuild() {
 	repo sync build/soong
 	repo sync build/blueprint
 	
-	
-	echo -e "\e[1;91m==============================================================="
-	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your libcxx , aroma"
-	echo ""
-	echo "==============================================================="
-	echo -e "\e[0m "
 }
 
 upstreamMerge() {
@@ -93,13 +86,6 @@ upstreamMerge() {
 	#echo "Syncing projects"
 	#repo sync --force-sync
 	
-	echo -e "\e[1;91m==============================================================="
-	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your libcxx , aroma"
-	echo ""
-	echo "==============================================================="
-	echo -e "\e[0m "
-
         echo "Upstream merging"
         ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/optlos.xml
@@ -122,12 +108,6 @@ upstreamMerge() {
             croot
         done <<< "$CHECK"
 
-        echo -e "\e[1;91m==============================================================="
-		echo -e "\e[0m "
-		echo -e "\e[1;91mPlease update your libcxx , aroma"
-		echo ""
-		echo "==============================================================="
-		echo -e "\e[0m "
 
 }
 
@@ -293,11 +273,6 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_external_perfetto.git
 	croot	
- 	# libcxx
-	cd external/libcxx
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_external_libcxx.git
-	croot
 	#fw/base
 	cd frameworks/base
 	git remote remove origin
