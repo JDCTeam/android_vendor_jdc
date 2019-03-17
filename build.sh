@@ -26,7 +26,7 @@ LOS_VER=16.0
 VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
-ROM_VERSION=6.0
+ROM_VERSION=7.0
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 export ANDROID_HOME=~/Android/Sdk
 
@@ -49,7 +49,7 @@ buildRelease()
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-Version$ROM_VERSION.zip 
+		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-Version-$ROM_VERSION.zip 
 	else
 		echo "Build failed"
 	fi
