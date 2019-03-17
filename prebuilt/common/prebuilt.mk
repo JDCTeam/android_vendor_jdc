@@ -16,6 +16,8 @@
 PRODUCT_PACKAGES += \
     AmbientSensePrebuilt \
     Lawnchair \
+    SubstratumSignature \
+    SubstratumKey \
     Turbo \
     WeatherProvider
 

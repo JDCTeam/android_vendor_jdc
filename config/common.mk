@@ -68,13 +68,9 @@ endif
 PRODUCT_PACKAGES += \
     Liquid-Fonts
 
-# Subs OMS
-PRODUCT_PACKAGES += \
-    SubstratumSignature \
-	
 # Wallpapers
 PRODUCT_PACKAGES += \
-    LiquidPapers \
+    LiquidPapers
 
 # Themes
 PRODUCT_PACKAGES += \
