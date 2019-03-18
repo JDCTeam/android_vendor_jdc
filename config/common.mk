@@ -290,7 +290,6 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Required packages
 PRODUCT_PACKAGES += \
     Eleven \
-    Jelly \
     Launcher3
 
 # Liquid packages
