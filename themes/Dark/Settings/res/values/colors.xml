@@ -15,4 +15,7 @@
 
     <color name="settings_icon_oneplus">#FF424242</color>
 
+    <!-- Searchbar overlays -->
+    <color name="search_bar_background_color">@*android:color/background_material_dark</color>
+
 </resources>
