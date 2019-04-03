@@ -39,7 +39,9 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 PRODUCT_PACKAGES += \
    Launcher3QuickStep \
    Gallery2 \
-   Markup
+   Markup \
+   Turbo \
+   privapp-permissions-turbo.xml
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
