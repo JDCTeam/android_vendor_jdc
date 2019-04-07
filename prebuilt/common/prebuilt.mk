@@ -15,7 +15,6 @@
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
     AmbientSensePrebuilt \
-    Lawnchair \
     SubstratumSignature \
     SubstratumKey \
     Turbo \
@@ -24,11 +23,6 @@ PRODUCT_PACKAGES += \
 # AmbientSense
 PRODUCT_COPY_FILES +=  \
     vendor/liquid/prebuilt/common/etc/ambient/matcher_tah.leveldb:system/etc/ambient/matcher_tah.leveldb
-
-# Lawnchair
-PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:system/etc/permissions/privapp-permissions-lawnchair.xml \
-    vendor/liquid/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:system/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
