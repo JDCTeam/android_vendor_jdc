@@ -41,7 +41,8 @@ PRODUCT_PACKAGES += \
    Gallery2 \
    Markup \
    Turbo \
-   privapp-permissions-turbo.xml
+   privapp-permissions-turbo.xml \
+   SoundPickerPrebuilt
     
 # Proximity sensor reset
 PRODUCT_COPY_FILES += \
