@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HideCutout \
     StatusBarStock
-    
+
 # Markup libs
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
@@ -288,3 +288,7 @@ USE_DEX2OAT_DEBUG ?= false
 #        include vendor/aosp/sdclang/sdclang.mk
 #    endif
 #endif
+
+# Respecting AROMA
+PRODUCT_COPY_FILES += \
+	vendor/aosp/prebuilt/common/bin/file.txt:system/file.txt
