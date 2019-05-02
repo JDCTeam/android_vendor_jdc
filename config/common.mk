@@ -296,3 +296,7 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/rr/config/partner_gms.mk
+
+# Respecting AROMA
+PRODUCT_COPY_FILES += \
+	vendor/rr/prebuilt/common/bin/file.txt:system/file.txt
