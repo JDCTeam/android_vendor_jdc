@@ -240,7 +240,7 @@ PRODUCT_COPY_FILES += \
 
 # Google Dialer
 PRODUCT_COPY_FILES +=  \
-    vendor/liquid/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml 
+    vendor/liquid/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -407,7 +407,7 @@ ifdef LIQUID_BUILDTYPE
 else
     # If LIQUID_BUILDTYPE is not defined, set to UNOFFICIAL
     LIQUID_BUILDTYPE := UNOFFICIAL
-    LIQUID_EXTRAVERSION := 
+    LIQUID_EXTRAVERSION :=
 endif
 
 ifeq ($(LIQUID_BUILDTYPE), UNOFFICIAL)
@@ -458,3 +458,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 -include vendor/liquid/config/partner_gms.mk
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+
+# Respecting AROMA
+PRODUCT_COPY_FILES += \
+	vendor/liquid/prebuilt/common/bin/file.txt:system/file.txt
