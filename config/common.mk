@@ -220,3 +220,7 @@ endif
 include vendor/aicp/google/GoogleAudio.mk
 
 EXTENDED_POST_PROCESS_PROPS := vendor/aicp/tools/aicp_process_props.py
+
+# Respecting AROMA
+PRODUCT_COPY_FILES += \
+	vendor/aicp/prebuilt/bin/file.txt:system/file.txt
