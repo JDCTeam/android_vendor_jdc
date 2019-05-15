@@ -177,12 +177,12 @@ PRODUCT_PACKAGES += \
 # LatinIME gesture typing
 ifeq ($(TARGET_ARCH),arm64)
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/aosp/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+    vendor/aicp/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
+    vendor/aicp/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
-    vendor/aosp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/aicp/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
+    vendor/aicp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
