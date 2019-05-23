@@ -178,15 +178,10 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_vendor_lineage.git
 	croot
-	#device/samsung/jf-common
-	cd device/samsung/jf-common
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jf-common-private.git
-	croot
 	#device/samsung/jflte
 	cd device/samsung/jflte
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte-private.git
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jfltepie-private.git
 	croot
 	#aroma
 	cd AromaInstaller
