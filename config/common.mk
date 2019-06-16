@@ -33,10 +33,6 @@ PRODUCT_COPY_FILES += $(foreach font,$(FONTS),\
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify \
     vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
-
-# Respecting AROMA
-PRODUCT_COPY_FILES += \
-	vendor/jdc/prebuilt/common/bin/file.txt:system/file.txt
 		
 # Log banner
 PRODUCT_COPY_FILES += \
