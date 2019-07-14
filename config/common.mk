@@ -178,6 +178,8 @@ PRODUCT_PACKAGES += \
 # Extra tools
 PRODUCT_PACKAGES += \
     curl \
+    getcap \
+    setcap \
     vim
 
 # LatinIME gesture typing
