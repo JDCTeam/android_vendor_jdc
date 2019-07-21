@@ -35,7 +35,6 @@ PRODUCT_COPY_FILES += $(foreach font,$(FONTS),\
 
 # LEDify
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/ledify:system/vendor/bin/ledify \
     vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
 
 # Log banner
