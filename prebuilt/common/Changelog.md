@@ -14,3 +14,4 @@
 * init: Stop thermal control when on gaming 
 * init: Retune the touch boost after rebased kernel 
 * Settings:Add changelog tile at "About" section
+
