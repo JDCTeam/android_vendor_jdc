@@ -17,3 +17,4 @@
 * Lockscreen: Never show charging quality
 * Settings: Add an image header of JDCTeam 
 * Settings: about: Show ROM name and version
+* Fix back button not working on some variants
