@@ -19,6 +19,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
 
+# Changelog
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/Changelog.md:system/vendor/etc/Changelog.md
+
 # Log banner
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
