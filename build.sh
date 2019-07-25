@@ -33,6 +33,7 @@ export ANDROID_HOME=~/Android/Sdk
 buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
+	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
