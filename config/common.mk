@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
 
 # Changelog
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/Changelog.md:system/vendor/etc/Changelog.md
+    vendor/jdc/Changelog.md:system/vendor/etc/Changelog.md
       
 # Ubuntu Fonts
 FONTS := Roboto-BlackItalic.ttf Roboto-Italic.ttf Roboto-Black.ttf Roboto-LightItalic.ttf \
