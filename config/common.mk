@@ -23,6 +23,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
 
+# Changelog
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/Changelog.md:system/vendor/etc/Changelog.md
+      
 # Ubuntu Fonts
 FONTS := Roboto-BlackItalic.ttf Roboto-Italic.ttf Roboto-Black.ttf Roboto-LightItalic.ttf \
 		 Roboto-BoldItalic.ttf Roboto-Light.ttf Roboto-Bold.ttf Roboto-MediumItalic.ttf \
