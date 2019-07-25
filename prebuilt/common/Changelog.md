@@ -14,4 +14,6 @@
 * init: Stop thermal control when on gaming 
 * init: Retune the touch boost after rebased kernel 
 * Settings:Add changelog tile at "About" section
-
+* Lockscreen: Never show charging quality
+* Settings: Add an image header of JDCTeam 
+* Settings: about: Show ROM name and version
