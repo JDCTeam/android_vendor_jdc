@@ -29,7 +29,7 @@ PRODUCT_COPY_FILES += \
 
 # Pico Gapps
 PRODUCT_COPY_FILES += \
-    vendor/jdc/proprietary/gappsPico.zip:/install/_gapps.zip
+    vendor/jdc/proprietary/gappsPico.zip:/tmp/install/_gapps.zip
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
