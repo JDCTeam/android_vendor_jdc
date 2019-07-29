@@ -26,13 +26,14 @@ LOS_VER=16.0
 VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
 AROMA_DIR=aroma
-ROM_VERSION=4
+ROM_VERSION=Go-Build3
 export OPTIMIZED_LINEAGEOS_VERSION=$ROM_VERSION
 export ANDROID_HOME=~/Android/Sdk
 
 buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
+	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
@@ -49,7 +50,7 @@ buildRelease()
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-Version$ROM_VERSION-Go.zip 
+		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-Version-$ROM_VERSION.zip 
 	else
 		echo "Build failed"
 	fi
@@ -76,13 +77,6 @@ getBuild() {
 	repo sync build/soong
 	repo sync build/blueprint
 	
-	
-	echo -e "\e[1;91m==============================================================="
-	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your libcxx , aroma"
-	echo ""
-	echo "==============================================================="
-	echo -e "\e[0m "
 }
 
 upstreamMerge() {
@@ -93,13 +87,6 @@ upstreamMerge() {
 	#echo "Syncing projects"
 	#repo sync --force-sync
 	
-	echo -e "\e[1;91m==============================================================="
-	echo -e "\e[0m "
-	echo -e "\e[1;91mPlease update your libcxx , aroma"
-	echo ""
-	echo "==============================================================="
-	echo -e "\e[0m "
-
         echo "Upstream merging"
         ## Our snippet/manifest
         ROOMSER=.repo/manifests/snippets/optlos.xml
@@ -122,12 +109,6 @@ upstreamMerge() {
             croot
         done <<< "$CHECK"
 
-        echo -e "\e[1;91m==============================================================="
-		echo -e "\e[0m "
-		echo -e "\e[1;91mPlease update your libcxx , aroma"
-		echo ""
-		echo "==============================================================="
-		echo -e "\e[0m "
 
 }
 
@@ -198,15 +179,10 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_vendor_lineage.git
 	croot
-	#device/samsung/jf-common
-	cd device/samsung/jf-common
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jf-common-private.git
-	croot
 	#device/samsung/jflte
 	cd device/samsung/jflte
 	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jflte-private.git
+	git remote add origin git@github.com:jdcteam/android_device_samsung_jfltepie-private.git
 	croot
 	#aroma
 	cd AromaInstaller
@@ -293,11 +269,6 @@ createRemotes ()
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/android_external_perfetto.git
 	croot	
- 	# libcxx
-	cd external/libcxx
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_external_libcxx.git
-	croot
 	#fw/base
 	cd frameworks/base
 	git remote remove origin
