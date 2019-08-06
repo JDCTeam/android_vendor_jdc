@@ -27,16 +27,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/vendor/etc/Changelog.md
       
-# Ubuntu Fonts
-FONTS := Roboto-BlackItalic.ttf Roboto-Italic.ttf Roboto-Black.ttf Roboto-LightItalic.ttf \
-		 Roboto-BoldItalic.ttf Roboto-Light.ttf Roboto-Bold.ttf Roboto-MediumItalic.ttf \
-		 RobotoCondensed-BoldItalic.ttf Roboto-Medium.ttf RobotoCondensed-Bold.ttf Roboto-Regular.ttf \
-		 RobotoCondensed-Italic.ttf Roboto-ThinItalic.ttf RobotoCondensed-LightItalic.ttf Roboto-Thin.ttf \
-		 RobotoCondensed-Light.ttf RobotoCondensed-Regular.ttf
-
-PRODUCT_COPY_FILES += $(foreach font,$(FONTS),\
-		vendor/jdc/prebuilt/common/fonts/$(font):system/fonts/$(font))
-
 # LEDify
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/ledify:system/bin/ledify
