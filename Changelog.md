@@ -14,7 +14,6 @@
 * Refactor the charging speed on lockscreen - gvamp
 * Better LED handling while charging - gvamp
 * Kill percentage sign, space for important things - gvamp
-* Quick QS pull down only if no noti visible
 * Add health HIDL
 * Revert "config: Use Ubuntu font globally" 
 * Revert "jflte: Switch from thermald to thermal-engine"
