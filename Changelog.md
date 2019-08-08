@@ -21,3 +21,4 @@
 * cpufreq: Add a generic cpufreq-cpu0 driver
 * Drop adaptive governor - dead since day1
 * Bring back the CTS hack
+* Update our bootanimation
