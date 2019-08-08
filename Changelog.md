@@ -18,4 +18,7 @@
 * Add health HIDL
 * Revert "config: Use Ubuntu font globally" 
 * Revert "jflte: Switch from thermald to thermal-engine"
-
+* Try to tune interactive governor again
+* cpufreq: Add a generic cpufreq-cpu0 driver
+* Drop adaptive governor - dead since day1
+* Bring back the CTS hack
