@@ -1,7 +1,10 @@
 ### Changes since Optimized LineageOS 16.0 - Release 11
 
 ---------------------------------------------------
-* Upstream merge until 6 August 2019
+* Upstream merge until 11 August 2019
+* Update to r46
+* Bring smoothness back - for real
+* Optimized Display and Media HAL
 * Wallpaper for v11
 * Remove aptX once and forever
 * Enable westwood
