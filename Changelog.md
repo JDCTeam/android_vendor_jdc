@@ -25,3 +25,5 @@
 * Drop adaptive governor - dead since day1
 * Bring back the CTS hack
 * Update our bootanimation
+* Fix WFD
+* dialer: Enable Serbian call recording
