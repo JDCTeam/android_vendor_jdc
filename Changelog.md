@@ -27,3 +27,4 @@
 * Update our bootanimation
 * Fix WFD
 * dialer: Enable Serbian call recording
+* Resize circle battery icon
