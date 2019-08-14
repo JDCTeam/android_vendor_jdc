@@ -25,6 +25,9 @@
 * Drop adaptive governor - dead since day1
 * Bring back the CTS hack
 * Update our bootanimation
-* Fix WFD
+* Fix WFD (?)
 * dialer: Enable Serbian call recording
 * Resize circle battery icon
+* Decreased vibration strength
+* Quick QS pull down only if no notification is visible - gvamp
+* Hidable battery percentage - gvamp
