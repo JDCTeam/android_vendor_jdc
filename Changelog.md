@@ -1,7 +1,7 @@
 ### Changes since Optimized LineageOS 16.0 - Release 11
 
 ---------------------------------------------------
-* Upstream merge until 11 August 2019
+* Upstream merge until 16 August 2019
 * Update to r46
 * Bring smoothness back - for real
 * Optimized Display and Media HAL
@@ -11,7 +11,7 @@
 * Fix the animation scales
 * Completely fix BT
 * LMK huge updates
-* Kernel updated to v9 
+* Kernel updated to v9. Comes with overall stability.
 * Fix call recording
 * Fix switching headset/handset/headphones etc while calling
 * Refactor the charging speed on lockscreen - gvamp
@@ -31,3 +31,5 @@
 * Decreased vibration strength
 * Quick QS pull down only if no notification is visible - gvamp
 * Hidable battery percentage - gvamp
+* Camera: Lazy load sound files to speed up camera startup 
+* Correction in logic of roundend size calculation of SD card
