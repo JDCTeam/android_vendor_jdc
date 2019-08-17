@@ -32,4 +32,4 @@
 * Camera: Lazy load sound files to speed up camera startup 
 * Correction in logic of roundend size calculation of SD card
 * Resized battery circle icon - gvamp
-* Give USB connection high prio notification
+* Give USB connection high prio notification - gvamp
