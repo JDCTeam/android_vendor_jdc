@@ -9,11 +9,10 @@
 * Remove aptX once and forever
 * Enable westwood
 * Fix the animation scales
-* Completely fix BT
+* BT and wifi edits
 * LMK huge updates
 * Kernel updated to v9. Comes with overall stability.
 * Fix call recording
-* Fix switching headset/handset/headphones etc while calling
 * Refactor the charging speed on lockscreen - gvamp
 * Better LED handling while charging - gvamp
 * Kill percentage sign, space for important things - gvamp
@@ -32,3 +31,5 @@
 * Hidable battery percentage - gvamp
 * Camera: Lazy load sound files to speed up camera startup 
 * Correction in logic of roundend size calculation of SD card
+* Resized battery circle icon - gvamp
+* Give USB connection high prio notification
