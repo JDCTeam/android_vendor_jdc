@@ -33,3 +33,8 @@
 * Correction in logic of roundend size calculation of SD card
 * Resized battery circle icon - gvamp
 * Give USB connection high prio notification - gvamp
+* init: Add missing operator {alpha|numeric} for r970
+* audio: Tune the volume levels
+* kernel: Replace intelliplug with autoSMP
+* kernel: Switch to deadline by default
+* A better sleep approach
