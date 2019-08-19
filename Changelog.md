@@ -1,7 +1,7 @@
 ### Changes since Optimized LineageOS 16.0 - Release 11
 
 ---------------------------------------------------
-* Upstream merge until 16 August 2019
+* Upstream merge until 19 August 2019
 * Update to r46
 * Bring smoothness back - for real
 * Optimized Display and Media HAL
