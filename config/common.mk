@@ -2,10 +2,6 @@
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
 
-# BSOD Killer
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/bsod_killer:system/bin/bsod_killer
-
 # Custom init script
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/etc/init.jdcteam.rc:root/init.jdcteam.rc \
