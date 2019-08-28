@@ -43,10 +43,6 @@ PRODUCT_PACKAGES += \
    privapp-permissions-turbo.xml \
    SoundPickerPrebuilt
 
-# Proximity sensor reset
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/proximity:system/vendor/bin/ledify
-
 # Take a logcat
 #PRODUCT_COPY_FILES += \
 #vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
