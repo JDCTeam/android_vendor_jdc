@@ -40,8 +40,7 @@ PRODUCT_PACKAGES += \
    Gallery2 \
    Markup \
    Turbo \
-   privapp-permissions-turbo.xml \
-   SoundPickerPrebuilt
+   privapp-permissions-turbo.xml
 
 # Take a logcat
 #PRODUCT_COPY_FILES += \
