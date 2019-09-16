@@ -117,139 +117,16 @@ audit ()
 
 createRemotes () 
 {
-	croot
-	#vendor/jdc
-	cd vendor/jdc
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_vendor_jdc-private.git
-	croot
-	#vendor/samsung
-	cd vendor/samsung
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/proprietary_vendor_samsung-private.git
-	croot
-	#vendor/lineage
-	cd vendor/lineage
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_vendor_lineage.git
-	croot
-	#device/samsung/jflte
-	cd device/samsung/jflte
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_device_samsung_jfltepie-private.git
-	croot
-	#aroma
-	cd AromaInstaller
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/AromaInstaller.git
-	croot
-	#adiutor
-	cd buffcoreapp
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/BuffCoreApp.git
-	croot
-	#frameworks/opt/telephony
-	cd frameworks/opt/telephony
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_opt_telephony.git
-	croot
-	#packages/apps/CarrierConfig
-	cd packages/apps/CarrierConfig
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_CarrierConfig.git
-	croot
-	#packages/apps/Setting
-	cd packages/apps/Settings
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_Settings.git
-	croot
-        #dalvik
-	cd dalvik
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_dalvik.git
-	croot
-	#system/core
-	cd system/core
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_system_core-pie.git
-	croot
-	#bionic
-	cd bionic
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_bionic.git
-	croot
-	#art
-	cd art
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_art.git
-	croot
-	#build
-	cd build/make
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_build.git
-	croot
-	#hw/samsung
-	cd hardware/samsung
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_hardware_samsung.git
-	croot
-	#launcher
-	cd packages/apps/Launcher3
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/platform_packages_apps_launcher3.git
-	croot
-	#sdk
-	cd lineage-sdk
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_lineage-sdk.git
-	croot
-	# kernel
-	cd kernel/samsung/jf
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_kernel_samsung_jf-pieForCommunity.git
-	croot
-	# native SU
-	cd system/extras/su
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_system_extras_su.git
-	croot	
-	# lineageparts
-	cd packages/apps/LineageParts
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_LineageParts.git
-	croot	
-	# perfetto
-	cd external/perfetto
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_external_perfetto.git
-	croot	
-	#fw/base
-	cd frameworks/base
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_base.git
-	croot
-	#fw/native
-	cd frameworks/native
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_frameworks_native.git
-	croot
-	#overlays
-	cd packages/overlays/Lineage
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_overlays_Lineage.git
-	croot
-	# Recorder
-	cd packages/apps/Recorder
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_Recorder.git
-	croot
-	# Messaging
-	cd packages/apps/Messaging
-	git remote remove origin
-	git remote add origin git@github.com:jdcteam/android_packages_apps_Messaging.git
-	croot
-	
-	
+	croot 
+	ROOMSER=.repo/manifests/snippets/optlos.xml
+    # Lines to loop over
+    CHECK=$(cat ${ROOMSER} | grep -e "<project" | grep -e "jdc" | cut -d= -f3 | sed 's/remote//1' | sed 's/JDCTeam//1' | sed 's/\"//g'  | sed 's/\///g')
+
+    ## Upstream merging for forked repos
+    while read -r line; do
+        echo "git remote add origin git@github.com/jdcteam/$line.git"
+    done <<< "$CHECK"
+
 	#Fix up manifest
 	cd .repo/manifests
 	git branch -D opt-cm-16.0
@@ -258,10 +135,9 @@ createRemotes ()
 	git remote add origin git@github.com:jdcteam/manifests.git
 	croot
 
-
-	echo " "
-	echo "Remotes refreshed..."
-	echo " " 
+	 echo " "
+	 echo "Remotes refreshed..."
+	 echo " " 
 
 }
 
@@ -300,7 +176,7 @@ select build in "Upstream merge" "Build Test" "Build Release" "Refresh remotes" 
 	case $build in
 		"Upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build Test" ) buildTest; anythingElse; break;;
-		"Build Release" ) buildRelease; anythingElse; break;;
+		"\e[1;91Build Release\e[0m " ) buildRelease; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
 		"Produce audit2allow results" ) audit; anythingElse; break;;
