@@ -25,7 +25,6 @@ TARGET=jflte
 LOS_VER=16.0
 VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
-AROMA_DIR=aroma
 ROM_VERSION=12
 export ANDROID_HOME=~/Android/Sdk
 
@@ -70,28 +69,6 @@ buildRelease()
 	croot
 }
 
-anythingElse() {
-    echo " "
-    echo " "
-    echo "Anything else?"
-    select more in "Yes" "No"; do
-        case $more in
-            Yes ) bash build.sh; break;;
-            No ) exit 0; break;;
-        esac
-    done ;
-}
-
-getBuild() {
-	croot
-	rm -rf build
-	repo sync build/make
-	repo sync build/kati
-	repo sync build/soong
-	repo sync build/blueprint
-	
-}
-
 upstreamMerge() {
 
 	croot
@@ -125,43 +102,6 @@ upstreamMerge() {
 
 }
 
-useAroma()
-{
-    LOG="Unzipping files to repack with AROMA..."/$(date +"%T")
-    if [ ! -d "$AROMA_DIR" ]; then
-	echo "No AROMA directory found.Please check your sources"
-	break;
-    fi
-    FILENAME=Optimized-LineageOS-"$LOS_VER"-"$(date +%Y%m%d)"-"$TARGET"-AROMA
-    echo " "
-    LATEST=$(ls -t | grep -v .zip.md5 | grep .zip | head -n 1)
-    TEMP2=tmpAroma
-    if [ -d "$TEMP2" ]; then 
-    rm -rf "$TEMP2"
-    fi
-    mkdir "$TEMP2"
-    echo "Unpacking ROM to temp folder"
-    unzip -q "$LATEST" -d"$TEMP2"
-    echo "Removing META-INF folder"
-    rm -rf "$TEMP2"/META-INF
-    echo "Copying Aroma Installer"
-    cp -r "$AROMA_DIR"/jdc "$TEMP2"/jdc
-    cp -r "$AROMA_DIR"/xbin "$TEMP2"/xbin
-    cp -r "$AROMA_DIR"/META-INF "$TEMP2"/META-INF
-
-    cd "$TEMP2"
-    echo "Repacking ROM"
-    zip -rq9 ../"$FILENAME".zip *
-    cd ..
-    echo "Creating MD5"
-    md5sum "$FILENAME".zip > "$FILENAME".zip.md5
-    echo "Cleaning up"
-    rm -rf "$TEMP2"
-    echo "Done"
-    LOG="Added AROMA.Build finished successfully"/$(date +"%T")
-
-}
-
 audit () 
 {
 	croot
@@ -174,6 +114,7 @@ audit ()
 	echo " "
 
 }
+
 createRemotes () 
 {
 	croot
@@ -330,6 +271,20 @@ buildAdiutor () {
 	./gradlew clean
 	./gradlew build
 }
+
+anythingElse() {
+    echo " "
+    echo " "
+    echo "Anything else?"
+    select more in "Yes" "No"; do
+        case $more in
+            Yes ) bash build.sh; break;;
+            No ) exit 0; break;;
+        esac
+    done ;
+}
+
+
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
@@ -341,12 +296,11 @@ echo " "
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
-select build in "Upstream merge" "Build Test" "Build Release" "Add Aroma Installer to ROM" "Refresh build directory"  "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
+select build in "Upstream merge" "Build Test" "Build Release" "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
 	case $build in
 		"Upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build Test" ) buildTest; anythingElse; break;;
 		"Build Release" ) buildRelease; anythingElse; break;;
-		"Add Aroma Installer to ROM" ) useAroma; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
 		"Produce audit2allow results" ) audit; anythingElse; break;;
