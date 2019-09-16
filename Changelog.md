@@ -11,3 +11,4 @@
 * Gallery pinkish rare bug approach
 * Fix rare bug on Snap when switching to 480p resolution
 * Clean out the blobs and device tree
+* Android 10 QS icons and app animations
