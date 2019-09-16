@@ -120,11 +120,18 @@ createRemotes ()
 	croot 
 	ROOMSER=.repo/manifests/snippets/optlos.xml
     # Lines to loop over
-    CHECK=$(cat ${ROOMSER} | grep -e "<project" | grep -e "jdc" | cut -d= -f3 | sed 's/remote//1' | sed 's/JDCTeam//1' | sed 's/\"//g'  | sed 's/\///g')
+    CHECK=$(cat ${ROOMSER} | grep -e "<project" | grep -e "jdc" | cut -d= -f3 | sed 's/remote//1' | sed 's/JDCTeam//1' | sed 's/\"//g'  | sed 's/\///g' )
+
 
     ## Upstream merging for forked repos
     while read -r line; do
-        echo "git remote add origin git@github.com/jdcteam/$line.git"
+    	x=$(echo ${line} | sed 's/_/\//1' | sed 's/android\///1' | sed 's/platform\///1' | sed 's/_/\//1' | sed 's/_/\//1' | sed 's/proprietary\///g' | sed 's/build/build\/make/g' | sed 's/-pie//g')
+    	croot
+    	cd "$x"
+    	git remote add origin git@github.com/jdcteam/$line.git
+    	#echo "$x"
+        #echo "git remote add origin git@github.com:jdcteam/$line.git"
+        #echo "----"
     done <<< "$CHECK"
 
 	#Fix up manifest
