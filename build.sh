@@ -128,7 +128,7 @@ createRemotes ()
     	x=$(echo ${line} | sed 's/_/\//1' | sed 's/android\///1' | sed 's/platform\///1' | sed 's/_/\//1' | sed 's/_/\//1' | sed 's/proprietary\///g' | sed 's/build/build\/make/g' | sed 's/-pie//g')
     	croot
     	cd "$x"
-    	git remote add origin git@github.com/jdcteam/$line.git
+    	git remote add origin git@github.com:jdcteam/$line.git
     	#echo "$x"
         #echo "git remote add origin git@github.com:jdcteam/$line.git"
         #echo "----"
