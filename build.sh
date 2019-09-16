@@ -183,7 +183,7 @@ select build in "Upstream merge" "Build Test" "Build Release" "Refresh remotes" 
 	case $build in
 		"Upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
 		"Build Test" ) buildTest; anythingElse; break;;
-		"\e[1;91Build Release\e[0m " ) buildRelease; anythingElse; break;;
+		"Build Release" ) buildRelease; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
 		"Refresh remotes" ) createRemotes; anythingElse; break;;
 		"Produce audit2allow results" ) audit; anythingElse; break;;
