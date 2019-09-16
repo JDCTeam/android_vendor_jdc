@@ -12,3 +12,6 @@
 * Fix rare bug on Snap when switching to 480p resolution
 * Clean out the blobs and device tree
 * Android 10 QS icons and app animations
+* SettingsProvider: Disable common sounds by default - gvampgh
+* Recents swipe down gesture by default - gvampgh
+* Double tap screen off by default - gvampgh
