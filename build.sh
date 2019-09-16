@@ -62,7 +62,8 @@ buildRelease()
     	
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip $OUT/Optimized-LineageOS-$LOS_VER-V-$ROM_VERSION-Signed.zip 
+		croot
+		mv target*.zip Optimized-LineageOS-$LOS_VER-V-$ROM_VERSION-Signed.zip 
 	else
 		echo "Build failed"
 	fi
