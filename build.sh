@@ -62,7 +62,7 @@ buildRelease()
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		croot
-		mv signed-ota_update.zip Optimized-LineageOS-$LOS_VER-V-$ROM_VERSION-Signed.zip 
+		mv signed-ota_update.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION-Signed.zip 
 	else
 		echo "Build failed"
 	fi
