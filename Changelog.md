@@ -17,3 +17,5 @@
 * Double tap screen off by default - gvampgh
 * Set button backlight to 1 sec by default - gvampgh
 * Fix some dark theme issues
+* Keyboard: Disable {key preview | vibration | bad words} - gvampgh
+* Support jflterefreshspr
