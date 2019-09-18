@@ -15,3 +15,5 @@
 * SettingsProvider: Disable common sounds by default - gvampgh
 * Recents swipe down gesture by default - gvampgh
 * Double tap screen off by default - gvampgh
+* Set button backlight to 1 sec by default - gvampgh
+* Fix some dark theme issues
