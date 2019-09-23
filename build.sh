@@ -182,7 +182,7 @@ echo -e "\e[0m "
 echo " "
 select build in "Upstream merge" "Build Test" "Build Release" "Refresh remotes" "Produce audit2allow results" "Build Kernel Adiutor" "Exit"; do
 	case $build in
-		"Upstream merge" ) upstreamMerge; getBuild;anythingElse; break;;
+		"Upstream merge" ) upstreamMerge; anythingElse; break;;
 		"Build Test" ) buildTest; anythingElse; break;;
 		"Build Release" ) buildRelease; anythingElse; break;;
 		"Refresh build directory" ) getBuild; anythingElse; break;;
