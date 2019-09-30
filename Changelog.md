@@ -13,3 +13,4 @@
 * Fix WiFi Display
 * Fix distortion while recording
 * Use XML for audio policy
+* A better powered-off charging animation
