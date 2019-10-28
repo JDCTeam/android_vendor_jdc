@@ -1,16 +1,6 @@
-### Changes since - Release 12
+### Changes since - Release 12.1
 
 ---------------------------------------------------
-* Upstream merge until 30 September 2019
+* Upstream merge until 28 October 2019
 * Update our wallpaper
-* More UI edits
-* WiFi edits again...yes again
-* BT edits again...yes again
-* Fix dark theming issues
-* CPU cores scheduling tweaks
-* Default theme is AUTOMATIC. Not light
-* Set default IO to ROW
-* Fix WiFi Display
-* Fix distortion while recording
-* Use XML for audio policy
-* A better powered-off charging animation
+* Merge October's asb
