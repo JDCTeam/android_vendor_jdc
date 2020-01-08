@@ -22,8 +22,8 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=17.0
-VERSION_BRANCH=opt-cm-17.0
+LOS_VER=17.1
+VERSION_BRANCH=opt-cm-17.1
 OUT="out/target/product/jflte"
 ROM_VERSION=1
 export ANDROID_HOME=~/Android/Sdk
