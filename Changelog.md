@@ -5,3 +5,5 @@
 * Update our wallpaper
 * Merge all recent ASBs
 * CPU tuning
+* kernel: Fix not-wakeup scenario on some LCDs
+* kernel: Update sdfat driver
