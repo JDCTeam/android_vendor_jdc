@@ -8,3 +8,4 @@
 * kernel: Fix not-wakeup scenario on some LCDs
 * kernel: Update sdfat driver
 * Fix echo in some voice calls
+* Fully updated sepolicy - Working ENFORCING selinux
