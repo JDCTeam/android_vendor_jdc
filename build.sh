@@ -25,7 +25,7 @@ TARGET=jflte
 LOS_VER=16.0
 VERSION_BRANCH=opt-cm-16.0
 OUT="out/target/product/jflte"
-ROM_VERSION=13
+ROM_VERSION=14
 export ANDROID_HOME=~/Android/Sdk
 
 buildTest()
