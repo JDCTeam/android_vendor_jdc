@@ -1,7 +1,7 @@
-### Changes since - Release 12.1
+### Changes since - Release 13.0
 
 ---------------------------------------------------
-* Upstream merge until 12 December 2019
+* Upstream merge until 3 February 2020
 * Update our wallpaper
-* Merge October's, November's, December's  ABS
+* Merge all recent ASBs
 * CPU tuning
