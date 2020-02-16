@@ -1,6 +1,8 @@
-### Changes since - Release 12.1
+### Changes since - Release v2
 
 ---------------------------------------------------
-* Upstream merge until 28 October 2019
+* Upstream merge until 16 February
 * Update our wallpaper
-* Merge October's asb
+* Merge latest ASB
+* Update to r28
+* Fix Magisk flashing and make root work
