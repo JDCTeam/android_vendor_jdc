@@ -6,3 +6,4 @@
 * Merge latest ASB
 * Update to r28
 * Fix Magisk flashing and make root work
+* Encryption should work
