@@ -7,3 +7,5 @@
 * Update to r28
 * Fix Magisk flashing and make root work
 * Encryption should work
+* GPS updates
+* Networking updates
