@@ -10,3 +10,4 @@
 * GPS updates
 * Networking updates
 * Trebuchet: Fix clock widget on first boot
+* CPU: A better tuning
