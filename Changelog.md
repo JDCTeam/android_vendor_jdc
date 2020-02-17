@@ -12,3 +12,4 @@
 * Trebuchet: Fix clock widget on first boot
 * CPU: A better tuning
 * Fix loudspeaker switching when in call
+* Build is now Signed
