@@ -9,3 +9,4 @@
 * Encryption should work
 * GPS updates
 * Networking updates
+* Trebuchet: Fix clock widget on first boot
