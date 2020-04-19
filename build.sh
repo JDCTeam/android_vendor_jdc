@@ -47,25 +47,12 @@ buildTest()
 buildRelease()
 {
 	echo "Building..."
-	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Signed"
-	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
-	breakfast lineage_jflte-userdebug
-	mka target-files-package otatools
-	croot
-	./build/tools/releasetools/sign_target_files_apks -o -d ~/.android-certs \
-    	$OUT/obj/PACKAGING/target_files_intermediates/*-target_files-*.zip \
-    	signed-target_files.zip
-
-	./build/tools/releasetools/ota_from_target_files -k ~/.android-certs/releasekey \
-    	--block --backup=true \
-    	signed-target_files.zip \
-    	signed-ota_update.zip
-    	
+	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
+	echo "Building..."
+	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		croot
-		mv signed-ota_update.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION-Signed.zip 
-		rm -rf signed*.zip
+		mv $OUT/lineage*.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION.zip 
 	else
 		echo "Build failed"
 	fi
