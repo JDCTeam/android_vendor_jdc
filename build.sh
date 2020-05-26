@@ -46,8 +46,7 @@ buildTest()
 }
 buildRelease()
 {
-	echo "Building..."
-	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
+	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
 	echo "Building..."
 	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
