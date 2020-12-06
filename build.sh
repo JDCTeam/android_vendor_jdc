@@ -5,7 +5,7 @@
 # / // / // / /__  / // -_) _ `/  ' \ 
 # \___/____/\___/ /_/ \__/\_,_/_/_/_/ 
 #
-# Copyright 2018 JDCTeam
+# Copyright 2020 JDCTeam
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ TARGET=jflte
 LOS_VER=17.1
 VERSION_BRANCH=opt-cm-17.1
 OUT="out/target/product/jflte"
-ROM_VERSION=8
+ROM_VERSION=9
 export ANDROID_HOME=~/Android/Sdk
 
 export CCACHE_EXEC=$(which ccache)
