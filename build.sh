@@ -22,10 +22,10 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=17.1
-VERSION_BRANCH=opt-cm-17.1
+LOS_VER=18.0
+VERSION_BRANCH=opt-cm-18.0
 OUT="out/target/product/jflte"
-ROM_VERSION=7
+ROM_VERSION=1
 export ANDROID_HOME=~/Android/Sdk
 
 export CCACHE_EXEC=$(which ccache)
