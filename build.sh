@@ -35,10 +35,11 @@ buildTest()
 	export z=`date "+%H%M%S-%d%m%y"`
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
 	echo "Building..."
-	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
+	make -j12 otapackage
+	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip $OUT/OptLos17-V$ROM_VERSION-$z.zip 
+		mv $OUT/lineage*.zip $OUT/OptLos18-V$ROM_VERSION-$z.zip 
 	else
 		echo "Build failed"
 	fi
@@ -48,7 +49,8 @@ buildRelease()
 {
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
 	echo "Building..."
-	time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
+	make -j12 otapackage
+	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		mv $OUT/lineage*.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION.zip 
@@ -160,11 +162,8 @@ anythingElse() {
 echo " "
 echo -e "\e[1;91mWelcome to the $TEAM_NAME build script"
 echo -e "\e[0m "
-echo "Setting up build environment..."
-. build/envsetup.sh > /dev/null
-echo "Setting build target $TARGET""..."
-lunch lineage_"$TARGET"-userdebug > /dev/null
-echo " "
+echo "Setting up build environment for $TARGET.."
+. build/envsetup.sh && lunch lineage_$TARGET-userdebug
 echo -e "\e[1;91mPlease make your selections carefully"
 echo -e "\e[0m "
 echo " "
