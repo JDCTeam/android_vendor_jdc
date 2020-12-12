@@ -28,8 +28,8 @@ OUT="out/target/product/jflte"
 ROM_VERSION=1
 export ANDROID_HOME=~/Android/Sdk
 
-#export CCACHE_EXEC=$(which ccache)
-#export USE_CCACHE=1 
+export CCACHE_EXEC=$(which ccache)
+export USE_CCACHE=1
 buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
