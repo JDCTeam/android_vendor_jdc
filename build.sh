@@ -22,8 +22,8 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=18.0
-VERSION_BRANCH=opt-cm-18.0
+LOS_VER=18.1
+VERSION_BRANCH=opt-cm-18.1
 OUT="out/target/product/jflte"
 ROM_VERSION=1
 export ANDROID_HOME=~/Android/Sdk
@@ -39,7 +39,7 @@ buildTest()
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip $OUT/OptLos18-V$ROM_VERSION-$z.zip 
+		mv $OUT/lineage*.zip $OUT/OptLos-$LOS_VER-V$ROM_VERSION-$z.zip 
 	else
 		echo "Build failed"
 	fi
