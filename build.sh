@@ -34,6 +34,7 @@ buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
+	export LOS_VER=18.1
 	echo "Building..."
 	make -j12 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
@@ -48,6 +49,7 @@ buildTest()
 buildRelease()
 {
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
+	export LOS_VER=18.1
 	echo "Building..."
 	make -j12 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
