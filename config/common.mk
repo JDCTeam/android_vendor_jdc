@@ -36,7 +36,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/jdc/overlay/common
 
 # Packages
 PRODUCT_PACKAGES += \
-   Launcher3 \
+   Launcher3QuickStep \
    Gallery2 \
    Markup \
    Turbo \
