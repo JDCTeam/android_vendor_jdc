@@ -233,7 +233,7 @@ if [ "$TBX" == "toolbox_ledify" ]; then
     SPD=$(eval $(cat /data/toolbox_ledify | grep -o "SPEED[^/].*"); echo $SPEED);
 else
     # Default
-    PATTERN=heartbeatblue
+    PATTERN=jdcdefault
     SPD=null # null applies default pattern-based speed values decided by us
 fi
 LOOP
