@@ -68,6 +68,11 @@ LED_R=/sys/class/leds/led_r/brightness
 # Samsung stock LED pattern
 LED_SEC=/sys/devices/virtual/sec/led/led_pattern
 
+logi ()
+{
+  /system/vendor/bin/log -t $LOG_TAG -p i "$LOG_NAME $@"
+}
+
 EXIT() {
     # Reset channels
     echo 0 | tee $LED_B $LED_G $LED_R $LED_SEC
@@ -200,7 +205,7 @@ SECDEF() {
 }
 
 RUN() {
-    echo $PATTERN
+    logi $PATTERN
     case $PATTERN in
     disabled) EXIT;;
     heartbeatblue) HBCOLOR=blue; HEARTBEAT;;
@@ -218,9 +223,9 @@ LOOP() {
     # Start a loop
     while :; do
         BOOT=$(getprop sys.boot_completed | grep "1")
-        echo $BOOT
+        logi $BOOT
 	if [ "$BOOT" == "1" ]; then
-        echo "ledify exiting..."
+        logi "ledify exiting..."
 	    PATTERN=disabled
 	fi
 	RUN
