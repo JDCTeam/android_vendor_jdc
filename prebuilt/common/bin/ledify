@@ -200,6 +200,7 @@ SECDEF() {
 }
 
 RUN() {
+    echo $PATTERN
     case $PATTERN in
     disabled) EXIT;;
     heartbeatblue) HBCOLOR=blue; HEARTBEAT;;
@@ -217,7 +218,9 @@ LOOP() {
     # Start a loop
     while :; do
         BOOT=$(getprop sys.boot_completed | grep "1")
+        echo $BOOT
 	if [ "$BOOT" == "1" ]; then
+        echo "ledify exiting..."
 	    PATTERN=disabled
 	fi
 	RUN

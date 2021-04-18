@@ -5,21 +5,9 @@ on fs
      # Trim partitions
      start emmc_trim
 
-on boot
-     # Start LEDify
-     start ledify
-
 # eMMC trim
 service emmc_trim /system/vendor/bin/emmc_trim
      user root
      group shell
      disabled
      oneshot
-
-# LEDify
-service ledify /system/vendor/bin/ledify
-     user root
-     group shell
-     disabled
-     oneshot
-
