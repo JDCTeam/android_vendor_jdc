@@ -79,7 +79,7 @@ EXIT() {
     exit 0
 }
 
-HEARTBEAT() {
+HEARTBEAT() { 
     # Set color channel
     if [ "$HBCOLOR" == "blue" ]; then
 	LED=$LED_B
@@ -140,40 +140,47 @@ HEARTBEAT() {
 
 JDCDEF() {
     if [ "$SPD" == "null" ]; then
-	SPD="sleep 0.10"
+	   SPD="sleep 0.05"
     fi
     # Red
-    $BRG 150 > $LED_R | $SPD
-    # Orange
-    $BRG 40 > $LED_G | $SPD
-    # Yellow
-    $BRG 150 > $LED_G | $SPD
-    # Green
-    $BRG 0 > $LED_R | $SPD
-    # Blue
-    $BRG 0 > $LED_G && $BRG 150 > $LED_B | $SPD
-    # Indigo
-    $BRG 10 > $LED_R | $SPD
-    # Violet
-    $BRG 150 > $LED_R | $SPD
-    ### Reverse ###
-    # Indigo
-    $BRG 10 > $LED_R | $SPD
-    # Blue
-    $BRG 0 | tee $LED_G $LED_R | $SPD
-    # Green
-    $BRG 0 > $LED_B && $BRG 150 > $LED_G | $SPD
-    # Yellow
-    $BRG 150 > $LED_R | $SPD
-    # Orange
-    $BRG 40 > $LED_G | $SPD
-    # Red
-    $BRG 0 | tee $LED_G $LED_R
+    $BRG 150 > $LED_R 
+    $SPD
+    $BRG 40 > $LED_G 
+    $SPD
+    $BRG 150 > $LED_G 
+    $SPD
+    $BRG 10 > $LED_R 
+    $SPD
+    $BRG 10 > $LED_G 
+    $SPD
+    $BRG 150 > $LED_B 
+    $SPD
+    $BRG 10 > $LED_R 
+    $SPD
+    $BRG 150 > $LED_R 
+    $SPD
+    $BRG 10 > $LED_G 
+    $SPD
+    $BRG 10 > $LED_R 
+    $SPD
+    $BRG 10 > $LED_B 
+    $SPD
+    $BRG 150 > $LED_G 
+    $SPD
+    $BRG 150 > $LED_R 
+    $SPD
+    $BRG 40 > $LED_G 
+    $SPD
+    #reset
+    $BRG 0 > $LED_G 
+    $BRG 0 > $LED_R 
+    $BRG 0 > $LED_B 
+    $BRG 0 > $LED_SEC
 }
 
 NEXUS() {
     if [ "$SPD" == "null" ]; then
-	SPD="sleep 0.20"
+	SPD="sleep 0.5"
     fi
     if [ "$REVERSE" == "true" ]; then
 	$BRG 255 > $LED_B | $SPD
