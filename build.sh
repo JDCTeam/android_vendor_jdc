@@ -36,7 +36,7 @@ buildTest()
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
 	export LOS_VER=18.1
 	echo "Building..."
-	make -j12 otapackage
+	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
@@ -51,7 +51,7 @@ buildRelease()
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
 	export LOS_VER=18.1
 	echo "Building..."
-	make -j12 otapackage
+	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
 	if [ "$?" == 0 ]; then
 		echo "Build done"
