@@ -87,7 +87,7 @@ upstreamMerge() {
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
-            git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
+            git pull https://www.github.com/"$UPSTREAM" "$BRANCH" --allow-unrelated-histories
             git push origin "$VERSION_BRANCH"
             croot
         done <<< "$CHECK"
