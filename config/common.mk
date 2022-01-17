@@ -10,14 +10,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/emmc_trim:system/vendor/bin/emmc_trim
 
-# For keyboard gesture typing
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
-
-# Snap camera permissions
-PRODUCT_COPY_FILES += \
-    vendor/jdc/config/permissions/org.lineageos.snap.xml:system/etc/permissions/org.lineageos.snap.xml
-
 # Changelog
 PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/vendor/etc/Changelog.md
@@ -40,29 +32,6 @@ PRODUCT_PACKAGES += \
    Markup \
    Turbo \
    privapp-permissions-turbo.xml
-
-# Take a logcat
-#PRODUCT_COPY_FILES += \
-#vendor/jdc/prebuilt/common/bin/take_log:system/bin/take_log
-
-#Substratum Verified
-PRODUCT_PROPERTY_OVERRIDES := \
-    ro.substratum.verified=true
-
-# LatinIME gesture typing
-ifeq ($(TARGET_ARCH),arm64)
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/jdc/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
-else
-PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
-    vendor/jdc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
-endif
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
 
 # Storage manager
 PRODUCT_PROPERTY_OVERRIDES += \
