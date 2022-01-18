@@ -22,10 +22,10 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=18.1
-VERSION_BRANCH=opt-cm-18.1
+LOS_VER=19.0
+VERSION_BRANCH=opt-cm-19.0
 OUT="out/target/product/jflte"
-ROM_VERSION=7.0
+ROM_VERSION=1.0
 export ANDROID_HOME=~/Android/Sdk
 
 export CCACHE_EXEC=$(which ccache)
@@ -34,7 +34,7 @@ buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
-	export LOS_VER=18.1
+	export LOS_VER=19.0
 	echo "Building..."
 	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
@@ -49,7 +49,7 @@ buildTest()
 buildRelease()
 {
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
-	export LOS_VER=18.1
+	export LOS_VER=19.0
 	echo "Building..."
 	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
@@ -87,7 +87,7 @@ upstreamMerge() {
             UPSTREAM=$(sed -n '1p' UPSTREAM)
             BRANCH=$(sed -n '2p' UPSTREAM)
 
-            git pull https://www.github.com/"$UPSTREAM" "$BRANCH" --allow-unrelated-histories
+            git pull https://www.github.com/"$UPSTREAM" "$BRANCH"
             git push origin "$VERSION_BRANCH"
             croot
         done <<< "$CHECK"
@@ -129,8 +129,8 @@ createRemotes ()
 
 	#Fix up manifest
 	cd .repo/manifests
-	git branch -D opt-cm-16.0
-	git checkout -b opt-cm-16.0
+	git branch -D opt-cm-19.0
+	git checkout -b opt-cm-19.0
 	git remote remove origin
 	git remote add origin git@github.com:jdcteam/manifests.git
 	croot
