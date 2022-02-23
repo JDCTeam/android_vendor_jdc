@@ -25,7 +25,7 @@ TARGET=jflte
 LOS_VER=18.1
 VERSION_BRANCH=opt-cm-18.1
 OUT="out/target/product/jflte"
-ROM_VERSION=7.0
+ROM_VERSION=8.0
 export ANDROID_HOME=~/Android/Sdk
 
 export CCACHE_EXEC=$(which ccache)
