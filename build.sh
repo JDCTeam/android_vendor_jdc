@@ -22,19 +22,17 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=19.0
-VERSION_BRANCH=opt-cm-19.0
+LOS_VER=19.1
+VERSION_BRANCH=opt-cm-19.1
 OUT="out/target/product/jflte"
 ROM_VERSION=1.0
 export ANDROID_HOME=~/Android/Sdk
 
-export CCACHE_EXEC=$(which ccache)
-export USE_CCACHE=1
 buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - BETA"
-	export LOS_VER=19.0
+	export LOS_VER=19.1
 	echo "Building..."
 	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
@@ -49,7 +47,7 @@ buildTest()
 buildRelease()
 {
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
-	export LOS_VER=19.0
+	export LOS_VER=19.1
 	echo "Building..."
 	make -j4 otapackage
 	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
