@@ -27,7 +27,9 @@ VERSION_BRANCH=opt-cm-19.1
 OUT="out/target/product/jflte"
 ROM_VERSION=1.0
 export ANDROID_HOME=~/Android/Sdk
-
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+export CCACHE_DIR=/mnt/ccache
 buildTest()
 {
 	export z=`date "+%H%M%S-%d%m%y"`
