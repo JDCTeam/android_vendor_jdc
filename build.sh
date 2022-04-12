@@ -29,7 +29,7 @@ ROM_VERSION=1.0
 export ANDROID_HOME=~/Android/Sdk
 # you may also need:
 #sudo mkdir /mnt/ccache
-#sudo mount --bind /home/<your_current_path>/ccache /mnt/ccache
+#sudo mount --bind /home/$username/.ccache /mnt/ccache
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 export CCACHE_DIR=/mnt/ccache
