@@ -44,6 +44,11 @@ buildTest()
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		mv $OUT/lineage*.zip $OUT/OptLos-$LOS_VER-V$ROM_VERSION-$z.zip 
+		adb shell twrp wipe cache
+		adb shell twrp wipe dalvik
+		adb shell twrp wipe data
+		adb shell twrp wipe system
+		adb push Opti* /sdcard
 	else
 		echo "Build failed"
 	fi
@@ -59,6 +64,11 @@ buildRelease()
 	if [ "$?" == 0 ]; then
 		echo "Build done"
 		mv $OUT/lineage*.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION.zip 
+		adb shell twrp wipe cache
+		adb shell twrp wipe dalvik
+		adb shell twrp wipe data
+		adb shell twrp wipe system
+		adb push Opti* /sdcard
 	else
 		echo "Build failed"
 	fi
