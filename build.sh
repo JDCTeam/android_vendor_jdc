@@ -25,7 +25,7 @@ TARGET=jflte
 LOS_VER=19.1
 VERSION_BRANCH=opt-cm-19.1
 OUT="out/target/product/jflte"
-ROM_VERSION=4.0
+ROM_VERSION=5.0
 export ANDROID_HOME=~/Android/Sdk
 # you may also need:
 #sudo mkdir /mnt/ccache
