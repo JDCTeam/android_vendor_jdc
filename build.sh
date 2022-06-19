@@ -59,16 +59,23 @@ buildRelease()
 	export OPTIMIZED_LINEAGEOS_VERSION="$ROM_VERSION - Release"
 	export LOS_VER=19.1
 	echo "Building..."
-	make -j16 otapackage
-	#time schedtool -B -n 1 -e ionice -n 1 make otapackage -j10 "$@"
+	breakfast lineage_jflte-userdebug
+	mka target-files-package otatools
+	croot
+	./build/tools/releasetools/sign_target_files_apks -o -d ~/.android-certs \
+    	$OUT/obj/PACKAGING/target_files_intermediates/*-target_files-*.zip \
+    	signed-target_files.zip
+
+	./build/tools/releasetools/ota_from_target_files -k ~/.android-certs/releasekey \
+    	--block --backup=true \
+    	signed-target_files.zip \
+    	signed-ota_update.zip
+    	
 	if [ "$?" == 0 ]; then
 		echo "Build done"
-		mv $OUT/lineage*.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION.zip 
-		adb shell twrp wipe cache
-		adb shell twrp wipe dalvik
-		adb shell twrp wipe data
-		adb shell twrp wipe system
-		adb push Opti* /sdcard
+		croot
+		mv signed-ota_update.zip Optimized-LineageOS-$LOS_VER-V$ROM_VERSION-Signed.zip 
+		rm -rf signed*.zip
 	else
 		echo "Build failed"
 	fi
