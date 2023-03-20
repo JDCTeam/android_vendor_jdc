@@ -22,10 +22,10 @@
 
 TEAM_NAME="JDCTeam"
 TARGET=jflte
-LOS_VER=19.1
-VERSION_BRANCH=opt-cm-19.1
+LOS_VER=20.0
+VERSION_BRANCH=opt-cm-20.0
 OUT="out/target/product/jflte"
-ROM_VERSION=7.0
+ROM_VERSION=13.0
 export ANDROID_HOME=~/Android/Sdk
 # you may also need:
 #sudo mkdir /mnt/ccache
