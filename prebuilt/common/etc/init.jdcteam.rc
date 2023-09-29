@@ -1,4 +1,4 @@
-# Copyright (c) 2020, JDCTeam
+# Copyright (c) 2023, JDCTeam
 #
 
 on fs
@@ -7,6 +7,16 @@ on fs
 
 # eMMC trim
 service emmc_trim /system/vendor/bin/emmc_trim
+     user root
+     group shell
+     disabled
+     oneshot
+
+on post-fs-data
+     # Mount ZRAM swap
+     start zram_swap
+
+service zram_swap /system/vendor/bin/zram_swap
      user root
      group shell
      disabled
