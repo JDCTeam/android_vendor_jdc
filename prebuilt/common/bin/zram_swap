@@ -7,8 +7,10 @@
 # Configure and mount ZRAM swap
 #
 
+/system/vendor/bin/log -t $LOG_TAG -p i "$LOG_NAME Trying to mount ZRAM swap..."
+
 if [ ! -d /sys/block/zram0 ]; then
-  # Kernel without ZRAM detected
+  /system/vendor/bin/log -t $LOG_TAG -p e "$LOG_NAME Kernel without ZRAM detected"
   exit 0;
 fi
 
@@ -16,16 +18,18 @@ ZRAM_SIZE=1816807680
 ZRAM_SWAPPINESS=85
 
 echo $ZRAM_SIZE > /sys/block/zram0/disksize
-echo  1 /sys/block/zram0/reset
-/system/bin/mkswap /dev/block/zram0
-/system/bin/swapon /dev/block/zram0
-echo $ZRAM_SWAPPINESS /proc/sys/vm/swappiness
-echo 0 /proc/sys/vm/page-cluster
+echo  1 > /sys/block/zram0/reset
+/system/vendor/bin/mkswap /dev/block/zram0
+/system/vendor/bin/swapon /dev/block/zram0
+echo $ZRAM_SWAPPINESS > /proc/sys/vm/swappiness
+echo 0 > /proc/sys/vm/page-cluster
 
 # ext4 performance tweaks for battery-backed systems
 # Credits: VR-25 from https://github.com/VR-25/zram-swap-manager
 [ -d /data/adb ] && mount | grep ' ext4 .*rw' | awk '{print $3}' | xargs -n 1 mount -o remount,noatime,barrier=0,commit=60
 
 sync
+
+/system/vendor/bin/log -t $LOG_TAG -p i "$LOG_NAME ZRAM Swap is ready"
 
 exit 0
