@@ -10,6 +10,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/emmc_trim:system/vendor/bin/emmc_trim
 
+# ZRAM swap
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/bin/zram_swap:system/vendor/bin/zram_swap
+
 # Changelog
 PRODUCT_COPY_FILES += \
     vendor/jdc/Changelog.md:system/vendor/etc/Changelog.md
