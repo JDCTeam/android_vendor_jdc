@@ -12,8 +12,10 @@ PRODUCT_COPY_FILES += \
 
 # ZRAM swap support
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/zram_swap.sh:vendor/bin/zram_swap.sh \
-    vendor/jdc/prebuilt/common/etc/zram.swap.rc:vendor/etc/init/zram.swap.rc
+    vendor/jdc/prebuilt/common/bin/zram_swap.sh:system/vendor/bin/zram_swap.sh
+
+PRODUCT_COPY_FILES += \
+    vendor/jdc/prebuilt/common/etc/zram.swap.rc:system/vendor/etc/init/zram.swap.rc
 
 # Changelog
 PRODUCT_COPY_FILES += \
