@@ -1,0 +1,11 @@
+# Copyright (c) 2023, JDCTeam
+#
+on post-fs-data
+     # Mount ZRAM swap
+     start zram.swap
+
+service zram.swap /vendor/bin/zram_swap.sh
+    user root
+    group root system shell
+    disabled
+    oneshot

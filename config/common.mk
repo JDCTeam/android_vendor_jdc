@@ -10,9 +10,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/jdc/prebuilt/common/bin/emmc_trim:system/vendor/bin/emmc_trim
 
-# ZRAM swap
+# ZRAM swap support
 PRODUCT_COPY_FILES += \
-    vendor/jdc/prebuilt/common/bin/zram_swap:system/vendor/bin/zram_swap
+    vendor/jdc/prebuilt/common/bin/zram_swap.sh:vendor/bin/zram_swap.sh \
+    vendor/jdc/prebuilt/common/etc/zram.swap.rc:vendor/etc/init/zram.swap.rc
 
 # Changelog
 PRODUCT_COPY_FILES += \

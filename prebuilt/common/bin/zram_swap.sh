@@ -1,4 +1,4 @@
-#!/system/vendor/bin/sh
+#!/vendor/bin/sh
 #      _____  __________      
 #  __ / / _ \/ ___/_  _/__ ___ ___ _
 # / // / // / /__  / // -_) _ `/  ' \ 
@@ -7,20 +7,21 @@
 # Configure and mount ZRAM swap
 #
 
-/system/vendor/bin/log -t $LOG_TAG -p i "$LOG_NAME Trying to mount ZRAM swap..."
-
-if [ ! -d /sys/block/zram0 ]; then
-  /system/vendor/bin/log -t $LOG_TAG -p e "$LOG_NAME Kernel without ZRAM detected"
-  exit 0;
-fi
-
+LOG_TAG=zram
 ZRAM_SIZE=1816807680
 ZRAM_SWAPPINESS=85
 
+/vendor/bin/log -t $LOG_TAG -p i "Trying to mount ZRAM swap..."
+
+if [ ! -d /sys/block/zram0 ]; then
+  /vendor/bin/log -t $LOG_TAG -p e "Kernel without ZRAM detected"
+  exit 0;
+fi
+
 echo $ZRAM_SIZE > /sys/block/zram0/disksize
 echo  1 > /sys/block/zram0/reset
-/system/vendor/bin/mkswap /dev/block/zram0
-/system/vendor/bin/swapon /dev/block/zram0
+/vendor/bin/mkswap /dev/block/zram0
+/vendor/bin/swapon /dev/block/zram0
 echo $ZRAM_SWAPPINESS > /proc/sys/vm/swappiness
 echo 0 > /proc/sys/vm/page-cluster
 
@@ -30,6 +31,6 @@ echo 0 > /proc/sys/vm/page-cluster
 
 sync
 
-/system/vendor/bin/log -t $LOG_TAG -p i "$LOG_NAME ZRAM Swap is ready"
+/vendor/bin/log -t $LOG_TAG -p i "ZRAM Swap is ready"
 
 exit 0
