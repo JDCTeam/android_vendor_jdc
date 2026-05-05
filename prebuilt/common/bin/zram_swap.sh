@@ -9,7 +9,7 @@
 
 LOG_TAG=zram
 ZRAM_SIZE=1816807680
-ZRAM_SWAPPINESS=85
+ZRAM_SWAPPINESS=100
 
 /vendor/bin/log -t $LOG_TAG -p i "Trying to mount ZRAM swap..."
 
